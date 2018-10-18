@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Administrative</title>
+    </h:head>
+    <style>
+       #container ul 
+       {  list-style: none;  }
+       #container ul li
+       {  background-color: red;
+          width: 150px;
+          border: 1px solid white;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          float: left;
+          color: white;
+          font-size: 18px;
+          position: relative;
+       }
+       #container ul li:hover
+       { background-color: blue;  }
+       #container ul ul
+       { display: none;      }
+       #container ul li:hover > ul
+       { display: block;     }
+       #container ul ul 
+       { margin-left: 150px;
+         top:0px;
+         position: absolute;
+       }
+       
+    </style>
+    <h:body>
+        <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
+        <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
+        <div id="container">
+           <ul>
+            <li>Manage tables</li>    
+            <li>Remove Medical File</li>
+            <li>Show Consultation</li>
+            <li>Show Hospitalization</li>
+           </ul> 
+        </div>    
+        
+        
+        <table style="color: red; font-size: large">
+           <tr class="blank_row">
+                   <td  colspan="2">&nbsp;</td>
+           </tr> 
+           <tr class="blank_row">
+                   <td  colspan="2">&nbsp;</td>
+            </tr>
+           <tr>
+               <td></td>
+                <td><a href="login.xhtml">Gestion des tables</a></td>
+                <td></td>
+            </tr>
+            <tr class="blank_row">
+                   <td  colspan="2">&nbsp;</td>
+            </tr>
+           <tr>
+               <td></td>
+                <td><a href="login.xhtml">Remove Medical File</a></td>
+                <td></td>
+            </tr>
+        </table>
+    </h:body>
+</html>
+

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>The Miriyam Center</title>
+    </h:head>
+    <h:body>
+        <form action="reg1.jsp" method="post" onsubmit="return checkForm(this);">
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="firstName"/></td>    
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" name="lastName"/></td>    
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td><input type="text" name="gender"/></td>    
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td><input type="text" name="gender"/></td>    
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="mobile"/></td>    
+                </tr>
+                <tr>
+                    <td>Profession Id</td>
+                    <td><input type="text" name="idProfession"/></td>    
+                </tr>
+                <tr>
+                    <td>Street Id</td>
+                    <td><input type="text" name="steetId"/></td>    
+                </tr>
+                <tr>
+                    <td>User Name</td>
+                    <td><input title="Username must not be blank and contain only letters, numbers and underscores." type="text" pattern="\w+" name="userName"/></td>    
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"/></td>    
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
+               </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="reset" value="Clear" name="clear" onclick="Clear"/></td>
+               </tr>
+               <tr>
+                    <td colspan="2" style="text-align: center;"><input type="hidden" name="hidden" value="<%= result %>" /></td>
+               </tr> 
+            </table>
+            
+        </form>       
+    </h:body>
+</html>
+
