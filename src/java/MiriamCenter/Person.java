@@ -43,6 +43,14 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Person.findByPassword", query = "SELECT p FROM Person p WHERE p.password = :password")})
 public class Person implements Serializable {
 
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 30)
+    @Column(name = "e_mail")
+    private String eMail;
+    @Size(max = 15)
+    @Column(name = "username")
+    private String username;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private Collection<Dependents> dependentsCollection;
     @OneToMany(mappedBy = "idPerson")
@@ -263,6 +271,22 @@ public class Person implements Serializable {
 
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
+    }
+
+    public String getEMail() {
+        return eMail;
+    }
+
+    public void setEMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
     
 }

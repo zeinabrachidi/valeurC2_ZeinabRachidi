@@ -43,6 +43,10 @@
                     <h:outputText value="#{personController.selected.technician}" title="#{bundle.ViewPersonTitle_technician}"/>
                     <h:outputText value="#{bundle.ViewPersonLabel_doctor}"/>
                     <h:outputText value="#{personController.selected.doctor}" title="#{bundle.ViewPersonTitle_doctor}"/>
+                    <h:outputText value="#{bundle.ViewPersonLabel_EMail}"/>
+                    <h:outputText value="#{personController.selected.EMail}" title="#{bundle.ViewPersonTitle_EMail}"/>
+                    <h:outputText value="#{bundle.ViewPersonLabel_username}"/>
+                    <h:outputText value="#{personController.selected.username}" title="#{bundle.ViewPersonTitle_username}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{personController.destroyAndView}" value="#{bundle.ViewPersonDestroyLink}"/>

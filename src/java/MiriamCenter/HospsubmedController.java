@@ -81,8 +81,8 @@ public class HospsubmedController implements Serializable {
 
     public String create() {
         try {
-            current.getHospsubmedPK().setIdMedicalAct(current.getHospitalization().getIdMedicalAct());
             current.getHospsubmedPK().setIdSubMedicine(current.getSubmedicine().getIdSubmedicine());
+            current.getHospsubmedPK().setIdMedicalAct(current.getHospitalization().getIdMedicalAct());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HospsubmedCreated"));
             return prepareCreate();
@@ -100,8 +100,8 @@ public class HospsubmedController implements Serializable {
 
     public String update() {
         try {
-            current.getHospsubmedPK().setIdMedicalAct(current.getHospitalization().getIdMedicalAct());
             current.getHospsubmedPK().setIdSubMedicine(current.getSubmedicine().getIdSubmedicine());
+            current.getHospsubmedPK().setIdMedicalAct(current.getHospitalization().getIdMedicalAct());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("HospsubmedUpdated"));
             return "View";

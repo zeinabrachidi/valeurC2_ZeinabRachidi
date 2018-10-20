@@ -81,8 +81,8 @@ public class ConssubmedController implements Serializable {
 
     public String create() {
         try {
-            current.getConssubmedPK().setIdMedicalact(current.getConsultation().getIdMedicalActCons());
             current.getConssubmedPK().setIdSubMedicine(current.getSubmedicine().getIdSubmedicine());
+            current.getConssubmedPK().setIdMedicalact(current.getConsultation().getIdMedicalActCons());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ConssubmedCreated"));
             return prepareCreate();
@@ -100,8 +100,8 @@ public class ConssubmedController implements Serializable {
 
     public String update() {
         try {
-            current.getConssubmedPK().setIdMedicalact(current.getConsultation().getIdMedicalActCons());
             current.getConssubmedPK().setIdSubMedicine(current.getSubmedicine().getIdSubmedicine());
+            current.getConssubmedPK().setIdMedicalact(current.getConsultation().getIdMedicalActCons());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ConssubmedUpdated"));
             return "View";

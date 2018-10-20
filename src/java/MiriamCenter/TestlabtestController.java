@@ -81,8 +81,8 @@ public class TestlabtestController implements Serializable {
 
     public String create() {
         try {
-            current.getTestlabtestPK().setIdTest(current.getTest().getIdTest());
             current.getTestlabtestPK().setIdTestLab(current.getTestlab().getIdTestLab());
+            current.getTestlabtestPK().setIdTest(current.getTest().getIdTest());
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TestlabtestCreated"));
             return prepareCreate();
@@ -100,8 +100,8 @@ public class TestlabtestController implements Serializable {
 
     public String update() {
         try {
-            current.getTestlabtestPK().setIdTest(current.getTest().getIdTest());
             current.getTestlabtestPK().setIdTestLab(current.getTestlab().getIdTestLab());
+            current.getTestlabtestPK().setIdTest(current.getTest().getIdTest());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("TestlabtestUpdated"));
             return "View";

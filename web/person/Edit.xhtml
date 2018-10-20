@@ -55,6 +55,10 @@
                     <h:selectOneMenu id="doctor" value="#{personController.selected.doctor}" title="#{bundle.EditPersonTitle_doctor}" >
                         <f:selectItems value="#{doctorController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPersonLabel_EMail}" for="EMail" />
+                    <h:inputText id="EMail" value="#{personController.selected.EMail}" title="#{bundle.EditPersonTitle_EMail}" />
+                    <h:outputLabel value="#{bundle.EditPersonLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{personController.selected.username}" title="#{bundle.EditPersonTitle_username}" />
                 </h:panelGrid>
                 <h:commandLink action="#{personController.update}" value="#{bundle.EditPersonSaveLink}"/>
                 <br />
