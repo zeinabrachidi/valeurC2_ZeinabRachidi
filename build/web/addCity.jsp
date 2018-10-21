@@ -27,7 +27,6 @@
                          ResultSet rs; 
                          String cityName = request.getParameter("cityName");
                          int i=st.executeUpdate("INSERT INTO `valeurc2`.`city` (`cityName`) VALUES ( '"+cityName+"'); ");
-                         out.println("Registered"); 
                        %>
                 </tr>
                 <tr>
