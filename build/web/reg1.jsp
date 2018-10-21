@@ -57,7 +57,7 @@
                                   while (rs.next())
                                   { %>
                                       <option value="<%=rs.getInt("idProfession") %>" 
-                                                   ><%=rs.getString("Profession_Name")%>
+                                                   ><%=rs.getString("ProfessionName")%>
                                       </opion>  
                                     <%
                                   }      
@@ -69,7 +69,8 @@
                                   }
                             %>
                         </select>
-                    </td>     
+                    </td>  
+                    <td><a href="addProfession.jsp">Add Profession</a></td>
                 </tr>
                 <tr>
                     <td>Id Street</td>
@@ -77,9 +78,7 @@
                                     <option value="0">Select Street</option>
                                     <%
                                     try
-                                    {  String query = "SELECT valeurc2.region.idRegion, concat(valeurc2.city.cityName, '  ', valeurc2.region.regionName, '  ', valeurc2.street.streetName) as Street_Name"
-                                                       + " FROM valeurc2.city, valeurc2.region, valeurc2.street"
-                                                       + " where valeurc2.city.idcity = valeurc2.region.idcity and valeurc2.region.idRegion=valeurc2.street.idRegion;";
+                                    {  String query = "SELECT valeurc2.street.idStreet, concat(valeurc2.city.cityName, '  ', valeurc2.region.regionName, '  ', valeurc2.street.streetName) as Street_Name FROM valeurc2.city, valeurc2.region, valeurc2.street where valeurc2.city.idcity = valeurc2.region.idcity and valeurc2.region.idRegion=valeurc2.street.idRegion;";
                                     
                                        Statement st= con.createStatement(); 
                                        ResultSet rs = st.executeQuery(query); 
@@ -91,6 +90,7 @@
                                          <%
                                        }      
                                        choosenStreet = Integer.parseInt(request.getParameter("chooseStreet"));
+                                       
                                     } 
                                     catch (Exception ex) 
                                     { ex.printStackTrace();
@@ -98,11 +98,12 @@
                                     }
                                    %>
                                 </select>
-                            </td>    
+                            </td>  
+                            <td><a href="addStreet.jsp">Add Street</a></td>
                 </tr> 
                 <tr>
                     <td>User Name</td>
-                    <td><input title="Username must not be blank and contain only letters, numbers and underscores." type="text" pattern="\w+" name="userName"/></td>    
+                    <td><input title="Username must not be blank and contain only letters, numbers and underscores." type="text" pattern="\w+" name="username"/></td>    
                 </tr>
                 <tr>
                     <td>Password</td>
