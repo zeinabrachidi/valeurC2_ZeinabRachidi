@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addRegion
-    Created on : Oct 20, 2018, 7:43:55 PM
+    Document   : addStreet
+    Created on : Oct 21, 2018, 11:26:16 AM
     Author     : zeina
 --%>
 
@@ -14,40 +14,40 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Add Region</h1>
+        <h1>Add Street</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="" method="post" onsubmit="return checkForm(this);">
+        <form action="" method="post" >
             <table border="2" align="center">
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
                 %>  
                 <tr>
-                    <td>Region Name</td>
-                    <td><input type="text" name="regionName"/></td>    
+                    <td>Street Name</td>
+                    <td><input type="text" name="streetName"/></td>    
                 </tr>
                 <tr>
-                    <td>Id City</td>
+                    <td>Id Region</td>
                             <td><select id="choose" name="choose">                           
-                                    <option value="0">Select City</option>
+                                    <option value="0">Select Region</option>
                                     <%
                                     try
-                                    {  String query = "SELECT * FROM valeurc2.city;";
+                                    {  String query = "SELECT valeurc2.region.idRegion, concat(valeurc2.city.cityName, ' ', valeurc2.region.regionName) as Region_Name FROM valeurc2.city, valeurc2.region where valeurc2.city.idcity = valeurc2.region.idcity;";
                                        Statement st= con.createStatement(); 
                                        ResultSet rs = st.executeQuery(query); 
                                        while (rs.next())
                                        { %>
-                                           <option value="<%=rs.getInt("idcity") %>" 
-                                                          ><%=rs.getString("cityName")%>
+                                           <option value="<%=rs.getInt("idRegion") %>" 
+                                                          ><%=rs.getString("Region_Name")%>
                                            </opion>  
                                          <%
                                        }      
-                                       String regionName = request.getParameter("regionName");
+                                       String StreetName = request.getParameter("streetName");
                                        int choosen =0;
                                        if (request.getParameter("choose") != null)
                                            choosen = Integer.parseInt(request.getParameter("choose"));
-                                       int i=st.executeUpdate("INSERT INTO `valeurc2`.`region` (`regionName`, `idcity`) VALUES ( '"+regionName+"', '"+choosen+"'); ");
+                                       int i=st.executeUpdate("INSERT INTO `valeurc2`.`street` (`StreetName`, `idRegion`) VALUES ( '"+StreetName+"', '"+choosen+"'); ");
                                        out.println("Registered"); 
                                     } 
                                     catch (Exception ex) 
@@ -66,12 +66,6 @@
                </tr>
             </table>
         </form>     
-        
-        
-
-
-
-
 <a href="index.xhtml">Home</a>
-</body>
+    </body>
 </html>

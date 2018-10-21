@@ -17,12 +17,14 @@
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table>
+                <%
+                         Class.forName("com.mysql.jdbc.Driver"); 
+                         java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
+                %>         
                 <tr>
                     <td>City Name</td>
                     <td><input type="text" name="cityName"/></td> 
                        <%
-                         Class.forName("com.mysql.jdbc.Driver"); 
-                         java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
                          Statement st= con.createStatement(); 
                          ResultSet rs; 
                          String cityName = request.getParameter("cityName");

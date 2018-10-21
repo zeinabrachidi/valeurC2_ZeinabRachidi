@@ -19,6 +19,10 @@
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table border="2" align="center">
+                <%
+                         Class.forName("com.mysql.jdbc.Driver"); 
+                         java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
+                %>  
                 <tr>
                     <td>Region Name</td>
                     <td><input type="text" name="regionName"/></td>    
@@ -30,8 +34,6 @@
                                     <%
                                     try
                                     {  String query = "SELECT * FROM valeurc2.city;";
-                                       Class.forName("com.mysql.jdbc.Driver"); 
-                                       java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
                                        Statement st= con.createStatement(); 
                                        ResultSet rs = st.executeQuery(query); 
                                        while (rs.next())
