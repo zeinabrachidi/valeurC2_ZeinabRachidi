@@ -27,8 +27,8 @@
             {  background-color: aqua ;
                width: 180px;
                border: 1px solid white;
-               height: 50px;
-               line-height: 50px;
+               height: 28px;
+               line-height: 28px;
                text-align: left;
                float: left;
                color: red;
@@ -54,8 +54,8 @@
         </style>
     </h:head>
     <h:body>
-        <h1 style="color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br><br></br>
-        <h1 style="color: red; font-size: large;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1><br></br><br></br><br></br>
+        <h1 style="color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br>
+        <h1 style="color: red; font-size: large;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1><br></br><br></br>
         <div id="container">
             <ul>
                 <li><a href="contactUs.xhtml">Contact Us</a></li>
@@ -63,22 +63,26 @@
                 <li><a href="Login.xhtml">Login</a></li>
                 <li>Administrative
                     <ul>
-                        <li>Remove Medical File</li>
-                        <li>Show Consultation</li>
-                        <li>Show Hospitalization</li>
                         <li>Manage tables
                             <ul>
                                 <li> permanent tables
                                     <ul>
                                         <li>Manage Cities
                                             <ul>
-                                                <li><a href="addCity.xhtml">add city</a> </li> 
+                                                <li><a href="addCity.jsp">add city</a> </li> 
                                                 <li>modify city</li> 
                                                 <li>delete city</li> 
                                                 <li>show cities</li> 
                                             </ul>
                                         </li>
-                                        <li>Manage Regions</li>
+                                        <li>Manage Regions
+                                            <ul>
+                                                <li><a href="addRegion.jsp">Add Region</a> </li> 
+                                                <li>modify Region</li> 
+                                                <li>delete Region</li> 
+                                                <li>show Regions</li> 
+                                            </ul>
+                                        </li>
                                         <li>Manage Streets </li>
                                         <li>Manage Profession </li>
                                         <li>Manage Civil Status</li>
@@ -105,7 +109,11 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>    
+                        </li>   
+                        <li>Remove Medical File</li>
+                        <li>Show Consultation</li>
+                        <li>Show Hospitalization</li>
+                         
                     </ul>
                 </li>
                 <li>patient
@@ -129,7 +137,6 @@
                         <li>Appointments</li>  
                     </ul>
                 </li>
-
                 <li>Auxiliary
                     <ul>
                         <li>appointments</li> 

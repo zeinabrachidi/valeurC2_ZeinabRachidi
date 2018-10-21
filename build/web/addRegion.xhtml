@@ -8,11 +8,18 @@
     <h:body>
         <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="addCity.jsp" method="post" onsubmit="return checkForm(this);">
-            <table>
+        <form action="addRegion.jsp" method="post" onsubmit="return checkForm(this);">
+            <table border="2" align="center">
                 <tr>
-                    <td>City Name</td>
-                    <td><input type="text" name="cityName"/></td>    
+                    <td>Region Name</td>
+                    <td><input type="text" name="regionName"/></td>    
+                </tr>
+                <tr>
+                    <td>Id City</td>
+                            <td><select name="City" id="City" onchange="this.form.submit();">
+                                    <option value="0">Select City</option>
+                                </select>
+                            </td>    
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>

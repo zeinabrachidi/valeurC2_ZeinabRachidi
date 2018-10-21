@@ -5,28 +5,44 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Add City</h1>
-
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
+<!DOCTYPE html>
+<html>
+    <h:head>
+        <title>The Miriyam Center</title>
+    </h:head>
+    <h:body>
+        <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
+        <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
+        <form action="" method="post" onsubmit="return checkForm(this);">
+            <table>
+                <tr>
+                    <td>City Name</td>
+                    <td><input type="text" name="cityName"/></td> 
+                       <%
+                         Class.forName("com.mysql.jdbc.Driver"); 
+                         java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
+                         Statement st= con.createStatement(); 
+                         ResultSet rs; 
+                         String cityName = request.getParameter("cityName");
+                         int i=st.executeUpdate("INSERT INTO `valeurc2`.`city` (`cityName`) VALUES ( '"+cityName+"'); ");
+                         out.println("Registered"); 
+                       %>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
+               </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="reset" value="Clear" name="clear" onclick="Clear"/></td>
+               </tr>
+            </table>
+        </form>       
+    </h:body>
 
-<%
-   Class.forName("com.mysql.jdbc.Driver"); 
-   java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
-   Statement st= con.createStatement(); 
-   ResultSet rs; 
-   
-    String cityName = request.getParameter("cityName");
-   int i=st.executeUpdate("INSERT INTO `valeurc2`.`city` (`cityName`) VALUES ( '"+cityName+"'); ");
-   out.println("Registered"); 
-    %>
+
+
+
 <a href="index.xhtml">Home</a>
 </body>
 </html>
