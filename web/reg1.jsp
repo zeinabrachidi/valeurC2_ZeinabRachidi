@@ -15,8 +15,10 @@
     </head>
     <body>
         <h1>Register</h1>
+        <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
+        <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="reg1.jsp" method="post" onsubmit="return checkForm(this);">
-            <table>
+            <table border="1" align="center">
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
@@ -57,7 +59,7 @@
                                   while (rs.next())
                                   { %>
                                       <option value="<%=rs.getInt("idProfession") %>" 
-                                                   ><%=rs.getString("Profession_Name")%>
+                                                   ><%=rs.getString("ProfessionName")%>
                                       </opion>  
                                     <%
                                   }      
@@ -69,7 +71,8 @@
                                   }
                             %>
                         </select>
-                    </td>     
+                    </td>  
+                    <td><a href="addProfession.jsp">Add Profession</a></td>
                 </tr>
                 <tr>
                     <td>Id Street</td>
@@ -77,9 +80,7 @@
                                     <option value="0">Select Street</option>
                                     <%
                                     try
-                                    {  String query = "SELECT valeurc2.region.idRegion, concat(valeurc2.city.cityName, '  ', valeurc2.region.regionName, '  ', valeurc2.street.streetName) as Street_Name"
-                                                       + " FROM valeurc2.city, valeurc2.region, valeurc2.street"
-                                                       + " where valeurc2.city.idcity = valeurc2.region.idcity and valeurc2.region.idRegion=valeurc2.street.idRegion;";
+                                    {  String query = "SELECT valeurc2.street.idStreet, concat(valeurc2.city.cityName, '  ', valeurc2.region.regionName, '  ', valeurc2.street.streetName) as Street_Name FROM valeurc2.city, valeurc2.region, valeurc2.street where valeurc2.city.idcity = valeurc2.region.idcity and valeurc2.region.idRegion=valeurc2.street.idRegion;";
                                     
                                        Statement st= con.createStatement(); 
                                        ResultSet rs = st.executeQuery(query); 
@@ -98,11 +99,12 @@
                                     }
                                    %>
                                 </select>
-                            </td>    
+                            </td>  
+                            <td><a href="addStreet.jsp">Add Street</a></td>
                 </tr> 
                 <tr>
                     <td>User Name</td>
-                    <td><input title="Username must not be blank and contain only letters, numbers and underscores." type="text" pattern="\w+" name="userName"/></td>    
+                    <td><input title="Username must not be blank and contain only letters, numbers and underscores." type="text" pattern="\w+" name="username"/></td>    
                 </tr>
                 <tr>
                     <td>Password</td>
@@ -120,8 +122,10 @@
                     String e_mail = request.getParameter("e_mail");
                     String username = request.getParameter("username");
                     String password = request.getParameter("password");
-                    int i=stp.executeUpdate("INSERT INTO `valeurc2`.`person` (`firstName`, `lastName`, `gender`, `mobile`, `e_mail`, `idProfession`, `idStreet`, `username`, `password`) VALUES ( '"+ firstName +"', '"+ lastName +"', '"+ gender +"', '"+ mobile +"', '"+ e_mail +"', '"+ choosenProfession +"', '"+ choosenStreet +"', '"+ username +"', '"+ password +"'); ");
-                    out.println("Registered"); 
+                    if (firstName != null && lastName != null &&  gender!=null && mobile != null && e_mail != null && username != null && password != null)
+                    {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`person` (`firstName`, `lastName`, `gender`, `mobile`, `e_mail`, `idProfession`, `idStreet`, `username`, `password`) VALUES ( '"+ firstName +"', '"+ lastName +"', '"+ gender +"', '"+ mobile +"', '"+ e_mail +"', '"+ choosenProfession +"', '"+ choosenStreet +"', '"+ username +"', '"+ password +"'); ");
+                       out.println("Registered"); 
+                    }
                 %>   
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>

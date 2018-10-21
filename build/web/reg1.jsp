@@ -15,8 +15,10 @@
     </head>
     <body>
         <h1>Register</h1>
+        <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
+        <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="reg1.jsp" method="post" onsubmit="return checkForm(this);">
-            <table>
+            <table border="1" align="center">
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
@@ -90,7 +92,6 @@
                                          <%
                                        }      
                                        choosenStreet = Integer.parseInt(request.getParameter("chooseStreet"));
-                                       
                                     } 
                                     catch (Exception ex) 
                                     { ex.printStackTrace();
@@ -121,8 +122,10 @@
                     String e_mail = request.getParameter("e_mail");
                     String username = request.getParameter("username");
                     String password = request.getParameter("password");
-                    int i=stp.executeUpdate("INSERT INTO `valeurc2`.`person` (`firstName`, `lastName`, `gender`, `mobile`, `e_mail`, `idProfession`, `idStreet`, `username`, `password`) VALUES ( '"+ firstName +"', '"+ lastName +"', '"+ gender +"', '"+ mobile +"', '"+ e_mail +"', '"+ choosenProfession +"', '"+ choosenStreet +"', '"+ username +"', '"+ password +"'); ");
-                    out.println("Registered"); 
+                    if (firstName != null && lastName != null &&  gender!=null && mobile != null && e_mail != null && username != null && password != null)
+                    {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`person` (`firstName`, `lastName`, `gender`, `mobile`, `e_mail`, `idProfession`, `idStreet`, `username`, `password`) VALUES ( '"+ firstName +"', '"+ lastName +"', '"+ gender +"', '"+ mobile +"', '"+ e_mail +"', '"+ choosenProfession +"', '"+ choosenStreet +"', '"+ username +"', '"+ password +"'); ");
+                       out.println("Registered"); 
+                    }
                 %>   
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
