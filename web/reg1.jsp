@@ -24,6 +24,8 @@
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
                          int choosenStreet = 0;
                          int choosenProfession = 0;
+                         int choosenPersonType = 0;
+                         String src;
                 %>  
                
                 <tr>
@@ -110,6 +112,40 @@
                     <td>Password</td>
                     <td><input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"/></td>    
                 </tr>
+                <tr>
+                    <td>Choose Person Type</td>
+                    <td><select id="choosePersonType" name="choosePersonType" onchange="SelectPersonType(this.value)">                           
+                            <option value="0">Select Person Type</option>
+                            <%
+                              try
+                               { String query = "SELECT * FROM valeurc2.persontype;";
+                                    
+                                  Statement st= con.createStatement(); 
+                                  ResultSet rs = st.executeQuery(query); 
+                                  while (rs.next())
+                                  { %>
+                                      <option value="<%=rs.getInt("idpersonType") %>" 
+                                                   ><%=rs.getString("personTypeDesc")%>
+                                      </opion>  
+                                    <%
+                                  }      
+                                  choosenPersonType = Integer.parseInt(request.getParameter("choosePersonType"));
+                                  if (request.getParameter("choosePersonType") =="patient")
+                                      src= "patient.jsp";
+                                  else 
+                                      if (request.getParameter("choosePersonType") =="doctor")
+                                      src= "doctor.jsp";
+                                 } 
+                                  catch (Exception ex) 
+                                  { ex.printStackTrace();
+                                    out.println("error " + ex.getMessage());
+                                  }
+                            %>
+                        </select>
+                    </td>  
+                    <td><a href="addPersonType.jsp">Add Person Type</a></td>
+                </tr>
+                
                 
                 <%
                     Statement stp= con.createStatement(); 
@@ -138,5 +174,9 @@
 
 <a href ="login.xhtml">Login</a><br/><br/>
 <a href="index.xhtml">Home</a>
+<script>
+    function SelectPersonType(src)
+    { window.location = src;    }
+</script>    
 </body>
 </html>
