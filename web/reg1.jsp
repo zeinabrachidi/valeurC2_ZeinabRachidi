@@ -15,16 +15,17 @@
     </head>
     <body>
         <h1>Register</h1>
-        <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
+        <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="reg1.jsp" method="post" onsubmit="return checkForm(this);">
-            <table border="1" align="center">
+            <table align="center">
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
                          int choosenStreet = 0;
                          int choosenProfession = 0;
                          int choosenPersonType = 0;
+                         int choosenNationlity = 0;
                          String src;
                 %>  
                
@@ -114,7 +115,7 @@
                 </tr>
                 <tr>
                     <td>Choose Person Type</td>
-                    <td><select id="choosePersonType" name="choosePersonType" onchange="SelectPersonType(this.value)">                           
+                    <td><select id="choosePersonType" name="choosePersonType">                           
                             <option value="0">Select Person Type</option>
                             <%
                               try
@@ -130,11 +131,7 @@
                                     <%
                                   }      
                                   choosenPersonType = Integer.parseInt(request.getParameter("choosePersonType"));
-                                  if (request.getParameter("choosePersonType") =="patient")
-                                      src= "patient.jsp";
-                                  else 
-                                      if (request.getParameter("choosePersonType") =="doctor")
-                                      src= "doctor.jsp";
+                                  out.println("choosen)person type=" + choosenPersonType);
                                  } 
                                   catch (Exception ex) 
                                   { ex.printStackTrace();
@@ -143,7 +140,6 @@
                             %>
                         </select>
                     </td>  
-                    <td><a href="addPersonType.jsp">Add Person Type</a></td>
                 </tr>
                 
                 
@@ -160,7 +156,41 @@
                     String password = request.getParameter("password");
                     if (firstName != null && lastName != null &&  gender!=null && mobile != null && e_mail != null && username != null && password != null)
                     {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`person` (`firstName`, `lastName`, `gender`, `mobile`, `e_mail`, `idProfession`, `idStreet`, `username`, `password`) VALUES ( '"+ firstName +"', '"+ lastName +"', '"+ gender +"', '"+ mobile +"', '"+ e_mail +"', '"+ choosenProfession +"', '"+ choosenStreet +"', '"+ username +"', '"+ password +"'); ");
-                       out.println("Registered"); 
+                        out.println(" Person Registered"); 
+                        String query = "SELECT * FROM valeurc2.person order by idPerson desc limit 1;";
+                        rs = stp.executeQuery(query); 
+                        int id=0;
+                        while (rs.next())
+                        {   %>
+                                id ="<%=rs.getInt("idPerson") %>" 
+                                out.print("id=" + id);
+                            <%        
+                        } 
+                        i = stp.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ id +"', '"+ choosenPersonType +"'); ");
+                                        
+                        if(choosenPersonType == 1)
+                        {   i=stp.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`) VALUES ( '"+ id +"' ); "); 
+                            i=stp.executeUpdate("INSERT INTO `valeurc2`.`chefservice` (`idPerson`) VALUES ( '"+ id +"' ); "); 
+                        }
+                        else
+                            if(choosenPersonType == 2)
+                            { 
+                              %>
+                                  <a href ="doctor.jsp?idPerson = ${id}">Doctor</a><br/><br/>  
+                              <%                    
+                            }
+                            else 
+                              if (choosenPersonType == 3)
+                              { %>
+                                 <a href ="patient.jsp?idPerson = ${id}">Patient</a><br/><br/>    
+                                <%                 
+                              }
+                              else 
+                                if(choosenPersonType == 4)
+                                { i=stp.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ id +"' ); "); }
+                                else
+                                  if(choosenPersonType == 1)
+                                  { i=stp.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ id +"' ); "); }
                     }
                 %>   
                 <tr>

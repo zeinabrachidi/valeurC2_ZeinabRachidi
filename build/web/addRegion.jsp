@@ -63,9 +63,6 @@
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;"><input type="reset" value="Clear" name="clear" onclick="Clear"/></td>
-               </tr>
             </table>
         </form>     
         

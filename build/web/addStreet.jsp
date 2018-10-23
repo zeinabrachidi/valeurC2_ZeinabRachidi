@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td>Id Region</td>
-                            <td><select id="choose" name="choose">                           
+                            <td><select id="choose" name="chooseRegion">                           
                                     <option value="0">Select Region</option>
                                     <%
                                     try
@@ -44,10 +44,10 @@
                                          <%
                                        }      
                                        String StreetName = request.getParameter("streetName");
-                                       int choosen =0;
+                                       int choosenRegion =0;
                                        if (request.getParameter("choose") != null && StreetName != null)
-                                       {    choosen = Integer.parseInt(request.getParameter("choose"));
-                                            int i=st.executeUpdate("INSERT INTO `valeurc2`.`street` (`StreetName`, `idRegion`) VALUES ( '"+StreetName+"', '"+choosen+"'); ");
+                                       {    choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
+                                            int i=st.executeUpdate("INSERT INTO `valeurc2`.`street` (`StreetName`, `idRegion`) VALUES ( '"+StreetName+"', '"+choosenRegion+"'); ");
                                             out.println("Registered"); 
                                        }
                                     } 
@@ -61,9 +61,6 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
-               </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;"><input type="reset" value="Clear" name="clear" onclick="Clear"/></td>
                </tr>
             </table>
         </form>     

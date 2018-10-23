@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addCity
-    Created on : Oct 19, 2018, 10:13:06 PM
+    Document   : addNationality
+    Created on : Oct 23, 2018, 11:30:43 PM
     Author     : zeina
 --%>
 
@@ -9,10 +9,11 @@
 <%@ page import ="javax.sql.*" %>
 <!DOCTYPE html>
 <html>
-    <h:head>
-        <title>The Miriyam Center</title>
-    </h:head>
-    <h:body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
         <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
@@ -22,14 +23,14 @@
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
                 %>         
                 <tr>
-                    <td>City Name</td>
-                    <td><input type="text" name="cityName"/></td> 
+                    <td>Nationality Name</td>
+                    <td><input type="text" name="nationalityName"/></td> 
                        <%
                          Statement st= con.createStatement(); 
                          ResultSet rs; 
-                         String cityName = request.getParameter("cityName");
-                         if (cityName != null)
-                         {  int i=st.executeUpdate("INSERT INTO `valeurc2`.`city` (`cityName`) VALUES ( '"+cityName+"'); ");  }
+                         String nationalityName = request.getParameter("nationalityName");
+                         if (nationalityName != null)
+                         {  int i=st.executeUpdate("INSERT INTO `valeurc2`.`nationality` (`nationalityName`) VALUES ( '"+ nationalityName+"'); "); }
                        %>
                 </tr>
                 <tr>
@@ -37,6 +38,6 @@
                </tr>
             </table>
         </form>    
-        <a href="index.xhtml">Home</a>                
-    </h:body>
+        <a href="index.xhtml">Home</a>  
+    </body>
 </html>
