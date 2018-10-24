@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -163,18 +165,19 @@
                         rs.next();
                         int id =rs.getInt("idPerson");
                         out.print("id=" + id);
+                        
                         if (id != 0 && choosenPersonType != 0)
                         {  i = stp.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ id +"', '"+ choosenPersonType +"'); ");  }
                                         
                         if(choosenPersonType == 2)
-                        { 
-                            %>
-                                  <a href ="doctor.jsp?idPerson = ${id}">Doctor</a><br/><br/>  
+                        {    %>
+                               <a href ="doctor.jsp?idPerson = ${id}">Doctor</a><br/><br/>  
                             <%                    
                         }
                         else 
                             if (choosenPersonType == 3)
-                            { %>
+                            { int idPerson ;
+                              %>
                                <a href ="patient.jsp?idPerson = ${id}">Patient</a><br/><br/>    
                               <%                 
                             }

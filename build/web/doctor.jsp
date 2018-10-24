@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,7 +59,8 @@
             <%
                     Statement stp= con.createStatement(); 
                     ResultSet rs; 
-                    int idPerson= Integer.parseInt(request.getParameter("idPerson"));
+                    String idPer =  (String) request.getSession().getAttribute("idPerson");
+                    int idPerson= Integer.parseInt(idPer);
                     out.println("idPerson=" + idPerson);
                     String syndicat_no = request.getParameter("syndicat_no");
                     if (idPerson != 0 && syndicat_no!= null)

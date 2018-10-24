@@ -110,7 +110,7 @@
                     String dob_s = request.getParameter("dob");
                     Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
                     String bloodGrp = request.getParameter("bloodGrp");
-                    if (idPerson != 0 && ssn!= 0 &&  registerNo!=null)
+                    if (idPerson != 0 && ssn!= 0 &&  registerNo != null)
                     {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`patient` (`idPerson`, `ssn`, `registerNo`, `dob`, `bloodGrp`, `idNationality`, `idRegion`) VALUES ( '"+ idPerson +"', '"+ ssn +"', '"+ registerNo +"', '"+ dob +"', '"+ bloodGrp +"', '"+ choosenNationality +"', '"+ choosenRegion +"'); ");
                         out.println(" Person Registered"); 
                     }
