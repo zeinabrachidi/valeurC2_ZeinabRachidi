@@ -119,16 +119,20 @@
                             <option value="0">Select Person Type</option>
                             <%
                               try
-                               { String query = "SELECT * FROM valeurc2.persontype;";
-                                    
+                               {  String query = "SELECT * FROM valeurc2.persontype;";
                                   Statement st= con.createStatement(); 
                                   ResultSet rs = st.executeQuery(query); 
                                   while (rs.next())
-                                  { %>
-                                      <option value="<%=rs.getInt("idpersonType") %>" 
-                                                   ><%=rs.getString("personTypeDesc")%>
-                                      </opion>  
-                                    <%
+                                  { int idType = rs.getInt("idpersonType") ;
+                                    String TypeDesc = rs.getString("personTypeDesc");
+                                    if (idType != 1)
+                                    { 
+                                        %>
+                                            <option value="<%=(idType)%>" 
+                                                          ><%=(TypeDesc)%>
+                                            </opion>  
+                                        <%
+                                    }    
                                   }      
                                   choosenPersonType = Integer.parseInt(request.getParameter("choosePersonType"));
                                   out.println("choosen)person type=" + choosenPersonType);
@@ -141,8 +145,6 @@
                         </select>
                     </td>  
                 </tr>
-                
-                
                 <%
                     Statement stp= con.createStatement(); 
                     ResultSet rs; 
@@ -157,40 +159,31 @@
                     if (firstName != null && lastName != null &&  gender!=null && mobile != null && e_mail != null && username != null && password != null)
                     {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`person` (`firstName`, `lastName`, `gender`, `mobile`, `e_mail`, `idProfession`, `idStreet`, `username`, `password`) VALUES ( '"+ firstName +"', '"+ lastName +"', '"+ gender +"', '"+ mobile +"', '"+ e_mail +"', '"+ choosenProfession +"', '"+ choosenStreet +"', '"+ username +"', '"+ password +"'); ");
                         out.println(" Person Registered"); 
-                        String query = "SELECT * FROM valeurc2.person order by idPerson desc limit 1;";
-                        rs = stp.executeQuery(query); 
-                        int id=0;
-                        while (rs.next())
-                        {   %>
-                                id ="<%=rs.getInt("idPerson") %>" 
-                                out.print("id=" + id);
-                            <%        
-                        } 
-                        i = stp.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ id +"', '"+ choosenPersonType +"'); ");
+                        rs = stp.executeQuery("SELECT * FROM valeurc2.person order by idPerson desc limit 1;"); 
+                        rs.next();
+                        int id =rs.getInt("idPerson");
+                        out.print("id=" + id);
+                        if (id != 0 && choosenPersonType != 0)
+                        {  i = stp.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ id +"', '"+ choosenPersonType +"'); ");  }
                                         
-                        if(choosenPersonType == 1)
-                        {   i=stp.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`) VALUES ( '"+ id +"' ); "); 
-                            i=stp.executeUpdate("INSERT INTO `valeurc2`.`chefservice` (`idPerson`) VALUES ( '"+ id +"' ); "); 
-                        }
-                        else
-                            if(choosenPersonType == 2)
-                            { 
-                              %>
+                        if(choosenPersonType == 2)
+                        { 
+                            %>
                                   <a href ="doctor.jsp?idPerson = ${id}">Doctor</a><br/><br/>  
-                              <%                    
+                            <%                    
+                        }
+                        else 
+                            if (choosenPersonType == 3)
+                            { %>
+                               <a href ="patient.jsp?idPerson = ${id}">Patient</a><br/><br/>    
+                              <%                 
                             }
                             else 
-                              if (choosenPersonType == 3)
-                              { %>
-                                 <a href ="patient.jsp?idPerson = ${id}">Patient</a><br/><br/>    
-                                <%                 
-                              }
-                              else 
-                                if(choosenPersonType == 4)
-                                { i=stp.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ id +"' ); "); }
-                                else
-                                  if(choosenPersonType == 1)
-                                  { i=stp.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ id +"' ); "); }
+                               if(choosenPersonType == 4)
+                               { i=stp.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ id +"' ); "); }
+                               else
+                                 if(choosenPersonType == 5)
+                                 { i=stp.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ id +"' ); "); }
                     }
                 %>   
                 <tr>

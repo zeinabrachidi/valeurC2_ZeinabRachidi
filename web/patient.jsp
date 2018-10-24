@@ -29,10 +29,6 @@
                          int choosenNationality = 0;
                          int choosenRegion = 0;
             %>  
-            <tr>
-                <td>Id Person</td>
-                <td><input type="text" name="idPerson" value="${id}"/></td> 
-            </tr>
             
             <tr>
                 <td>Social Security no</td>
@@ -107,13 +103,14 @@
             <%
                     Statement stp= con.createStatement(); 
                     ResultSet rs; 
-                    String idPerson= request.getParameter("idPerson");
-                    String ssn = request.getParameter("ssn");
+                    int idPerson= Integer.parseInt(request.getParameter("idPerson"));
+                    out.println("idPerson=" + idPerson);
+                    int ssn = Integer.parseInt(request.getParameter("ssn"));
                     String registerNo =request.getParameter("registerNo");
                     String dob_s = request.getParameter("dob");
                     Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
                     String bloodGrp = request.getParameter("bloodGrp");
-                    if (idPerson != null && ssn!= null &&  registerNo!=null)
+                    if (idPerson != 0 && ssn!= 0 &&  registerNo!=null)
                     {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`patient` (`idPerson`, `ssn`, `registerNo`, `dob`, `bloodGrp`, `idNationality`, `idRegion`) VALUES ( '"+ idPerson +"', '"+ ssn +"', '"+ registerNo +"', '"+ dob +"', '"+ bloodGrp +"', '"+ choosenNationality +"', '"+ choosenRegion +"'); ");
                         out.println(" Person Registered"); 
                     }
