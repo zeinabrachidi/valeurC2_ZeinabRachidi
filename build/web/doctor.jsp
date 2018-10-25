@@ -8,6 +8,8 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page isELIgnored ="false" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,9 +17,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
+        <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="reg1.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="doctor.jsp" method="post" onsubmit="return checkForm(this);">
         <table>
             <%
                          Class.forName("com.mysql.jdbc.Driver"); 
@@ -58,16 +60,14 @@
             </tr>
             <%
                     Statement stp= con.createStatement(); 
-                    ResultSet rs; 
-                    String idPer =  (String) request.getSession().getAttribute("idPerson");
-                    int idPerson= Integer.parseInt(idPer);
+                    String idPerson =  request.getParameter("idPerson");
                     out.println("idPerson=" + idPerson);
                     String syndicat_no = request.getParameter("syndicat_no");
-                    if (idPerson != 0 && syndicat_no!= null)
+                    if (idPerson != null && syndicat_no!= null)
                     {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`, `syndicat_no`, `idSpeciality`) VALUES ( '"+ idPerson +"', '"+ syndicat_no +"', '"+ choosenSpeciality +"'); ");
                         out.println(" Person Registered"); 
                     }
-              %>  
+            %>  
             <tr>
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
             </tr>

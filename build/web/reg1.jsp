@@ -8,6 +8,8 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page isELIgnored ="false" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -147,7 +149,12 @@
                         </select>
                     </td>  
                 </tr>
-                <%
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
+               </tr>
+               <tr>
+                   <td>
+                   <%
                     Statement stp= con.createStatement(); 
                     ResultSet rs; 
                     
@@ -171,14 +178,16 @@
                                         
                         if(choosenPersonType == 2)
                         {    %>
-                               <a href ="doctor.jsp?idPerson = ${id}">Doctor</a><br/><br/>  
+                              out.print("idPerson=" + <%=(id)%>);
+                               <a href ="doctor.jsp?idPerson = <%=(id)%> ">go to Doctor page</a>
+                              out.print("after sending idPerson=" + <%=(id)%>);   
                             <%                    
                         }
                         else 
                             if (choosenPersonType == 3)
-                            { int idPerson ;
-                              %>
-                               <a href ="patient.jsp?idPerson = ${id}">Patient</a><br/><br/>    
+                            {         
+                               %>
+                               <a href ="patient.jsp?idPerson = <%=(id)%> ">Go to Patient Page</a><br/><br/>    
                               <%                 
                             }
                             else 
@@ -188,14 +197,11 @@
                                  if(choosenPersonType == 5)
                                  { i=stp.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ id +"' ); "); }
                     }
-                %>   
-                <tr>
-                    <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
-               </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;"><input type="reset" value="Clear" name="clear" onclick="Clear"/></td>
-               </tr>
+                %>              
+                   </td> 
+               </tr> 
             </table>
+            
         </form>       
 
 <a href ="login.xhtml">Login</a><br/><br/>

@@ -7,8 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date"%>
+<%@ page isELIgnored ="false" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +18,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
+        <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="patient.jsp" method="post" onsubmit="return checkForm(this);">
         <table>
