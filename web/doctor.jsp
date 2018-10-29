@@ -8,7 +8,6 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored ="false" %>
 <!DOCTYPE html>
 <html>
@@ -22,11 +21,34 @@
         <form action="doctor.jsp" method="post" onsubmit="return checkForm(this);">
         <table>
             <%
-                         Class.forName("com.mysql.jdbc.Driver"); 
-                         java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
-                         int choosenSpeciality = 0;
-            %> 
+                Class.forName("com.mysql.jdbc.Driver"); 
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
+                int choosenSpeciality = 0;
+                Statement stp= con.createStatement(); 
+                
+                  String idPers = request.getParameter("idPerson");
+                  out.println("idPers=" + idPers);
+                  int idPerson = Integer.parseInt(idPers);
+                  out.println("idPerson=" + idPerson);
+                  String syndicat_no = request.getParameter("syndicat_no");
+                try 
+                {
+                  if (idPerson != 0 && syndicat_no!= null)
+                  {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`, `syndicat_no`, `idSpeciality`) VALUES ( '"+ idPerson +"', '"+ syndicat_no +"', '"+ choosenSpeciality +"'); ");
+                     out.println(" Person Registered"); 
+                  }
+                }
+                catch (Exception e) {
+                    System.out.println(e);
+                }
+            %>  
             
+            <tr>
+                <td> Id Person no</td>
+                   <td>
+                      <input type="text" name="idPerson" value="<%=(idPerson)%>" >
+                   </td> 
+            </tr>
             <tr>
                 <td>Syndicat no</td>
                 <td><input type="text" name="syndicat_no"/></td>    
@@ -58,16 +80,6 @@
                 </td>  
                 <td><a href="addSpeciality .jsp">Add Speciality </a></td>
             </tr>
-            <%
-                    Statement stp= con.createStatement(); 
-                    String idPerson =  request.getParameter("idPerson");
-                    out.println("idPerson=" + idPerson);
-                    String syndicat_no = request.getParameter("syndicat_no");
-                    if (idPerson != null && syndicat_no!= null)
-                    {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`, `syndicat_no`, `idSpeciality`) VALUES ( '"+ idPerson +"', '"+ syndicat_no +"', '"+ choosenSpeciality +"'); ");
-                        out.println(" Person Registered"); 
-                    }
-            %>  
             <tr>
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
             </tr>

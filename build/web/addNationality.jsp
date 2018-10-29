@@ -21,13 +21,13 @@
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
+                         Statement st= con.createStatement(); 
+                         ResultSet rs; 
                 %>         
                 <tr>
                     <td>Nationality Name</td>
                     <td><input type="text" name="nationalityName"/></td> 
                        <%
-                         Statement st= con.createStatement(); 
-                         ResultSet rs; 
                          String nationalityName = request.getParameter("nationalityName");
                          if (nationalityName != null)
                          {  int i=st.executeUpdate("INSERT INTO `valeurc2`.`nationality` (`nationalityName`) VALUES ( '"+ nationalityName+"'); "); }
@@ -36,8 +36,11 @@
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
                </tr>
+               <tr>
+                    <td colspan="2" style="text-align: center;"><a href="index.xhtml">Home</a></td>
+               </tr>
             </table>
         </form>    
-        <a href="index.xhtml">Home</a>  
+        
     </body>
 </html>

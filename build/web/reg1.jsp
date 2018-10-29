@@ -170,32 +170,32 @@
                         out.println(" Person Registered"); 
                         rs = stp.executeQuery("SELECT * FROM valeurc2.person order by idPerson desc limit 1;"); 
                         rs.next();
-                        int id =rs.getInt("idPerson");
-                        out.print("id=" + id);
+                        int idPerson =rs.getInt("idPerson");
+                        out.print("id=" + idPerson);
                         
-                        if (id != 0 && choosenPersonType != 0)
-                        {  i = stp.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ id +"', '"+ choosenPersonType +"'); ");  }
+                        if (idPerson != 0 && choosenPersonType != 0)
+                        {  i = stp.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ idPerson +"', '"+ choosenPersonType +"'); ");  }
                                         
                         if(choosenPersonType == 2)
                         {    %>
-                              out.print("idPerson=" + <%=(id)%>);
-                               <a href ="doctor.jsp?idPerson = <%=(id)%> ">go to Doctor page</a>
-                              out.print("after sending idPerson=" + <%=(id)%>);   
+                              out.print("idPerson=" + <%=(idPerson)%>);
+                               <a href ="doctor.jsp?idPerson = <%=(idPerson)%> ">go to Doctor page</a>
+                              out.print("after sending idPerson=" + <%=(idPerson)%>);   
                             <%                    
                         }
                         else 
                             if (choosenPersonType == 3)
                             {         
                                %>
-                               <a href ="patient.jsp?idPerson = <%=(id)%> ">Go to Patient Page</a><br/><br/>    
+                               <a href ="patient.jsp?idPerson = <%=(idPerson)%> ">Go to Patient Page</a><br/><br/>    
                               <%                 
                             }
                             else 
                                if(choosenPersonType == 4)
-                               { i=stp.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ id +"' ); "); }
+                               { i=stp.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
                                else
                                  if(choosenPersonType == 5)
-                                 { i=stp.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ id +"' ); "); }
+                                 { i=stp.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
                     }
                 %>              
                    </td> 
