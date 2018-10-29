@@ -62,8 +62,8 @@
                                 <tr>
                                      <td><%=rs.getInt("idpersonType") %></td>
                                      <td><%=rs.getString("personTypeDesc") %></td>
-                                     <td> <a href="updateNarionality.jsp?idpersonType=<%=rs.getInt("idpersonType") %>">Update</a></td>
-                                     <td> <a href="updateNarionality.jsp?idpersonType=<%=rs.getInt("idpersonType") %>">Delete</a></td>
+                                     <td> <a href="updatePersonType.jsp?idpersonType=<%=rs.getInt("idpersonType") %>">Update</a></td>
+                                     <td> <a href="deletePersonType.jsp?idpersonType=<%=rs.getInt("idpersonType") %>">Delete</a></td>
 
                                 </tr>  
                             <%   

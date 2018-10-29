@@ -64,7 +64,7 @@
                                      <td><%=rs.getInt("idNationality") %></td>
                                      <td><%=rs.getString("nationalityName") %></td>
                                      <td> <a href="updateNarionality.jsp?idNationality=<%=rs.getInt("idNationality") %>">Update</a></td>
-                                     <td> <a href="updateNarionality.jsp?idNationality=<%=rs.getInt("idNationality") %>">Delete</a></td>
+                                     <td> <a href="deleteNarionality.jsp?idNationality=<%=rs.getInt("idNationality") %>">Delete</a></td>
 
                                 </tr>  
                             <%   

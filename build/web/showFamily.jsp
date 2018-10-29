@@ -1,6 +1,6 @@
 <%-- 
-    Document   : showPersonType
-    Created on : Oct 29, 2018, 7:48:06 PM
+    Document   : showFamily
+    Created on : Oct 29, 2018, 9:47:48 PM
     Author     : zeina
 --%>
 
@@ -43,7 +43,7 @@
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post">
             <table align="center" font-size="large" border="1">
-                <caption>Person Type Information</caption>
+                <caption>Family Information</caption>
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
@@ -51,19 +51,19 @@
                          ResultSet rs; 
                 %>         
                 <tr>
-                    <th>Id Person Type</th>
-                    <th>Person Type Description</th>
+                    <th>Id Family</th>
+                    <th>Family Name</th>
                     <th>Update</th>
                     <th>Delete</th>
                        <%
-                            rs =st.executeQuery("select * from persontype");
+                            rs =st.executeQuery("select * from family");
                              while (rs.next()) {
                             %>    
                                 <tr>
-                                     <td><%=rs.getInt("idpersonType") %></td>
-                                     <td><%=rs.getString("personTypeDesc") %></td>
-                                     <td> <a href="updatePersonType.jsp?idpersonType=<%=rs.getInt("idpersonType") %>">Update</a></td>
-                                     <td> <a href="deletePersonType.jsp?idpersonType=<%=rs.getInt("idpersonType") %>">Delete</a></td>
+                                     <td><%=rs.getInt("idFamily") %></td>
+                                     <td><%=rs.getString("familyName") %></td>
+                                     <td> <a href="updateFamily.jsp?idFamily=<%=rs.getInt("idFamily") %>">Update</a></td>
+                                     <td> <a href="deleteFamily.jsp?idFamily=<%=rs.getInt("idFamily") %>">Delete</a></td>
 
                                 </tr>  
                             <%   
@@ -75,5 +75,6 @@
                </tr>
             </table><br/><br/>
         </form>  
+        
     </body>
 </html>

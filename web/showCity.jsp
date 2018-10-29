@@ -43,7 +43,7 @@
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post">
             <table align="center" font-size="large" border="1">
-                <caption>Nationality Information</caption>
+                <caption>City Information</caption>
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
@@ -62,8 +62,8 @@
                                 <tr>
                                      <td><%=rs.getInt("idcity") %></td>
                                      <td><%=rs.getString("cityName") %></td>
-                                     <td> <a href="updateNarionality.jsp?idcity=<%=rs.getInt("idcity") %>">Update</a></td>
-                                     <td> <a href="updateNarionality.jsp?idcity=<%=rs.getInt("idcity") %>">Delete</a></td>
+                                     <td> <a href="updateCity.jsp?idcity=<%=rs.getInt("idcity") %>">Update</a></td>
+                                     <td> <a href="deleteCity.jsp?idcity=<%=rs.getInt("idcity") %>">Delete</a></td>
 
                                 </tr>  
                             <%   
@@ -75,6 +75,5 @@
                </tr>
             </table><br/><br/>
         </form>  
-        
     </body>
 </html>
