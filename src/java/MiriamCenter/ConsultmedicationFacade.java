@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @author zeina
  */
 @Stateless
-public class ConsultmedicationFacade extends AbstractFacade<Consultmedication> {
+public class ConsultmedicationFacade extends AbstractFacade<Consultmedication> implements ConsultmedicationFacadeLocal {
 
     @PersistenceContext(unitName = "DOSSIER_MEDICALPU")
     private EntityManager em;

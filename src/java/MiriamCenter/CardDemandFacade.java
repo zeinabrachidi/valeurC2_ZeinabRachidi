@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @author zeina
  */
 @Stateless
-public class CardDemandFacade extends AbstractFacade<CardDemand> {
+public class CardDemandFacade extends AbstractFacade<CardDemand> implements CardDemandFacadeLocal {
 
     @PersistenceContext(unitName = "DOSSIER_MEDICALPU")
     private EntityManager em;

@@ -34,19 +34,18 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Doctor.findAll", query = "SELECT d FROM Doctor d")
     , @NamedQuery(name = "Doctor.findByIdPerson", query = "SELECT d FROM Doctor d WHERE d.idPerson = :idPerson")
-    , @NamedQuery(name = "Doctor.findByEstablisTel", query = "SELECT d FROM Doctor d WHERE d.establisTel = :establisTel")})
+    , @NamedQuery(name = "Doctor.findBySyndicatNo", query = "SELECT d FROM Doctor d WHERE d.syndicatNo = :syndicatNo")})
 public class Doctor implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 7)
     @Column(name = "IdPerson")
-    private String idPerson;
-    @Size(max = 11)
-    @Column(name = "establisTel")
-    private String establisTel;
+    private Integer idPerson;
+    @Size(max = 45)
+    @Column(name = "syndicat_no")
+    private String syndicatNo;
     @OneToMany(mappedBy = "idPersonDoc")
     private Collection<Consultation> consultationCollection;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "doctor")
@@ -63,24 +62,24 @@ public class Doctor implements Serializable {
     public Doctor() {
     }
 
-    public Doctor(String idPerson) {
+    public Doctor(Integer idPerson) {
         this.idPerson = idPerson;
     }
 
-    public String getIdPerson() {
+    public Integer getIdPerson() {
         return idPerson;
     }
 
-    public void setIdPerson(String idPerson) {
+    public void setIdPerson(Integer idPerson) {
         this.idPerson = idPerson;
     }
 
-    public String getEstablisTel() {
-        return establisTel;
+    public String getSyndicatNo() {
+        return syndicatNo;
     }
 
-    public void setEstablisTel(String establisTel) {
-        this.establisTel = establisTel;
+    public void setSyndicatNo(String syndicatNo) {
+        this.syndicatNo = syndicatNo;
     }
 
     @XmlTransient

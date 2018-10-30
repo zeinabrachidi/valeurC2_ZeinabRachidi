@@ -34,9 +34,6 @@ public class Dependents implements Serializable {
     @JoinColumn(name = "iIdPersonPers", referencedColumnName = "idPerson", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Person person;
-    @JoinColumn(name = "IdPersonPat", referencedColumnName = "IdPerson", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Patient patient;
     @JoinColumn(name = "idRelation", referencedColumnName = "idrelation")
     @ManyToOne
     private Relatioship idRelation;
@@ -48,7 +45,7 @@ public class Dependents implements Serializable {
         this.dependentsPK = dependentsPK;
     }
 
-    public Dependents(String iIdPersonPers, String idPersonPat) {
+    public Dependents(int iIdPersonPers, int idPersonPat) {
         this.dependentsPK = new DependentsPK(iIdPersonPers, idPersonPat);
     }
 
@@ -66,14 +63,6 @@ public class Dependents implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
 
     public Relatioship getIdRelation() {

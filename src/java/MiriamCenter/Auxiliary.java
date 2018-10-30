@@ -18,7 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -34,16 +33,14 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Auxiliary.findByIdPerson", query = "SELECT a FROM Auxiliary a WHERE a.idPerson = :idPerson")})
 public class Auxiliary implements Serializable {
 
-    @OneToMany(mappedBy = "idPersonAux")
-    private Collection<Takingvital> takingvitalCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 7)
     @Column(name = "IdPerson")
-    private String idPerson;
+    private Integer idPerson;
+    @OneToMany(mappedBy = "idPersonAux")
+    private Collection<Takingvital> takingvitalCollection;
     @JoinColumn(name = "IdPerson", referencedColumnName = "idPerson", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Person person;
@@ -51,16 +48,25 @@ public class Auxiliary implements Serializable {
     public Auxiliary() {
     }
 
-    public Auxiliary(String idPerson) {
+    public Auxiliary(Integer idPerson) {
         this.idPerson = idPerson;
     }
 
-    public String getIdPerson() {
+    public Integer getIdPerson() {
         return idPerson;
     }
 
-    public void setIdPerson(String idPerson) {
+    public void setIdPerson(Integer idPerson) {
         this.idPerson = idPerson;
+    }
+
+    @XmlTransient
+    public Collection<Takingvital> getTakingvitalCollection() {
+        return takingvitalCollection;
+    }
+
+    public void setTakingvitalCollection(Collection<Takingvital> takingvitalCollection) {
+        this.takingvitalCollection = takingvitalCollection;
     }
 
     public Person getPerson() {
@@ -94,15 +100,6 @@ public class Auxiliary implements Serializable {
     @Override
     public String toString() {
         return "MiriamCenter.Auxiliary[ idPerson=" + idPerson + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Takingvital> getTakingvitalCollection() {
-        return takingvitalCollection;
-    }
-
-    public void setTakingvitalCollection(Collection<Takingvital> takingvitalCollection) {
-        this.takingvitalCollection = takingvitalCollection;
     }
     
 }

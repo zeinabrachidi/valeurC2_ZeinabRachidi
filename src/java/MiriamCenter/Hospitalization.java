@@ -19,7 +19,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -59,9 +58,6 @@ public class Hospitalization implements Serializable {
     @JoinColumn(name = "idHhospital", referencedColumnName = "idHospital")
     @ManyToOne
     private Hospital idHhospital;
-    @JoinColumn(name = "idMedicalAct", referencedColumnName = "idMedicalAct", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private Medicalact medicalact;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "hospitalization")
     private Collection<Hospoperation> hospoperationCollection;
 
@@ -131,14 +127,6 @@ public class Hospitalization implements Serializable {
 
     public void setIdHhospital(Hospital idHhospital) {
         this.idHhospital = idHhospital;
-    }
-
-    public Medicalact getMedicalact() {
-        return medicalact;
-    }
-
-    public void setMedicalact(Medicalact medicalact) {
-        this.medicalact = medicalact;
     }
 
     @XmlTransient

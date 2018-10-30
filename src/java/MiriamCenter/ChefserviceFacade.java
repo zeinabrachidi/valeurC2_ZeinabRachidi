@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @author zeina
  */
 @Stateless
-public class ChefserviceFacade extends AbstractFacade<Chefservice> {
+public class ChefserviceFacade extends AbstractFacade<Chefservice> implements ChefserviceFacadeLocal {
 
     @PersistenceContext(unitName = "DOSSIER_MEDICALPU")
     private EntityManager em;

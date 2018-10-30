@@ -6,15 +6,15 @@
 package MiriamCenter;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,10 +22,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -42,13 +40,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Medicalact.findByMedicalactDesc", query = "SELECT m FROM Medicalact m WHERE m.medicalactDesc = :medicalactDesc")})
 public class Medicalact implements Serializable {
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "medicalact")
-    private Consultation consultation;
-
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idMedicalAct")
     private Integer idMedicalAct;
     @Column(name = "medicalActDate")
@@ -60,16 +55,11 @@ public class Medicalact implements Serializable {
     @Size(max = 300)
     @Column(name = "medicalactDesc")
     private String medicalactDesc;
-    @ManyToMany(mappedBy = "medicalactCollection")
-    private Collection<Diseases> diseasesCollection;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "medicalact")
+    private Consultation consultation;
     @JoinColumn(name = "idMedicalCard", referencedColumnName = "idmedicaCard")
     @ManyToOne
     private Medicalcard idMedicalCard;
-    @JoinColumn(name = "idmedicalacttype", referencedColumnName = "idmedicalacttype")
-    @ManyToOne
-    private Medicalacttype idmedicalacttype;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "medicalact")
-    private Hospitalization hospitalization;
 
     public Medicalact() {
     }
@@ -110,13 +100,12 @@ public class Medicalact implements Serializable {
         this.medicalactDesc = medicalactDesc;
     }
 
-    @XmlTransient
-    public Collection<Diseases> getDiseasesCollection() {
-        return diseasesCollection;
+    public Consultation getConsultation() {
+        return consultation;
     }
 
-    public void setDiseasesCollection(Collection<Diseases> diseasesCollection) {
-        this.diseasesCollection = diseasesCollection;
+    public void setConsultation(Consultation consultation) {
+        this.consultation = consultation;
     }
 
     public Medicalcard getIdMedicalCard() {
@@ -125,22 +114,6 @@ public class Medicalact implements Serializable {
 
     public void setIdMedicalCard(Medicalcard idMedicalCard) {
         this.idMedicalCard = idMedicalCard;
-    }
-
-    public Medicalacttype getIdmedicalacttype() {
-        return idmedicalacttype;
-    }
-
-    public void setIdmedicalacttype(Medicalacttype idmedicalacttype) {
-        this.idmedicalacttype = idmedicalacttype;
-    }
-
-    public Hospitalization getHospitalization() {
-        return hospitalization;
-    }
-
-    public void setHospitalization(Hospitalization hospitalization) {
-        this.hospitalization = hospitalization;
     }
 
     @Override
@@ -166,14 +139,6 @@ public class Medicalact implements Serializable {
     @Override
     public String toString() {
         return "MiriamCenter.Medicalact[ idMedicalAct=" + idMedicalAct + " ]";
-    }
-
-    public Consultation getConsultation() {
-        return consultation;
-    }
-
-    public void setConsultation(Consultation consultation) {
-        this.consultation = consultation;
     }
     
 }

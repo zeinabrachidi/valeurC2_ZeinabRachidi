@@ -11,6 +11,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +21,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -39,14 +40,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Takingvital.findByLowPressure", query = "SELECT t FROM Takingvital t WHERE t.lowPressure = :lowPressure")})
 public class Takingvital implements Serializable {
 
-    @JoinColumn(name = "idPersonAux", referencedColumnName = "IdPerson")
-    @ManyToOne
-    private Auxiliary idPersonAux;
-
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idtakingvital")
     private Integer idtakingvital;
     @Column(name = "takingvitalDate")
@@ -64,6 +61,9 @@ public class Takingvital implements Serializable {
     @JoinColumn(name = "idMedicalActHosp", referencedColumnName = "idMedicalAct")
     @ManyToOne
     private Hospitalization idMedicalActHosp;
+    @JoinColumn(name = "idPersonAux", referencedColumnName = "IdPerson")
+    @ManyToOne
+    private Auxiliary idPersonAux;
 
     public Takingvital() {
     }
@@ -128,6 +128,14 @@ public class Takingvital implements Serializable {
         this.idMedicalActHosp = idMedicalActHosp;
     }
 
+    public Auxiliary getIdPersonAux() {
+        return idPersonAux;
+    }
+
+    public void setIdPersonAux(Auxiliary idPersonAux) {
+        this.idPersonAux = idPersonAux;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -151,14 +159,6 @@ public class Takingvital implements Serializable {
     @Override
     public String toString() {
         return "MiriamCenter.Takingvital[ idtakingvital=" + idtakingvital + " ]";
-    }
-
-    public Auxiliary getIdPersonAux() {
-        return idPersonAux;
-    }
-
-    public void setIdPersonAux(Auxiliary idPersonAux) {
-        this.idPersonAux = idPersonAux;
     }
     
 }

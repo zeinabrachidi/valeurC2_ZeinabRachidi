@@ -6,19 +6,17 @@
 package MiriamCenter;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,58 +27,47 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Profession.findAll", query = "SELECT p FROM Profession p")
-    , @NamedQuery(name = "Profession.findByIdprofession", query = "SELECT p FROM Profession p WHERE p.idprofession = :idprofession")
-    , @NamedQuery(name = "Profession.findByProfessionname", query = "SELECT p FROM Profession p WHERE p.professionname = :professionname")})
+    , @NamedQuery(name = "Profession.findByIdProfession", query = "SELECT p FROM Profession p WHERE p.idProfession = :idProfession")
+    , @NamedQuery(name = "Profession.findByProfessionName", query = "SELECT p FROM Profession p WHERE p.professionName = :professionName")})
 public class Profession implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "idprofession")
-    private Integer idprofession;
+    @Column(name = "idProfession")
+    private Integer idProfession;
     @Size(max = 15)
-    @Column(name = "professionname")
-    private String professionname;
-    @OneToMany(mappedBy = "idProfession")
-    private Collection<Person> personCollection;
+    @Column(name = "professionName")
+    private String professionName;
 
     public Profession() {
     }
 
-    public Profession(Integer idprofession) {
-        this.idprofession = idprofession;
+    public Profession(Integer idProfession) {
+        this.idProfession = idProfession;
     }
 
-    public Integer getIdprofession() {
-        return idprofession;
+    public Integer getIdProfession() {
+        return idProfession;
     }
 
-    public void setIdprofession(Integer idprofession) {
-        this.idprofession = idprofession;
+    public void setIdProfession(Integer idProfession) {
+        this.idProfession = idProfession;
     }
 
-    public String getProfessionname() {
-        return professionname;
+    public String getProfessionName() {
+        return professionName;
     }
 
-    public void setProfessionname(String professionname) {
-        this.professionname = professionname;
-    }
-
-    @XmlTransient
-    public Collection<Person> getPersonCollection() {
-        return personCollection;
-    }
-
-    public void setPersonCollection(Collection<Person> personCollection) {
-        this.personCollection = personCollection;
+    public void setProfessionName(String professionName) {
+        this.professionName = professionName;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idprofession != null ? idprofession.hashCode() : 0);
+        hash += (idProfession != null ? idProfession.hashCode() : 0);
         return hash;
     }
 
@@ -91,7 +78,7 @@ public class Profession implements Serializable {
             return false;
         }
         Profession other = (Profession) object;
-        if ((this.idprofession == null && other.idprofession != null) || (this.idprofession != null && !this.idprofession.equals(other.idprofession))) {
+        if ((this.idProfession == null && other.idProfession != null) || (this.idProfession != null && !this.idProfession.equals(other.idProfession))) {
             return false;
         }
         return true;
@@ -99,7 +86,7 @@ public class Profession implements Serializable {
 
     @Override
     public String toString() {
-        return "MiriamCenter.Profession[ idprofession=" + idprofession + " ]";
+        return "MiriamCenter.Profession[ idProfession=" + idProfession + " ]";
     }
     
 }

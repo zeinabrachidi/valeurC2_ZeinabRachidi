@@ -31,10 +31,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Testlabtest.findByTestResult", query = "SELECT t FROM Testlabtest t WHERE t.testResult = :testResult")})
 public class Testlabtest implements Serializable {
 
-    //@JoinColumn(name = "idTestLab", referencedColumnName = "idTestLab", insertable = false, updatable = false)
-    //@ManyToOne(optional = false)
-    //private Testlab testlab;
-
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected TestlabtestPK testlabtestPK;
@@ -115,13 +111,5 @@ public class Testlabtest implements Serializable {
     public String toString() {
         return "MiriamCenter.Testlabtest[ testlabtestPK=" + testlabtestPK + " ]";
     }
-
-    //public Testlab getTestlab() {
-    //    return testlab;
-   // }
-
-    //public void setTestlab(Testlab testlab) {
-    //    this.testlab = testlab;
-   // }
     
 }

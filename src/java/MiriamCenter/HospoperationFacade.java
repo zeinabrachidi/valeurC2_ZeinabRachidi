@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @author zeina
  */
 @Stateless
-public class HospoperationFacade extends AbstractFacade<Hospoperation> {
+public class HospoperationFacade extends AbstractFacade<Hospoperation> implements HospoperationFacadeLocal {
 
     @PersistenceContext(unitName = "DOSSIER_MEDICALPU")
     private EntityManager em;

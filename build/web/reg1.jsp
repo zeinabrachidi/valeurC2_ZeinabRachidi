@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td><input type="text" name="e_mail"/></td>    
+                    <td><input type="email" name="e_mail"/></td>    
                 </tr>
                 <tr>
                     <td>Id Profession</td>

@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,7 +24,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -41,19 +42,19 @@ public class Testlab implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idTestLab")
     private Integer idTestLab;
     @Column(name = "dateTest")
     @Temporal(TemporalType.DATE)
     private Date dateTest;
-    @JoinColumn(name = "iidPersonTech", referencedColumnName = "IdPerson")
-    @ManyToOne
-    private Technician iidPersonTech;
     @JoinColumn(name = "idLaboratory", referencedColumnName = "idLaboratory")
     @ManyToOne
     private Laboratory idLaboratory;
+    @JoinColumn(name = "iidPersonTech", referencedColumnName = "IdPerson")
+    @ManyToOne
+    private Technician iidPersonTech;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "testlab")
     private Hosptestlab hosptestlab;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "testlab")
@@ -86,20 +87,20 @@ public class Testlab implements Serializable {
         this.dateTest = dateTest;
     }
 
-    public Technician getIidPersonTech() {
-        return iidPersonTech;
-    }
-
-    public void setIidPersonTech(Technician iidPersonTech) {
-        this.iidPersonTech = iidPersonTech;
-    }
-
     public Laboratory getIdLaboratory() {
         return idLaboratory;
     }
 
     public void setIdLaboratory(Laboratory idLaboratory) {
         this.idLaboratory = idLaboratory;
+    }
+
+    public Technician getIidPersonTech() {
+        return iidPersonTech;
+    }
+
+    public void setIidPersonTech(Technician iidPersonTech) {
+        this.iidPersonTech = iidPersonTech;
     }
 
     public Hosptestlab getHosptestlab() {

@@ -31,13 +31,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Conssubmed.findByTimes", query = "SELECT c FROM Conssubmed c WHERE c.times = :times")})
 public class Conssubmed implements Serializable {
 
-    @JoinColumn(name = "idMedicalact", referencedColumnName = "idMedicalActCons", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Consultation consultation;
-    @JoinColumn(name = "idSubMedicine", referencedColumnName = "idSubmedicine", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Submedicine submedicine;
-
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected ConssubmedPK conssubmedPK;
@@ -45,6 +38,12 @@ public class Conssubmed implements Serializable {
     private Integer qty;
     @Column(name = "times")
     private Integer times;
+    @JoinColumn(name = "idMedicalact", referencedColumnName = "idMedicalActCons", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Consultation consultation;
+    @JoinColumn(name = "idSubMedicine", referencedColumnName = "idSubmedicine", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Submedicine submedicine;
 
     public Conssubmed() {
     }
@@ -81,6 +80,22 @@ public class Conssubmed implements Serializable {
         this.times = times;
     }
 
+    public Consultation getConsultation() {
+        return consultation;
+    }
+
+    public void setConsultation(Consultation consultation) {
+        this.consultation = consultation;
+    }
+
+    public Submedicine getSubmedicine() {
+        return submedicine;
+    }
+
+    public void setSubmedicine(Submedicine submedicine) {
+        this.submedicine = submedicine;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -104,22 +119,6 @@ public class Conssubmed implements Serializable {
     @Override
     public String toString() {
         return "MiriamCenter.Conssubmed[ conssubmedPK=" + conssubmedPK + " ]";
-    }
-
-    public Consultation getConsultation() {
-        return consultation;
-    }
-
-    public void setConsultation(Consultation consultation) {
-        this.consultation = consultation;
-    }
-
-    public Submedicine getSubmedicine() {
-        return submedicine;
-    }
-
-    public void setSubmedicine(Submedicine submedicine) {
-        this.submedicine = submedicine;
     }
     
 }

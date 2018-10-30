@@ -6,21 +6,19 @@
 package MiriamCenter;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -31,21 +29,19 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Street.findAll", query = "SELECT s FROM Street s")
-    , @NamedQuery(name = "Street.findByIdstreet", query = "SELECT s FROM Street s WHERE s.idstreet = :idstreet")
+    , @NamedQuery(name = "Street.findByIdStreet", query = "SELECT s FROM Street s WHERE s.idStreet = :idStreet")
     , @NamedQuery(name = "Street.findByStreetName", query = "SELECT s FROM Street s WHERE s.streetName = :streetName")})
 public class Street implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Column(name = "idstreet")
-    private Integer idstreet;
+    @Column(name = "idStreet")
+    private Integer idStreet;
     @Size(max = 30)
     @Column(name = "streetName")
     private String streetName;
-    @OneToMany(mappedBy = "streetId")
-    private Collection<Person> personCollection;
     @JoinColumn(name = "idRegion", referencedColumnName = "idRegion")
     @ManyToOne
     private Region idRegion;
@@ -53,16 +49,16 @@ public class Street implements Serializable {
     public Street() {
     }
 
-    public Street(Integer idstreet) {
-        this.idstreet = idstreet;
+    public Street(Integer idStreet) {
+        this.idStreet = idStreet;
     }
 
-    public Integer getIdstreet() {
-        return idstreet;
+    public Integer getIdStreet() {
+        return idStreet;
     }
 
-    public void setIdstreet(Integer idstreet) {
-        this.idstreet = idstreet;
+    public void setIdStreet(Integer idStreet) {
+        this.idStreet = idStreet;
     }
 
     public String getStreetName() {
@@ -71,15 +67,6 @@ public class Street implements Serializable {
 
     public void setStreetName(String streetName) {
         this.streetName = streetName;
-    }
-
-    @XmlTransient
-    public Collection<Person> getPersonCollection() {
-        return personCollection;
-    }
-
-    public void setPersonCollection(Collection<Person> personCollection) {
-        this.personCollection = personCollection;
     }
 
     public Region getIdRegion() {
@@ -93,7 +80,7 @@ public class Street implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idstreet != null ? idstreet.hashCode() : 0);
+        hash += (idStreet != null ? idStreet.hashCode() : 0);
         return hash;
     }
 
@@ -104,7 +91,7 @@ public class Street implements Serializable {
             return false;
         }
         Street other = (Street) object;
-        if ((this.idstreet == null && other.idstreet != null) || (this.idstreet != null && !this.idstreet.equals(other.idstreet))) {
+        if ((this.idStreet == null && other.idStreet != null) || (this.idStreet != null && !this.idStreet.equals(other.idStreet))) {
             return false;
         }
         return true;
@@ -112,7 +99,7 @@ public class Street implements Serializable {
 
     @Override
     public String toString() {
-        return "MiriamCenter.Street[ idstreet=" + idstreet + " ]";
+        return "MiriamCenter.Street[ idStreet=" + idStreet + " ]";
     }
     
 }

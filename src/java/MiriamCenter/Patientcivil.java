@@ -32,9 +32,6 @@ public class Patientcivil implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected PatientcivilPK patientcivilPK;
-    @JoinColumn(name = "IdPerson", referencedColumnName = "IdPerson", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Patient patient;
     @JoinColumn(name = "idCivilStatus", referencedColumnName = "idcivilstatus")
     @ManyToOne
     private Civilstatus idCivilStatus;
@@ -46,7 +43,7 @@ public class Patientcivil implements Serializable {
         this.patientcivilPK = patientcivilPK;
     }
 
-    public Patientcivil(String idPerson, Date date) {
+    public Patientcivil(int idPerson, Date date) {
         this.patientcivilPK = new PatientcivilPK(idPerson, date);
     }
 
@@ -56,14 +53,6 @@ public class Patientcivil implements Serializable {
 
     public void setPatientcivilPK(PatientcivilPK patientcivilPK) {
         this.patientcivilPK = patientcivilPK;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
 
     public Civilstatus getIdCivilStatus() {

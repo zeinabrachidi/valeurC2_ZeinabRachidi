@@ -13,7 +13,6 @@ import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -24,9 +23,8 @@ public class PatientcivilPK implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 7)
     @Column(name = "IdPerson")
-    private String idPerson;
+    private int idPerson;
     @Basic(optional = false)
     @NotNull
     @Column(name = "date")
@@ -36,16 +34,16 @@ public class PatientcivilPK implements Serializable {
     public PatientcivilPK() {
     }
 
-    public PatientcivilPK(String idPerson, Date date) {
+    public PatientcivilPK(int idPerson, Date date) {
         this.idPerson = idPerson;
         this.date = date;
     }
 
-    public String getIdPerson() {
+    public int getIdPerson() {
         return idPerson;
     }
 
-    public void setIdPerson(String idPerson) {
+    public void setIdPerson(int idPerson) {
         this.idPerson = idPerson;
     }
 
@@ -60,7 +58,7 @@ public class PatientcivilPK implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idPerson != null ? idPerson.hashCode() : 0);
+        hash += (int) idPerson;
         hash += (date != null ? date.hashCode() : 0);
         return hash;
     }
@@ -72,7 +70,7 @@ public class PatientcivilPK implements Serializable {
             return false;
         }
         PatientcivilPK other = (PatientcivilPK) object;
-        if ((this.idPerson == null && other.idPerson != null) || (this.idPerson != null && !this.idPerson.equals(other.idPerson))) {
+        if (this.idPerson != other.idPerson) {
             return false;
         }
         if ((this.date == null && other.date != null) || (this.date != null && !this.date.equals(other.date))) {

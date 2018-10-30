@@ -10,7 +10,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -21,44 +20,42 @@ public class DependentsPK implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 7)
     @Column(name = "iIdPersonPers")
-    private String iIdPersonPers;
+    private int iIdPersonPers;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 7)
     @Column(name = "IdPersonPat")
-    private String idPersonPat;
+    private int idPersonPat;
 
     public DependentsPK() {
     }
 
-    public DependentsPK(String iIdPersonPers, String idPersonPat) {
+    public DependentsPK(int iIdPersonPers, int idPersonPat) {
         this.iIdPersonPers = iIdPersonPers;
         this.idPersonPat = idPersonPat;
     }
 
-    public String getIIdPersonPers() {
+    public int getIIdPersonPers() {
         return iIdPersonPers;
     }
 
-    public void setIIdPersonPers(String iIdPersonPers) {
+    public void setIIdPersonPers(int iIdPersonPers) {
         this.iIdPersonPers = iIdPersonPers;
     }
 
-    public String getIdPersonPat() {
+    public int getIdPersonPat() {
         return idPersonPat;
     }
 
-    public void setIdPersonPat(String idPersonPat) {
+    public void setIdPersonPat(int idPersonPat) {
         this.idPersonPat = idPersonPat;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (iIdPersonPers != null ? iIdPersonPers.hashCode() : 0);
-        hash += (idPersonPat != null ? idPersonPat.hashCode() : 0);
+        hash += (int) iIdPersonPers;
+        hash += (int) idPersonPat;
         return hash;
     }
 
@@ -69,10 +66,10 @@ public class DependentsPK implements Serializable {
             return false;
         }
         DependentsPK other = (DependentsPK) object;
-        if ((this.iIdPersonPers == null && other.iIdPersonPers != null) || (this.iIdPersonPers != null && !this.iIdPersonPers.equals(other.iIdPersonPers))) {
+        if (this.iIdPersonPers != other.iIdPersonPers) {
             return false;
         }
-        if ((this.idPersonPat == null && other.idPersonPat != null) || (this.idPersonPat != null && !this.idPersonPat.equals(other.idPersonPat))) {
+        if (this.idPersonPat != other.idPersonPat) {
             return false;
         }
         return true;

@@ -16,7 +16,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -35,9 +34,8 @@ public class Chefservice implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 7)
     @Column(name = "IdPerson")
-    private String idPerson;
+    private Integer idPerson;
     @JoinColumn(name = "IdPerson", referencedColumnName = "IdPerson", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Doctor doctor;
@@ -45,15 +43,15 @@ public class Chefservice implements Serializable {
     public Chefservice() {
     }
 
-    public Chefservice(String idPerson) {
+    public Chefservice(Integer idPerson) {
         this.idPerson = idPerson;
     }
 
-    public String getIdPerson() {
+    public Integer getIdPerson() {
         return idPerson;
     }
 
-    public void setIdPerson(String idPerson) {
+    public void setIdPerson(Integer idPerson) {
         this.idPerson = idPerson;
     }
 

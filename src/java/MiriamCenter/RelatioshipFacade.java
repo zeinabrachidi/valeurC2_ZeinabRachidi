@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @author zeina
  */
 @Stateless
-public class RelatioshipFacade extends AbstractFacade<Relatioship> {
+public class RelatioshipFacade extends AbstractFacade<Relatioship> implements RelatioshipFacadeLocal {
 
     @PersistenceContext(unitName = "DOSSIER_MEDICALPU")
     private EntityManager em;

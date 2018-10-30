@@ -38,14 +38,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Consultation.findByMontant", query = "SELECT c FROM Consultation c WHERE c.montant = :montant")})
 public class Consultation implements Serializable {
 
-    @ManyToMany(mappedBy = "consultationCollection")
-    private Collection<Diseases> diseasesCollection;
-    @JoinColumn(name = "idMedicalActCons", referencedColumnName = "idMedicalAct")
-    @OneToOne(optional = false)
-    private Medicalact medicalact;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "consultation")
-    private Collection<Conssubmed> conssubmedCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -54,6 +46,8 @@ public class Consultation implements Serializable {
     private Integer idMedicalActCons;
     @Column(name = "montant")
     private Integer montant;
+    @ManyToMany(mappedBy = "consultationCollection")
+    private Collection<Diseases> diseasesCollection;
     @JoinTable(name = "constest", joinColumns = {
         @JoinColumn(name = "idMedicalAct", referencedColumnName = "idMedicalActCons")}, inverseJoinColumns = {
         @JoinColumn(name = "idTest", referencedColumnName = "idTest")})
@@ -64,11 +58,16 @@ public class Consultation implements Serializable {
         @JoinColumn(name = "idVaccine", referencedColumnName = "idvaccines")})
     @ManyToMany
     private Collection<Vaccines> vaccinesCollection;
-    @JoinColumn(name = "IdPersonDoc", referencedColumnName = "IdPerson")
+    @JoinColumn(name = "IdPersonDoc", referencedColumnName = "idSpeciality")
     @ManyToOne
     private Doctor idPersonDoc;
+    @JoinColumn(name = "idMedicalActCons", referencedColumnName = "idMedicalAct", insertable = false, updatable = false)
+    @OneToOne(optional = false)
+    private Medicalact medicalact;
     @OneToMany(mappedBy = "idMedicalAct")
     private Collection<Consultmedication> consultmedicationCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "consultation")
+    private Collection<Conssubmed> conssubmedCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMedicalActCons")
     private Collection<Constestlab> constestlabCollection;
 
@@ -93,6 +92,15 @@ public class Consultation implements Serializable {
 
     public void setMontant(Integer montant) {
         this.montant = montant;
+    }
+
+    @XmlTransient
+    public Collection<Diseases> getDiseasesCollection() {
+        return diseasesCollection;
+    }
+
+    public void setDiseasesCollection(Collection<Diseases> diseasesCollection) {
+        this.diseasesCollection = diseasesCollection;
     }
 
     @XmlTransient
@@ -121,6 +129,14 @@ public class Consultation implements Serializable {
         this.idPersonDoc = idPersonDoc;
     }
 
+    public Medicalact getMedicalact() {
+        return medicalact;
+    }
+
+    public void setMedicalact(Medicalact medicalact) {
+        this.medicalact = medicalact;
+    }
+
     @XmlTransient
     public Collection<Consultmedication> getConsultmedicationCollection() {
         return consultmedicationCollection;
@@ -128,6 +144,15 @@ public class Consultation implements Serializable {
 
     public void setConsultmedicationCollection(Collection<Consultmedication> consultmedicationCollection) {
         this.consultmedicationCollection = consultmedicationCollection;
+    }
+
+    @XmlTransient
+    public Collection<Conssubmed> getConssubmedCollection() {
+        return conssubmedCollection;
+    }
+
+    public void setConssubmedCollection(Collection<Conssubmed> conssubmedCollection) {
+        this.conssubmedCollection = conssubmedCollection;
     }
 
     @XmlTransient
@@ -162,32 +187,6 @@ public class Consultation implements Serializable {
     @Override
     public String toString() {
         return "MiriamCenter.Consultation[ idMedicalActCons=" + idMedicalActCons + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Diseases> getDiseasesCollection() {
-        return diseasesCollection;
-    }
-
-    public void setDiseasesCollection(Collection<Diseases> diseasesCollection) {
-        this.diseasesCollection = diseasesCollection;
-    }
-
-    public Medicalact getMedicalact() {
-        return medicalact;
-    }
-
-    public void setMedicalact(Medicalact medicalact) {
-        this.medicalact = medicalact;
-    }
-
-    @XmlTransient
-    public Collection<Conssubmed> getConssubmedCollection() {
-        return conssubmedCollection;
-    }
-
-    public void setConssubmedCollection(Collection<Conssubmed> conssubmedCollection) {
-        this.conssubmedCollection = conssubmedCollection;
     }
     
 }

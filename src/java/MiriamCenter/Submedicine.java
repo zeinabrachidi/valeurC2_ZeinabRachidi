@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,7 +20,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -35,13 +36,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Submedicine.findBySubmedicineDose", query = "SELECT s FROM Submedicine s WHERE s.submedicineDose = :submedicineDose")})
 public class Submedicine implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "submedicine")
-    private Collection<Conssubmed> conssubmedCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idSubmedicine")
     private Integer idSubmedicine;
     @Column(name = "submedicineDose")
@@ -57,6 +55,8 @@ public class Submedicine implements Serializable {
     @JoinColumn(name = "idUnit", referencedColumnName = "idUnit")
     @ManyToOne
     private Unit idUnit;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "submedicine")
+    private Collection<Conssubmed> conssubmedCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "submedicine")
     private Collection<Medisubmed> medisubmedCollection;
 
@@ -117,6 +117,15 @@ public class Submedicine implements Serializable {
     }
 
     @XmlTransient
+    public Collection<Conssubmed> getConssubmedCollection() {
+        return conssubmedCollection;
+    }
+
+    public void setConssubmedCollection(Collection<Conssubmed> conssubmedCollection) {
+        this.conssubmedCollection = conssubmedCollection;
+    }
+
+    @XmlTransient
     public Collection<Medisubmed> getMedisubmedCollection() {
         return medisubmedCollection;
     }
@@ -148,15 +157,6 @@ public class Submedicine implements Serializable {
     @Override
     public String toString() {
         return "MiriamCenter.Submedicine[ idSubmedicine=" + idSubmedicine + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Conssubmed> getConssubmedCollection() {
-        return conssubmedCollection;
-    }
-
-    public void setConssubmedCollection(Collection<Conssubmed> conssubmedCollection) {
-        this.conssubmedCollection = conssubmedCollection;
     }
     
 }

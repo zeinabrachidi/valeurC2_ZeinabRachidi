@@ -10,6 +10,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,7 +19,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -35,23 +36,20 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Region.findByRegionName", query = "SELECT r FROM Region r WHERE r.regionName = :regionName")})
 public class Region implements Serializable {
 
-    @OneToMany(mappedBy = "idRegion")
-    private Collection<Patient> patientCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idRegion")
     private Integer idRegion;
     @Size(max = 30)
     @Column(name = "regionName")
     private String regionName;
-    @OneToMany(mappedBy = "idRegion")
-    private Collection<Street> streetCollection;
     @JoinColumn(name = "idcity", referencedColumnName = "idcity")
     @ManyToOne
     private City idcity;
+    @OneToMany(mappedBy = "idRegion")
+    private Collection<Street> streetCollection;
 
     public Region() {
     }
@@ -76,6 +74,14 @@ public class Region implements Serializable {
         this.regionName = regionName;
     }
 
+    public City getIdcity() {
+        return idcity;
+    }
+
+    public void setIdcity(City idcity) {
+        this.idcity = idcity;
+    }
+
     @XmlTransient
     public Collection<Street> getStreetCollection() {
         return streetCollection;
@@ -83,14 +89,6 @@ public class Region implements Serializable {
 
     public void setStreetCollection(Collection<Street> streetCollection) {
         this.streetCollection = streetCollection;
-    }
-
-    public City getIdcity() {
-        return idcity;
-    }
-
-    public void setIdcity(City idcity) {
-        this.idcity = idcity;
     }
 
     @Override
@@ -116,15 +114,6 @@ public class Region implements Serializable {
     @Override
     public String toString() {
         return "MiriamCenter.Region[ idRegion=" + idRegion + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Patient> getPatientCollection() {
-        return patientCollection;
-    }
-
-    public void setPatientCollection(Collection<Patient> patientCollection) {
-        this.patientCollection = patientCollection;
     }
     
 }
