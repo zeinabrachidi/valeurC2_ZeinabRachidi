@@ -28,5 +28,7 @@ public interface UnitFacadeLocal {
     List<Unit> findRange(int[] range);
 
     int count();
+
+    public boolean insertUnit(String unitDesc);
     
 }

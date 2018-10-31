@@ -17,7 +17,7 @@
         <h1>Add Region</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="" method="post" onsubmit="return checkForm(this);">
+        <form action="insertRegion.jsp" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
@@ -32,8 +32,7 @@
                             <td><select id="choose" name="choose">                           
                                     <option value="0">Select City</option>
                                     <%
-                                    try
-                                    {  String query = "SELECT * FROM valeurc2.city;";
+                                      String query = "SELECT * FROM valeurc2.city;";
                                        Statement st= con.createStatement(); 
                                        ResultSet rs = st.executeQuery(query); 
                                        while (rs.next())
@@ -43,19 +42,6 @@
                                            </opion>  
                                          <%
                                        }      
-                                       String regionName = request.getParameter("regionName");
-                                       int choosen =0;
-                                       if (request.getParameter("choose") != null)
-                                           choosen = Integer.parseInt(request.getParameter("choose"));
-                                       if (regionName != null && choosen != 0)
-                                       {  int i=st.executeUpdate("INSERT INTO `valeurc2`.`region` (`regionName`, `idcity`) VALUES ( '"+regionName+"', '"+choosen+"'); ");
-                                          out.println("Registered"); 
-                                       }
-                                    } 
-                                    catch (Exception ex) 
-                                    { ex.printStackTrace();
-                                      out.println("error " + ex.getMessage());
-                                    }
                                    %>
                                 </select>
                             </td>    

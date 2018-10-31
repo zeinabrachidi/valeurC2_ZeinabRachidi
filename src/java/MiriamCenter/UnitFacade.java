@@ -8,6 +8,11 @@ package MiriamCenter;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import MiriamCenter.DB_Connection;
+
 
 /**
  *
@@ -28,4 +33,26 @@ public class UnitFacade extends AbstractFacade<Unit> implements UnitFacadeLocal 
         super(Unit.class);
     }
     
+    /**
+     *
+     * @param unitDesc
+     * @return
+     */
+    @Override
+    public boolean insertUnit(String unitDesc)
+    {   DB_Connection DB_Con=new DB_Connection();
+        Connection connection=DB_Con.get_connection();	
+        
+               
+        try
+        {  Unit u = new Unit();
+           u.setUnitDesc(unitDesc);
+           em.persist(u);
+           return true;
+        }
+        catch (Exception e)
+        { System.err.println(e);      } 
+       
+        return false;
+    }
 }

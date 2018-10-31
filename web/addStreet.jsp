@@ -17,7 +17,7 @@
         <h1>Add Street</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="" method="post" >
+        <form action="insertStreet.jsp" method="post" >
             <table align="center">
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
@@ -43,13 +43,6 @@
                                            </opion>  
                                          <%
                                        }      
-                                       String StreetName = request.getParameter("streetName");
-                                       int choosenRegion =0;
-                                       if (request.getParameter("choose") != null && StreetName != null)
-                                       {    choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
-                                            int i=st.executeUpdate("INSERT INTO `valeurc2`.`street` (`StreetName`, `idRegion`) VALUES ( '"+StreetName+"', '"+choosenRegion+"'); ");
-                                            out.println("Registered"); 
-                                       }
                                     } 
                                     catch (Exception ex) 
                                     { ex.printStackTrace();
