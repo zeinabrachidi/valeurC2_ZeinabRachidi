@@ -16,7 +16,6 @@
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="unitReg" method="post" onsubmit="return checkForm(this);">
             <table align="center">
-                
                 <tr>
                     <td>Id unit </td>
                     <td><input type="text" name="idUnit"/></td> 

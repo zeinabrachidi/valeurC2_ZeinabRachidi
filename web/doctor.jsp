@@ -18,36 +18,37 @@
     <body>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="doctor.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="" method="post" onsubmit="return checkForm(this);">
         <table>
             <%
                 Class.forName("com.mysql.jdbc.Driver"); 
                 java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
-                int choosenSpeciality = 0;
-                Statement stp= con.createStatement(); 
+                Statement st=con.createStatement();
+                ResultSet rs; 
                 
-                  String idPers = request.getParameter("idPerson");
-                  out.println("idPers=" + idPers);
-                  int idPerson = Integer.parseInt(idPers);
-                  out.println("idPerson=" + idPerson);
-                  String syndicat_no = request.getParameter("syndicat_no");
-                try 
-                {
-                  if (idPerson != 0 && syndicat_no!= null)
-                  {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`, `syndicat_no`, `idSpeciality`) VALUES ( '"+ idPerson +"', '"+ syndicat_no +"', '"+ choosenSpeciality +"'); ");
-                     out.println(" Person Registered"); 
-                  }
+                int idPerson = Integer.parseInt(request.getParameter("idPerson"));
+                out.println("idPerson=" + idPerson);
+                String syndicat_no = request.getParameter("syndicat_no");
+                
+                try{
+                    
+                    int choosenSpeciality = 0;
+                    if (request.getParameter("chooseSpeciality") != null)
+                        choosenSpeciality = Integer.parseInt(request.getParameter("chooseSpeciality"));
+                    if (idPerson != 0 && syndicat_no!= null)
+                    {   int i=st.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`, `syndicat_no`, `idSpeciality`) VALUES ( '"+ idPerson +"', '"+ syndicat_no +"', '"+ choosenSpeciality +"'); "); }
+                        out.println(" Person Registered"); 
+                } 
+                catch (Exception ex) 
+                { ex.printStackTrace();
+                    out.println("error " + ex.getMessage());
                 }
-                catch (Exception e) {
-                    System.out.println(e);
-                }
-            %>  
+
+             %>
             
             <tr>
-                <td> Id Person no</td>
-                   <td>
-                      <input type="text" name="idPerson" value="<%=(idPerson)%>" >
-                   </td> 
+                <td> Id Person </td>
+                   <td><%=(idPerson)%></td> 
             </tr>
             <tr>
                 <td>Syndicat no</td>
@@ -60,8 +61,8 @@
                            <%
                                 try
                                 {                                 
-                                    Statement st= con.createStatement(); 
-                                    ResultSet rs = st.executeQuery("SELECT * FROM valeurc2.Speciality;"); 
+                                    rs = st.executeQuery("SELECT * FROM valeurc2.Speciality;"); 
+                                    int choosenSpeciality = 0;
                                     while (rs.next())
                                     { %>
                                         <option value="<%=rs.getInt("idSpeciality") %>" 
@@ -69,7 +70,6 @@
                                         </opion>  
                                       <%
                                     }      
-                                    choosenSpeciality = Integer.parseInt(request.getParameter("chooseSpeciality"));
                                 } 
                                 catch (Exception ex) 
                                 { ex.printStackTrace();

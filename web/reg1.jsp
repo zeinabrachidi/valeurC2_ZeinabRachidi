@@ -21,18 +21,15 @@
         <h1>Register</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="reg1.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="insertPerson.jsp" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
-                         int choosenStreet = 0;
-                         int choosenProfession = 0;
-                         int choosenPersonType = 0;
-                         int choosenNationlity = 0;
+                         Statement st= con.createStatement(); 
+                         ResultSet rs;
                          String src;
                 %>  
-               
                 <tr>
                     <td>First Name</td>
                     <td><input type="text" name="firstName"/></td>    
@@ -43,7 +40,9 @@
                 </tr>
                 <tr>
                     <td>Gender</td>
-                    <td><input type="text" name="gender"/></td>    
+                    <td>
+                        <input type="text" name="gender"/>
+                    </td>    
                 </tr>
                 <tr>
                     <td>Mobile</td>
@@ -60,9 +59,7 @@
                             <%
                               try
                                 { String query = "SELECT * FROM valeurc2.profession;";
-                                    
-                                  Statement st= con.createStatement(); 
-                                  ResultSet rs = st.executeQuery(query); 
+                                  rs = st.executeQuery(query); 
                                   while (rs.next())
                                   { %>
                                       <option value="<%=rs.getInt("idProfession") %>" 
@@ -70,12 +67,11 @@
                                       </opion>  
                                     <%
                                   }      
-                                  choosenProfession = Integer.parseInt(request.getParameter("chooseProfession"));
-                                  } 
-                                  catch (Exception ex) 
-                                  { ex.printStackTrace();
+                                } 
+                                catch (Exception ex) 
+                                { ex.printStackTrace();
                                     out.println("error " + ex.getMessage());
-                                  }
+                                }
                             %>
                         </select>
                     </td>  
@@ -88,9 +84,7 @@
                                     <%
                                     try
                                     {  String query = "SELECT valeurc2.street.idStreet, concat(valeurc2.city.cityName, '  ', valeurc2.region.regionName, '  ', valeurc2.street.streetName) as Street_Name FROM valeurc2.city, valeurc2.region, valeurc2.street where valeurc2.city.idcity = valeurc2.region.idcity and valeurc2.region.idRegion=valeurc2.street.idRegion;";
-                                    
-                                       Statement st= con.createStatement(); 
-                                       ResultSet rs = st.executeQuery(query); 
+                                       rs = st.executeQuery(query); 
                                        while (rs.next())
                                        { %>
                                            <option value="<%=rs.getInt("idStreet") %>" 
@@ -98,7 +92,6 @@
                                            </opion>  
                                          <%
                                        }      
-                                       choosenStreet = Integer.parseInt(request.getParameter("chooseStreet"));
                                     } 
                                     catch (Exception ex) 
                                     { ex.printStackTrace();
@@ -124,8 +117,7 @@
                             <%
                               try
                                {  String query = "SELECT * FROM valeurc2.persontype;";
-                                  Statement st= con.createStatement(); 
-                                  ResultSet rs = st.executeQuery(query); 
+                                  rs = st.executeQuery(query); 
                                   while (rs.next())
                                   { int idType = rs.getInt("idpersonType") ;
                                     String TypeDesc = rs.getString("personTypeDesc");
@@ -137,9 +129,7 @@
                                             </opion>  
                                         <%
                                     }    
-                                  }      
-                                  choosenPersonType = Integer.parseInt(request.getParameter("choosePersonType"));
-                                  out.println("choosen)person type=" + choosenPersonType);
+                                  }       
                                  } 
                                   catch (Exception ex) 
                                   { ex.printStackTrace();
@@ -149,63 +139,20 @@
                         </select>
                     </td>  
                 </tr>
+                
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
                </tr>
                <tr>
-                   <td>
-                   <%
-                    Statement stp= con.createStatement(); 
-                    ResultSet rs; 
-                    
-                    String firstName= request.getParameter("firstName");
-                    String lastName = request.getParameter("lastName");
-                    String gender =request.getParameter("gender");
-                    String mobile = request.getParameter("mobile");
-                    String e_mail = request.getParameter("e_mail");
-                    String username = request.getParameter("username");
-                    String password = request.getParameter("password");
-                    if (firstName != null && lastName != null &&  gender!=null && mobile != null && e_mail != null && username != null && password != null)
-                    {  int i=stp.executeUpdate("INSERT INTO `valeurc2`.`person` (`firstName`, `lastName`, `gender`, `mobile`, `e_mail`, `idProfession`, `idStreet`, `username`, `password`) VALUES ( '"+ firstName +"', '"+ lastName +"', '"+ gender +"', '"+ mobile +"', '"+ e_mail +"', '"+ choosenProfession +"', '"+ choosenStreet +"', '"+ username +"', '"+ password +"'); ");
-                        out.println(" Person Registered"); 
-                        rs = stp.executeQuery("SELECT * FROM valeurc2.person order by idPerson desc limit 1;"); 
-                        rs.next();
-                        int idPerson =rs.getInt("idPerson");
-                        out.print("id=" + idPerson);
-                        
-                        if (idPerson != 0 && choosenPersonType != 0)
-                        {  i = stp.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ idPerson +"', '"+ choosenPersonType +"'); ");  }
-                                        
-                        if(choosenPersonType == 2)
-                        {    %>
-                              out.print("idPerson=" + <%=(idPerson)%>);
-                               <a href ="doctor.jsp?idPerson = <%=(idPerson)%> ">go to Doctor page</a>
-                              out.print("after sending idPerson=" + <%=(idPerson)%>);   
-                            <%                    
-                        }
-                        else 
-                            if (choosenPersonType == 3)
-                            {         
-                               %>
-                               <a href ="patient.jsp?idPerson = <%=(idPerson)%> ">Go to Patient Page</a><br/><br/>    
-                              <%                 
-                            }
-                            else 
-                               if(choosenPersonType == 4)
-                               { i=stp.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
-                               else
-                                 if(choosenPersonType == 5)
-                                 { i=stp.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
-                    }
-                %>              
-                   </td> 
-               </tr> 
+                   <td> <a href ="login.xhtml">Login</a><br/><br/></td>
+               </tr>
+               <tr>
+                   <td> <a href="index.xhtml">Home</a><br/><br/></td>
+               </tr>
+
             </table>
             
         </form>       
-
-<a href ="login.xhtml">Login</a><br/><br/>
-<a href="index.xhtml">Home</a>
 <script>
     function SelectPersonType(src)
     { window.location = src;    }
