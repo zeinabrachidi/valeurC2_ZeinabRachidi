@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addRegion
-    Created on : Oct 20, 2018, 7:43:55 PM
+    Document   : addMedicalAct
+    Created on : Nov 3, 2018, 10:32:49 PM
     Author     : zeina
 --%>
 
@@ -14,10 +14,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Add Region</h1>
+        <h1>Add Medical Act</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="insertRegion.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="insertMedicalAct.jsp" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
                         Class.forName("com.mysql.jdbc.Driver"); 
@@ -25,20 +25,28 @@
                         Statement st= con.createStatement(); 
                 %>  
                 <tr>
-                    <td>Region Name</td>
-                    <td><input type="text" name="regionName"/></td>    
+                    <td>Medical Act Date</td>
+                    <td><input type="text" name="medicalActDate"/></td>    
                 </tr>
                 <tr>
-                    <td>Id City</td>
-                            <td><select id="choose" name="choose">                           
+                    <td>Medical Act Time</td>
+                    <td><input type="text" name="medicalactTime"/></td>    
+                </tr>
+                <tr>
+                    <td>Medical Act Description</td>
+                    <td><input type="text" name="medicalactDesc"/></td>    
+                </tr>
+                <tr>
+                    <td>Id Medical Card</td>
+                            <td><select id="chooseCard" name="chooseCard">                           
                                     <option value="0">Select City</option>
                                     <%
-                                       String query = "SELECT * FROM valeurc2.city;";
+                                       String query = "SELECT valeurc2.medicalcard.idmedicaCard, concat(valeurc2.person.firstName, ' ', valeurc2.person.lastName) as fullName FROM valeurc2.medicalcard, valeurc2.patient, valeurc2.person where valeurc2.medicalcard.IdPersonPat = valeurc2.patient.IdPerson and valeurc2.patient.IdPerson = valeurc2.person.IdPerson;"; 
                                        ResultSet rs = st.executeQuery(query); 
                                        while (rs.next())
                                        { %>
-                                           <option value="<%=rs.getInt("idcity") %>" 
-                                                          ><%=rs.getString("cityName")%>
+                                           <option value="<%=rs.getInt("idmedicaCard") %>" 
+                                                          ><%=rs.getString("fullName")%>
                                            </opion>  
                                          <%
                                        }      

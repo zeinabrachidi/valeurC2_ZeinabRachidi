@@ -37,7 +37,8 @@
                         choosenSpeciality = Integer.parseInt(request.getParameter("chooseSpeciality"));
                     if (idPerson != 0 && syndicat_no!= null)
                     {   int i=st.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`, `syndicat_no`, `idSpeciality`) VALUES ( '"+ idPerson +"', '"+ syndicat_no +"', '"+ choosenSpeciality +"'); "); }
-                        out.println(" Person Registered"); 
+                        out.println(" Doctor Registered"); 
+
                 } 
                 catch (Exception ex) 
                 { ex.printStackTrace();
@@ -47,7 +48,7 @@
              %>
             
             <tr>
-                <td> Id Person </td>
+                <td> Id Person no</td>
                    <td><%=(idPerson)%></td> 
             </tr>
             <tr>

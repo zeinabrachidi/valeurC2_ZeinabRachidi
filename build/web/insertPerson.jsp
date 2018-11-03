@@ -46,19 +46,19 @@
                         <a href ="doctor.jsp?idPerson=<%=(idPerson)%> ">Go to Doctor page</a> 
                     <%                    
                 }
-                else 
+                
                 if (choosenPersonType == 3)
                 {         
                     %>
-                        <a href ="patient.jsp?idPerson=<%=(idPerson)%> ">Go to Patient Page</a><br/><br/>    
+                        <a href ="patient.jsp?idPerson=<%=(idPerson)%> ">Go to Patient Page</a>   
                     <%                 
                 }
-                else 
-                    if(choosenPersonType == 4)
-                    { i=st.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
-                    else
-                        if(choosenPersonType == 5)
-                        { i=st.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
+
+                if(choosenPersonType == 4)
+                { i=st.executeUpdate("INSERT INTO `valeurc2`.`auxiliary` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
+                    
+                if(choosenPersonType == 5)
+                { i=st.executeUpdate("INSERT INTO `valeurc2`.`technician` (`idPerson`) VALUES ( '"+ idPerson +"' ); "); }
             }
     } 
     catch (Exception ex) 

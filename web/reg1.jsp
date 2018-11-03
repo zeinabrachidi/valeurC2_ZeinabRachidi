@@ -144,10 +144,10 @@
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
                </tr>
                <tr>
-                   <td> <a href ="login.xhtml">Login</a><br/><br/></td>
+                   <td colspan="2" style="text-align: center;"> <a href ="login.xhtml">Login</a><br/><br/></td>
                </tr>
                <tr>
-                   <td> <a href="index.xhtml">Home</a><br/><br/></td>
+                   <td colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a><br/><br/></td>
                </tr>
 
             </table>

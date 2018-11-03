@@ -8,10 +8,11 @@
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page isELIgnored ="false" %>
+
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date"%>
 
-<%@ page isELIgnored ="false" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,22 +24,24 @@
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
         <table>
+            
             <%
                 Class.forName("com.mysql.jdbc.Driver"); 
                 java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
-                Statement st= con.createStatement(); 
+                Statement st=con.createStatement();
                 ResultSet rs; 
                 
-                
-                int idPerson= Integer.parseInt(request.getParameter("idPerson"));
+                int idPerson = Integer.parseInt(request.getParameter("idPerson"));
                 out.println("idPerson=" + idPerson);
-               
+                
                 int ssn = Integer.parseInt(request.getParameter("ssn"));
                 String registerNo =request.getParameter("registerNo");
+                
                 String dob_s = request.getParameter("dob");
-                Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
+                java.util.Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
+                java.sql.Date sqlDate = new java.sql.Date(dob.getTime());
+                
                 String bloodGrp = request.getParameter("bloodGrp");
-
                 try{
                     int choosenNationality=0;
                     int choosenRegion =0;
@@ -46,18 +49,18 @@
                         choosenNationality = Integer.parseInt(request.getParameter("chooseNationality"));
                     if (request.getParameter("chooseRegion") != null)
                         choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
-                    if (idPerson != 0 && ssn!= 0 &&  registerNo != null)
-                    {  int i=st.executeUpdate("INSERT INTO `valeurc2`.`patient` (`idPerson`, `ssn`, `registerNo`, `dob`, `bloodGrp`, `idNationality`, `idRegion`) VALUES ( '"+ idPerson +"', '"+ ssn +"', '"+ registerNo +"', '"+ dob +"', '"+ bloodGrp +"', '"+ choosenNationality +"', '"+ choosenRegion +"'); "); }
-                    out.println(" Person Registered"); 
-                }
+                    if (idPerson != 0 && ssn!= 0)
+                    {  int i=st.executeUpdate("INSERT INTO `valeurc2`.`patient` (`idPerson`, `ssn`, `registerNo`, `dob`, `bloodGrp`, `idNationality`, `idRegion`) VALUES ( '"+ idPerson +"', '"+ ssn +"', '"+ registerNo +"', '"+ sqlDate +"', '"+ bloodGrp +"', '"+ choosenNationality +"', '"+ choosenRegion +"'); "); }
+                    out.println(" Patient Registered"); 
+                } 
                 catch(Exception e){
                     System.out.print(e);
                     e.printStackTrace();
                 }
-            %>  
+             %>
             
             <tr>
-                <td> Id Person </td>
+                <td> Id Person no</td>
                    <td><%=(idPerson)%></td> 
             </tr>
             <tr>

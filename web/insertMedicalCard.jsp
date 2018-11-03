@@ -6,41 +6,40 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*,java.util.*"%>
-<!DOCTYPE html>
-<%
-                        
-    String emissionDate = request.getParameter("emissionDate");
+<%@ page import ="javax.sql.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page isELIgnored ="false" %>
 
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date"%>
+
+
+
+<!DOCTYPE html>
+<%   
     try{
         Class.forName("com.mysql.jdbc.Driver"); 
         java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
         Statement st=con.createStatement();
         ResultSet rs; 
-        String query = "SELECT valeurc2.patient.idPerson, concat(valeurc2.person.firstName, ' ', valeurc2.person.lastName, ' ', valeurc2.patient.ssn, ' ' , valeurc2.patient.registerNo) as Patient_Data FROM valeurc2.person, valeurc2.patient where valeurc2.person.idPerson = valeurc2.patient.idPerson;";
-        st= con.createStatement(); 
-        rs = st.executeQuery(query); 
-        while (rs.next())
-        { %>
-            <option value="<%=rs.getInt("idPerson") %>" 
-                            ><%=rs.getString("firstName")%>
-                            <%=rs.getString("lastName")%>    
-            </opion>  
-           <%
-        }      
+        
+        String emissionDate_s = request.getParameter("emissionDate");
+        java.util.Date emissionDate = new SimpleDateFormat("dd/MM/yyyy").parse(emissionDate_s);
+        java.sql.Date sqlDate = new java.sql.Date(emissionDate.getTime());
+        
+        String s = request.getParameter("choosePatient");
+        out.println("choosePatient= " + s);
+        
         int choosenPatient =0;
-        if (request.getParameter("choose") != null && emissionDate != null)
+        if (request.getParameter("choosePatient") != null && emissionDate != null)
         {   choosenPatient = Integer.parseInt(request.getParameter("choosePatient"));
-            int i=st.executeUpdate("INSERT INTO `valeurc2`.`medicalCard` (`emissionDate`, `IdPersonPat`) VALUES ( '"+emissionDate+"', '"+choosenPatient+"'); ");
+            int i=st.executeUpdate("INSERT INTO `valeurc2`.`medicalCard` (`emissionDate`, `IdPersonPat`) VALUES ( '"+sqlDate+"', '"+choosenPatient+"'); ");     }
             out.println("Data is successfully inserted!"); 
-        }
     } 
     catch (Exception ex) 
         { ex.printStackTrace();
           out.println("error " + ex.getMessage());
-        
         }
-
-
  %>
 
 

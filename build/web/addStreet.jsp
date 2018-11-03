@@ -22,6 +22,8 @@
                 <%
                          Class.forName("com.mysql.jdbc.Driver"); 
                          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
+                        Statement st= con.createStatement(); 
+                        ResultSet rs;
                 %>  
                 <tr>
                     <td>Street Name</td>
@@ -33,9 +35,8 @@
                                     <option value="0">Select Region</option>
                                     <%
                                     try
-                                    {  String query = "SELECT valeurc2.region.idRegion, concat(valeurc2.city.cityName, ' ', valeurc2.region.regionName) as Region_Name FROM valeurc2.city, valeurc2.region where valeurc2.city.idcity = valeurc2.region.idcity;";
-                                       Statement st= con.createStatement(); 
-                                       ResultSet rs = st.executeQuery(query); 
+                                    {  String query = "SELECT valeurc2.region.idRegion, concat(valeurc2.city.cityName, ' ', valeurc2.region.regionName) as Region_Name FROM valeurc2.city, valeurc2.region where valeurc2.city.idcity = valeurc2.region.idcity;"; 
+                                       rs = st.executeQuery(query); 
                                        while (rs.next())
                                        { %>
                                            <option value="<%=rs.getInt("idRegion") %>" 
