@@ -34,7 +34,7 @@
                             <td><select id="choose" name="choosePatient">                           
                                     <option value="0">Select Patient</option>
                                     <%  
-                                        String query = "SELECT valeurc2.patient.idPerson, concat(valeurc2.person.firstName, ' ', valeurc2.person.lastName, ' ', valeurc2.patient.ssn, ' ' , valeurc2.patient.registerNo) as Patient_Data FROM valeurc2.person, valeurc2.patient where valeurc2.person.idPerson = valeurc2.patient.idPerson;";
+                                        String query = "SELECT * from valeurc2.q_patient;";
                                         rs = st.executeQuery(query); 
                                          while (rs.next())
                                         { %>

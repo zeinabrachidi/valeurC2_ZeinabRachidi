@@ -12,6 +12,7 @@
     String medicalactTime = request.getParameter("medicalactTime");
     String medicalactDesc =request.getParameter("medicalactDesc");
     String chooseCard = request.getParameter("chooseCard");
+    String chooseType = request.getParameter("chooseType");
 
     try{
         Class.forName("com.mysql.jdbc.Driver"); 
@@ -21,30 +22,30 @@
         ResultSet rs; 
     
         int choosenCard = Integer.parseInt(request.getParameter("chooseCard"));
+         int choosenType = Integer.parseInt(request.getParameter("chooseType"));
                   
-        if (medicalactDesc != null && choosenCard  != 0)
+        if (medicalactDesc != null && choosenCard  != 0 )
         {   int i=st.executeUpdate("INSERT INTO `valeurc2`.`medicalact` (`medicalActDate`, `medicalactTime`, `medicalactDesc`, `idMedicalCard`) VALUES ( '"+ medicalActDate +"', '"+ medicalactTime +"', '"+ medicalactDesc +"', '"+ choosenCard  +"'); ");
             out.println(" medicalAct Registered"); 
             rs = st.executeQuery("SELECT * FROM valeurc2.medicalAct order by idMedicalAct desc limit 1;"); 
             rs.next();
             int idMedicalAct =rs.getInt("idMedicalAct");
                         
-            if (idMedicalAct != 0 && choosenPersonType != 0)
-            {  i = st.executeUpdate("INSERT INTO `valeurc2`.`accept_persons` (`idPerson`, `idPersonType`) VALUES ( '"+ idMedicalAct +"', '"+ choosenPersonType +"'); ");  }
-                                        
-                if(choosenPersonType == 2)
+            if (idMedicalAct != 0 && choosenType  != 0)
+            {   if(choosenType == 1)
                 {    %>
-                        <a href ="doctor.jsp?idMedicalAct=<%=(idMedicalAct)%> ">Go to Consultation page</a> 
+                        <a href ="addConsultation.jsp?idMedicalAct=<%=(idMedicalAct)%> ">Go to Consultation page</a> 
                     <%                    
                 }
                 
-                if (choosenPersonType == 3)
+                if (choosenType == 3)
                 {         
                     %>
-                        <a href ="patient.jsp?idMedicalAct=<%=(idMedicalAct)%> ">Go to Hospitalization Page</a>   
+                        <a href ="addHospitalization.jsp?idMedicalAct=<%=(idMedicalAct)%> ">Go to Hospitalization Page</a>   
                     <%                 
                 }
             }
+        }
     } 
     catch (Exception ex) 
     { ex.printStackTrace();

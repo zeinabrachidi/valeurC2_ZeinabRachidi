@@ -55,6 +55,16 @@
                             </td>    
                 </tr>
                 <tr>
+                    <td>Medical Act Type</td>
+                            <td><select id="chooseType" name="chooseType">  
+                                    <option value="0">Select</opion>    
+                                    <option value="1">Consultation</opion>
+                                    <option value="2">Hospitalization</opion>  
+                                </select>
+                       
+                    </td>    
+                </tr>
+                <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
                </tr>
                <tr>

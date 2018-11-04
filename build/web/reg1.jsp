@@ -83,7 +83,7 @@
                                     <option value="0">Select Street</option>
                                     <%
                                     try
-                                    {  String query = "SELECT valeurc2.street.idStreet, concat(valeurc2.city.cityName, '  ', valeurc2.region.regionName, '  ', valeurc2.street.streetName) as Street_Name FROM valeurc2.city, valeurc2.region, valeurc2.street where valeurc2.city.idcity = valeurc2.region.idcity and valeurc2.region.idRegion=valeurc2.street.idRegion;";
+                                    {  String query = "SELECT * FROM valeurc2.q_street;";
                                        rs = st.executeQuery(query); 
                                        while (rs.next())
                                        { %>
