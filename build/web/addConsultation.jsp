@@ -26,48 +26,42 @@
                 Statement st=con.createStatement();
                 ResultSet rs; 
                 
-                int idPerson = Integer.parseInt(request.getParameter("idPerson"));
-                out.println("idPerson=" + idPerson);
-                String syndicat_no = request.getParameter("syndicat_no");
-                
-                try{
-                    
-                    int choosenSpeciality = 0;
-                    if (request.getParameter("chooseSpeciality") != null)
-                        choosenSpeciality = Integer.parseInt(request.getParameter("chooseSpeciality"));
-                    if (idPerson != 0 && syndicat_no!= null)
-                    {   int i=st.executeUpdate("INSERT INTO `valeurc2`.`doctor` (`idPerson`, `syndicat_no`, `idSpeciality`) VALUES ( '"+ idPerson +"', '"+ syndicat_no +"', '"+ choosenSpeciality +"'); "); }
-                        out.println(" Doctor Registered"); 
+                int idMedicalAct = Integer.parseInt(request.getParameter("idMedicalAct"));
+                out.println("idMedicalAct=" + idMedicalAct);
 
-                } 
-                catch (Exception ex) 
+                try{
+                    int choosenDoctor = 0;
+                    if (request.getParameter("chooseDoctor") != null)
+                        choosenDoctor = Integer.parseInt(request.getParameter("chooseDoctor"));
+                    int montant = Integer.parseInt(request.getParameter("montant"));
+                    
+                    if (idMedicalAct != 0 && choosenDoctor != 0)
+                    {   int i=st.executeUpdate("INSERT INTO `valeurc2`.`consultation` (`idMedicalActCons`, `IdPersonDoc`, `montant`) VALUES ( '"+ idMedicalAct +"', '"+ choosenDoctor +"', '"+ montant +"'); "); 
+                        out.println(" Consultation Registered");
+                    }    
+                }  catch (Exception ex) 
                 { ex.printStackTrace();
                     out.println("error " + ex.getMessage());
                 }
-
              %>
             
             <tr>
-                <td> Id Person no</td>
-                   <td><%=(idPerson)%></td> 
+                <td> Id Medical Act</td>
+                   <td><%=(idMedicalAct)%></td> 
             </tr>
             <tr>
-                <td>Syndicat no</td>
-                <td><input type="text" name="syndicat_no"/></td>    
-            </tr>
-            <tr>
-                <td>Id Speciality</td>
-                <td><select id="chooseSpeciality" name="chooseSpeciality">                           
-                       <option value="0">Select Speciality</option>
+                <td>Id Doctor</td>
+                <td><select id="chooseDoctor" name="chooseDoctor">                           
+                       <option value="0">Select Doctor</option>
                            <%
                                 try
                                 {                                 
-                                    rs = st.executeQuery("SELECT * FROM valeurc2.Speciality;"); 
-                                    int choosenSpeciality = 0;
+                                    rs = st.executeQuery("SELECT * FROM valeurc2.q_doctors;"); 
+                                    int choosenDoctor = 0;
                                     while (rs.next())
                                     { %>
-                                        <option value="<%=rs.getInt("idSpeciality") %>" 
-                                                      ><%=rs.getString("specialityDesc")%>
+                                        <option value="<%=rs.getInt("idPerson") %>" 
+                                                      ><%=rs.getString("Doctor_Data")%>
                                         </opion>  
                                       <%
                                     }      
@@ -79,7 +73,11 @@
                             %>
                     </select>
                 </td>  
-                <td><a href="addSpeciality .jsp">Add Speciality </a></td>
+                <td><a href="reg1.jsp">Add Doctor </a></td>
+            </tr>
+            <tr>
+                <td> Montant</td>
+                <td><input type="text" name="montant"/></td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
