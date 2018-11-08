@@ -17,10 +17,6 @@
         <form action="unitReg" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <tr>
-                    <td>Id unit </td>
-                    <td><input type="text" name="idUnit"/></td> 
-                </tr>
-                <tr>
                     <td>unit Description</td>
                     <td><input type="text" name="unitDesc"/></td> 
                 </tr>

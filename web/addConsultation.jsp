@@ -83,6 +83,39 @@
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
             </tr>
         </table>
+        <table id="hideDesease"  name=hideDisease"  border="1" style="display: none"   >  
+            <tr>
+                <td>Id Medical Act</td>
+                <td>Id Disease</td>
+                <td>Disease Name</td> 
+            </tr>
+            <tr>
+                <td><%=(idMedicalAct)%></td>
+                <td>Id Disease</td>
+                <td><select id="chooseDisease" name="chooseDisease">                           
+                       <option value="0">Select Disease</option>
+                           <%
+                                try
+                                {                                 
+                                    rs = st.executeQuery("SELECT * FROM valeurc2.Diseases;"); 
+                                    int choosenDisease = 0;
+                                    while (rs.next())
+                                    { %>
+                                        <option value="<%=rs.getInt("iddisease") %>" 
+                                                      ><%=rs.getString("diseaseName")%>
+                                        </opion>  
+                                      <%
+                                    }      
+                                } 
+                                catch (Exception ex) 
+                                { ex.printStackTrace();
+                                  out.println("error " + ex.getMessage());
+                                }
+                            %>
+                    </select>
+                </td>   
+            </tr>
+        </table>    
         </form>     
     </body>
 </html>

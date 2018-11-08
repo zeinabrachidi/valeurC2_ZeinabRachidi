@@ -5,16 +5,15 @@
         <group>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/reg1.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addMedicalAct.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addHospital.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertMedicalAct.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addRegion.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/index.xhtml</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addUnit.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/unitForm.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addConsultation.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertPerson.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/doctor.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertMedicalCard.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addMedicalCard.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addHospitalization.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertCity.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/unitReg.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/unitReg.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/Unit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/UnitFacade.java</file>
         </group>
     </open-files>
 </project-private>

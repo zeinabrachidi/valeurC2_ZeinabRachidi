@@ -12,6 +12,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import MiriamCenter.DB_Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -39,14 +43,29 @@ public class UnitFacade extends AbstractFacade<Unit> implements UnitFacadeLocal 
      * @return
      */
     @Override
-    public boolean insertUnit(String unitDesc)
-    {   DB_Connection DB_Con=new DB_Connection();
-        Connection connection=DB_Con.get_connection();	
-        
+    public boolean insertUnit(int idUnit, String unitDesc)
+    {   try { 
+        Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UnitFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try { 	
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02");
+        } catch (SQLException ex) {
+            Logger.getLogger(UnitFacade.class.getName()).log(Level.SEVERE, null, ex);
+        }
                
         try
         {  Unit u = new Unit();
+           String query = "SELECT * FROM valeurc2.Unit order by idUnit desc limit 1";
+           if (u.getIdUnit()== null)
+               u.setIdUnit(1);
+           else 
+               u.setIdUnit(u.getIdUnit() + 1);
+           System.out.println(u.getIdUnit());
            u.setUnitDesc(unitDesc);
+           System.out.println(u.getIdUnit());
+           System.out.println();
            em.persist(u);
            return true;
         }

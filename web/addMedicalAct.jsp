@@ -34,19 +34,19 @@
                 </tr>
                 <tr>
                     <td>Medical Act Description</td>
-                    <td><input type="text" name="medicalactDesc"/></td>    
+                    <td><input type="textArea" name="medicalactDesc" maxLength="300" rows="5" cols="60"/></td>    
                 </tr>
                 <tr>
                     <td>Id Medical Card</td>
                             <td><select id="chooseCard" name="chooseCard">                           
-                                    <option value="0">Select City</option>
+                                    <option value="0">Select Medical Card</option>
                                     <%
-                                       String query = "SELECT valeurc2.medicalcard.idmedicaCard, concat(valeurc2.person.firstName, ' ', valeurc2.person.lastName) as fullName FROM valeurc2.medicalcard, valeurc2.patient, valeurc2.person where valeurc2.medicalcard.IdPersonPat = valeurc2.patient.IdPerson and valeurc2.patient.IdPerson = valeurc2.person.IdPerson;"; 
+                                       String query = "SELECT valeurc2.medicalcard.idmedicaCard, valeurc2.q_patient.Peron_Data FROM valeurc2.medicalcard, valeurc2.q_patient where valeurc2.medicalcard.IdPersonPat = valeurc2.q_patient.IdPerson;"; 
                                        ResultSet rs = st.executeQuery(query); 
                                        while (rs.next())
                                        { %>
                                            <option value="<%=rs.getInt("idmedicaCard") %>" 
-                                                          ><%=rs.getString("fullName")%>
+                                                          ><%=rs.getString("Peron_Data")%>
                                            </opion>  
                                          <%
                                        }      
