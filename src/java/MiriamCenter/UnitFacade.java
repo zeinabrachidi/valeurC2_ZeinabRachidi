@@ -8,10 +8,7 @@ package MiriamCenter;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
-import MiriamCenter.DB_Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -23,7 +20,7 @@ import java.util.logging.Logger;
  * @author zeina
  */
 @Stateless
-public class UnitFacade extends AbstractFacade<Unit> implements UnitFacadeLocal {
+public abstract class UnitFacade extends AbstractFacade<Unit> implements UnitFacadeLocal {
 
     @PersistenceContext(unitName = "DOSSIER_MEDICALPU")
     private EntityManager em;
@@ -39,10 +36,11 @@ public class UnitFacade extends AbstractFacade<Unit> implements UnitFacadeLocal 
     
     /**
      *
+     * @param idUnit
      * @param unitDesc
      * @return
      */
-    @Override
+    //@Override
     public boolean insertUnit(int idUnit, String unitDesc)
     {   try { 
         Class.forName("com.mysql.jdbc.Driver");

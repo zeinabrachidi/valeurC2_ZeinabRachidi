@@ -3,17 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/reg1.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addMedicalAct.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/InsertUnit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/readUnit.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/EditUnit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Unit_Edit_controller.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/index.xhtml</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addUnit.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/unitForm.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addConsultation.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertCity.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/unitReg.java</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/unitReg.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/Unit.java</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/UnitFacade.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Unit_Controller.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/editUnit.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/DeleteUnit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertUnit.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/ReadUnit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Unit_Delete_controller.jsp</file>
         </group>
     </open-files>
 </project-private>
