@@ -18,7 +18,6 @@ public class Unit_bean implements Serializable{
     private int  idUnit;
     private String unitDesc;
 
-
     public Unit_bean() {
     }
 

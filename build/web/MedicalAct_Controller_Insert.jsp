@@ -1,42 +1,43 @@
 <%-- 
-    Document   : insertMedicalAct
-    Created on : Nov 3, 2018, 10:33:10 PM
+    Document   : MedicalAct_Controller_Insert
+    Created on : Nov 11, 2018, 1:08:02 PM
     Author     : zeina
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*,java.util.*"%>
-<%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored ="false" %>
-
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date"%>
+<%@page import="MiriamCenter.DB_Connection"%>
+<%@page import="MiriamCenter.MedicalAct_Insert"%>
+
 <!DOCTYPE html>
 <%  
     String medicalActDate_s= request.getParameter("medicalActDate");
     java.util.Date medicalActDate = new SimpleDateFormat("dd/MM/yyyy").parse(medicalActDate_s);
-    java.sql.Date sqlDate = new java.sql.Date(medicalActDate.getTime());
         
     String medicalactTime_s = request.getParameter("medicalactTime");    
     java.util.Date medicalactTime = new SimpleDateFormat("hh:mm").parse(medicalactTime_s);
-    java.sql.Timestamp sqlTime = new java.sql.Timestamp(medicalactTime.getTime());
     
     String medicalactDesc =request.getParameter("medicalactDesc");
     String chooseCard = request.getParameter("chooseCard");
     String chooseType = request.getParameter("chooseType");
 
     try{
-        Class.forName("com.mysql.jdbc.Driver"); 
-        java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/valeurC2","root","Sara00Malek02"); 
-        Statement st=con.createStatement();
-        ResultSet rs; 
+        DB_Connection obj_DB_Con =new DB_Connection();
+        Connection con=obj_DB_Con.get_connection();
+		
+	Statement st=con.createStatement();
+	ResultSet rs; 
     
         int choosenCard = Integer.parseInt(request.getParameter("chooseCard"));
         int choosenType = Integer.parseInt(request.getParameter("chooseType"));
                   
         if (medicalactDesc != null && choosenCard  != 0 )
-        {   int i=st.executeUpdate("INSERT INTO `valeurc2`.`medicalact` (`medicalActDate`, `medicalactTime`, `medicalactDesc`, `idMedicalCard`) VALUES ( '"+ sqlDate +"', '"+ sqlTime +"', '"+ medicalactDesc +"', '"+ choosenCard  +"'); ");
+        {   MedicalAct_Insert mi = new MedicalAct_Insert();
+           mi.insert_values(medicalActDate, medicalactTime, medicalactDesc, choosenCard);
+            
             out.println(" medicalAct Registered"); 
             out.println();
             out.println();
@@ -65,3 +66,4 @@
         out.println("error " + ex.getMessage());
     }
  %>
+

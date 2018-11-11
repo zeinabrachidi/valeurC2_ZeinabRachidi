@@ -19,11 +19,10 @@
 <body>
 	<%
 	int idUnit=Integer.parseInt(request.getParameter("idUnit"));
-	out.print("in edit.jsp idUnit=" + idUnit);
+        
 	EditUnit eu = new EditUnit();
 	
 	Unit_bean ub = eu.get_value_of_unit(idUnit);
-        out.print("after call get_value_of _unit idUnit=" + ub.getIdUnit() + "  unitDesc=" + ub.getUnitDesc()) ;
 	
 	%>
 

@@ -33,7 +33,7 @@
         ResultSet rs; 
     
         int choosenCard = Integer.parseInt(request.getParameter("chooseCard"));
-         int choosenType = Integer.parseInt(request.getParameter("chooseType"));
+        int choosenType = Integer.parseInt(request.getParameter("chooseType"));
                   
         if (medicalactDesc != null && choosenCard  != 0 )
         {   int i=st.executeUpdate("INSERT INTO `valeurc2`.`medicalact` (`medicalActDate`, `medicalactTime`, `medicalactDesc`, `idMedicalCard`) VALUES ( '"+ sqlDate +"', '"+ sqlTime +"', '"+ medicalactDesc +"', '"+ choosenCard  +"'); ");

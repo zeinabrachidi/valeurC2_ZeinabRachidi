@@ -12,7 +12,7 @@
 <!DOCTYPE html>
     
         <%
-                
+     
         String unitDesc = request.getParameter("unitDesc");
         if (unitDesc != null)
         {              
