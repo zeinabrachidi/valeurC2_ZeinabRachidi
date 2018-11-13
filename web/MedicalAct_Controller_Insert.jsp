@@ -35,7 +35,7 @@
         int choosenType = Integer.parseInt(request.getParameter("chooseType"));
                   
         if (medicalactDesc != null && choosenCard  != 0 )
-        {   MedicalAct_Insert mi = new MedicalAct_Insert();
+        {  MedicalAct_Insert mi = new MedicalAct_Insert();
            mi.insert_values(medicalActDate, medicalactTime, medicalactDesc, choosenCard);
             
             out.println(" medicalAct Registered"); 

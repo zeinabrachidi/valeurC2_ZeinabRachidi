@@ -3,19 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/InsertUnit.java</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/addMedicalAct.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/MedicalAct_Insert.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Consultation_Controller_Insert.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/editUnit.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Consultation_Insert.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/ReadUnit.java</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/MedicalAct_Controller_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/reg1.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/EditUnit.java</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertMedicalAct.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/index.xhtml</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/insertUnit.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/Consultation_Insert.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/editUnit.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Person_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/ReadUnit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Person_Controller_Insert.jsp</file>
         </group>
     </open-files>
 </project-private>
