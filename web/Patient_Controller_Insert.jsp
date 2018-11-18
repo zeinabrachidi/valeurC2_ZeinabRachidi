@@ -23,22 +23,21 @@
                 
     String dob_s = request.getParameter("dob");
     java.util.Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
-    java.sql.Date sqlDate = new java.sql.Date(dob.getTime());
+
                 
     String bloodGrp = request.getParameter("bloodGrp");
-
-   try{
-        int choosenNationality=0;
+    int choosenNationality=0;
         int choosenRegion =0;
         if (request.getParameter("chooseNationality") !=null)
                 choosenNationality = Integer.parseInt(request.getParameter("chooseNationality"));
         if (request.getParameter("chooseRegion") != null)
                 choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
+
+   try{
         if (idPerson != 0 && ssn!= 0)
         {  Patient_Insert pi = new Patient_Insert();
-           pi.insert_values(idPerson,  ssn, registerNo,  dob,  bloodGrp,  choosenNationality,  choosenRegion);
-            
-            int i=st.executeUpdate("INSERT INTO `valeurc2`.`patient` (`idPerson`, `ssn`, `registerNo`, `dob`, `bloodGrp`, `idNationality`, `idRegion`) VALUES ( '"+ idPerson +"', '"+ ssn +"', '"+ registerNo +"', '"+ sqlDate +"', '"+ bloodGrp +"', '"+ choosenNationality +"', '"+ choosenRegion +"'); "); }
+           pi.insert_values(idPerson,  ssn, registerNo,  dob,  bloodGrp,  choosenNationality,  choosenRegion);   
+        }
             out.println(" Patient Registered"); 
         } 
         catch(Exception e){
@@ -47,4 +46,3 @@
         }
 %>
 
-<input type="submit" value="Save Data" onclick="SaveData"  style="text-align: center;"/>

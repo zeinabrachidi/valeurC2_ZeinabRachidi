@@ -1,10 +1,13 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <h:head>
-        <title>WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
+<%-- 
+    Document   : Admin_Login
+    Created on : Nov 18, 2018, 9:10:34 PM
+    Author     : zeina
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
         <style>
             *{
                 margin: 0px;
@@ -52,20 +55,12 @@
               position :absolute;
             }  
         </style>
-    </h:head>
-    <h:body>
+    </head>
+    <body>
         <h1 style="color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br>
         <h1 style="color: red; font-size: large;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1><br></br><br></br>
         <div id="container">
             <ul>
-                <li>Register
-                    <ul>
-                        <li><a href="Person_Insert.jsp">Add Registration</a></li> 
-                        <li><a href="RegistrationType_Insert.jsp">Add Registration Type</a></li>
-                    </ul>           
-                </li>
-                <li><a href="login.jsp">Login</a></li>
-                <li><a href="contactUs.xhtml">Contact Us</a></li>  
                 <li>Administrative
                     <ul>
                         <li>Manage tables
@@ -307,10 +302,15 @@
                         <li>Test Lab</li>
                         <li>Add Patient Type</li>
                     </ul>
-                </li>        
-            </ul> 
-            
-        </div>
-    </h:body>
+                </li>
+
+            </ul>
+        </div>    
+    </body>
 </html>
 
+<script type="text/javascript">
+ window.location.href="login.jsp";
+</script>
+
+                        

@@ -13,6 +13,7 @@
 
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date"%>
+<%@page import="MiriamCenter.Patient_Insert"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +24,7 @@
         <h1>Register</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="Patient_Controller_Insert.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
                     DB_Connection obj_DB_Con =new DB_Connection();
@@ -31,7 +32,33 @@
                     Statement st=con.createStatement();
                     ResultSet rs;
                     int idPerson = Integer.parseInt(request.getParameter("idPerson"));
-                %> 
+                    int ssn = Integer.parseInt(request.getParameter("ssn"));
+                    String registerNo =request.getParameter("registerNo");
+
+                    String dob_s = request.getParameter("dob");
+                    java.util.Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
+
+
+                    String bloodGrp = request.getParameter("bloodGrp");
+                    int choosenNationality=0;
+                        int choosenRegion =0;
+                        if (request.getParameter("chooseNationality") !=null)
+                                choosenNationality = Integer.parseInt(request.getParameter("chooseNationality"));
+                        if (request.getParameter("chooseRegion") != null)
+                                choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
+
+                   try{
+                        if (idPerson != 0 && ssn!= 0)
+                        {  Patient_Insert pi = new Patient_Insert();
+                           pi.insert_values(idPerson,  ssn, registerNo,  dob,  bloodGrp,  choosenNationality,  choosenRegion);   
+                        }
+                            out.println(" Patient Registered"); 
+                        } 
+                        catch(Exception e){
+                            System.out.print(e);
+                            e.printStackTrace();
+                        }
+                %>
 
             <tr>
                 <td> Id Person no</td>
@@ -106,7 +133,14 @@
             <tr>
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
             </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><a href="index.xhtml">Home</a><br/><br/></td>
+            </tr>
         </table>
         </form>            
     </body>
 </html>
+
+ <script type="text/javascript">
+ window.location.href="RegistrationType_Insert.jsp";
+</script>

@@ -110,35 +110,7 @@
                     <td>Password</td>
                     <td><input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"/></td>    
                 </tr>
-                <tr>
-                    <td>Choose Person Type</td>
-                    <td><select id="choosePersonType" name="choosePersonType">                           
-                            <option value="0">Select Person Type</option>
-                            <%
-                              try
-                               {  String query = "SELECT * FROM valeurc2.persontype;";
-                                  rs = st.executeQuery(query); 
-                                  while (rs.next())
-                                  { int idType = rs.getInt("idpersonType") ;
-                                    String TypeDesc = rs.getString("personTypeDesc");
-                                    if (idType != 1)
-                                    { 
-                                        %>
-                                            <option value="<%=(idType)%>" 
-                                                          ><%=(TypeDesc)%>
-                                            </opion>  
-                                        <%
-                                    }    
-                                  }       
-                                 } 
-                                  catch (Exception ex) 
-                                  { ex.printStackTrace();
-                                    out.println("error " + ex.getMessage());
-                                  }
-                            %>
-                        </select>
-                    </td>  
-                </tr>
+                
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
                </tr>

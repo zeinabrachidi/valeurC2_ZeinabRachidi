@@ -18,7 +18,8 @@ public class Doctor_Insert{
 	public void insert_values(int idPerson, String syndicatNo, int idSpeciality) throws ClassNotFoundException, SQLException{
 
 		DB_Connection obj_con =new DB_Connection();
-		Connection con=obj_con.get_connection();     
+		Connection con=obj_con.get_connection();  
+                con.setAutoCommit(true);
 		
 	    try {
                 PreparedStatement ps; 
@@ -29,6 +30,8 @@ public class Doctor_Insert{
                 ps.setInt(3, idSpeciality); 
                 
 		ps.executeUpdate();
+                con.commit();
+                
 	    } catch (SQLException e) {
                 System.err.println(e);
 	    }

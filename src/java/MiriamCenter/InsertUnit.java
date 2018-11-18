@@ -16,17 +16,20 @@ import java.sql.*;
 public class InsertUnit {
 
 	public void insert_values(String unitDesc) throws ClassNotFoundException, SQLException{
-		
-            System.out.print("before try" + unitDesc);
+
 		DB_Connection obj_con =new DB_Connection();
-		Connection con=obj_con.get_connection();     
+		Connection con=obj_con.get_connection();   
+                PreparedStatement ps; 
 		
 	    try {
-                PreparedStatement ps; 
+                
                 String query = "INSERT INTO unit(unitDesc) VALUES(?);" ;
                 ps = con.prepareStatement(query);
+                
                 ps.setString(1, unitDesc);    
-		ps.executeUpdate();
+		
+                ps.executeUpdate();
+                
 	    } catch (SQLException e) {
 			System.err.println(e);
 	    }

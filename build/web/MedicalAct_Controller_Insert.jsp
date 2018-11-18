@@ -48,7 +48,7 @@
             if (idMedicalAct != 0 && choosenType  != 0)
             {   if(choosenType == 1)
                 {    %>
-                        <a href ="addConsultation.jsp?idMedicalAct=<%=(idMedicalAct)%>">Go to Consultation page</a> 
+                        <a href ="Consultation_Insert.jsp?idMedicalAct=<%=(idMedicalAct)%>">Go to Consultation page</a> 
                     <%                    
                 }
                 

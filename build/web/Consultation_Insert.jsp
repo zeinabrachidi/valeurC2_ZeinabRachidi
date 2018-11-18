@@ -75,7 +75,6 @@
             <tr>
                 <td>Id Medical Act</td>
                 <td>Id Disease</td>
-                <td>Disease Name</td> 
             </tr>
             <tr>
                 <td><%=(idMedicalAct)%></td>
