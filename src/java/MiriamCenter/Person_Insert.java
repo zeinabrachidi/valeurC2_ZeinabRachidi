@@ -16,11 +16,12 @@ public class Person_Insert {
 	public void insert_values(String firstName, String lastName, String gender, String mobile, String eMail, int idProfession, int idStreet, String username, String password) throws ClassNotFoundException, SQLException{
 
 		DB_Connection obj_con =new DB_Connection();
-		Connection con=obj_con.get_connection();   
+		Connection con=obj_con.get_connection(); 
+                PreparedStatement ps = null; 
                 ResultSet rs;
-                con.setAutoCommit(true);
-                int r = -1;
-                PreparedStatement ps; 
+                con.setAutoCommit(false);
+                int r ;
+                
             try {
                 
                 String query = "INSERT INTO person( firstName, lastName, gender, mobile, eMail, idProfession, idStreet, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);" ;
@@ -34,7 +35,7 @@ public class Person_Insert {
                 ps.setInt(6, idProfession);
                 ps.setInt(7, idStreet);
                 ps.setString(8, username);  
-                 ps.setString(9, password);      
+                ps.setString(9, password);      
                 
 		r = ps.executeUpdate();
                 out.println("r=" + r);
@@ -42,11 +43,12 @@ public class Person_Insert {
                     out.println(" Person Registered " ); 
                 con.commit();
             }
-            catch (Exception ex){
+            catch (SQLException ex){
                  ex.printStackTrace();
             }     
             finally {
-                con.close();   
+                ps.close();
+                con.close();
             }
         }
 }

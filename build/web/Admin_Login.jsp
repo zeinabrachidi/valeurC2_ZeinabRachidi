@@ -57,9 +57,11 @@
         </style>
     </head>
     <body>
-        <h1 style="color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br>
-        <h1 style="color: red; font-size: large;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1><br></br><br></br>
-        <div id="container">
+        <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br>
+        <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
+        <form action="" method="post" onsubmit="return checkForm(this);">
+            <table align="center">
+             <div id="container">
             <ul>
                 <li>Administrative
                     <ul>
@@ -263,13 +265,13 @@
                          
                     </ul>
                 </li>
-                <li>patient
+                <li>Patient Missions
                     <ul> 
                         <li>payment</li>  
                         <li>Show Medical File </li>  
                     </ul>
                 </li>
-                <li>Doctor
+                <li>Doctor Missions
                     <ul>
                         <li> Manage Medical Acts
                             <ul>
@@ -289,7 +291,7 @@
                         <li>Add Patient Type</li>
                     </ul>
                 </li>
-                <li>Auxiliary
+                <li>Auxiliary Missions
                     <ul>
                         <li>appointments</li> 
                         <li>Print Reports</li>
@@ -297,20 +299,21 @@
                         <li>Add Patient Type</li>
                     </ul>
                 </li>
-                <li> Technician
+                <li>Technician Missions
                     <ul>
                         <li>Test Lab</li>
                         <li>Add Patient Type</li>
                     </ul>
                 </li>
-
             </ul>
-        </div>    
+        </div>  
+        <tr>
+             <td colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a><br/><br/></td>
+        </tr>        
+    </table>
     </body>
 </html>
 
-<script type="text/javascript">
- window.location.href="login.jsp";
-</script>
+
 
                         

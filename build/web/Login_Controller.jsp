@@ -21,23 +21,29 @@
                     String username = request.getParameter("username");
                     String password = request.getParameter("password");
                     int choosenType  = Integer.parseInt(request.getParameter("chooseType"));
-                    String query = "select * from q_persontypes where username='"+ username+"' and idpersontype='"+ choosenType+"'" ;
+                    String query = "select * from q_persontypes where username='"+ username+"' and idpersontype='"+ choosenType+"' and accepted='"+ 1 +"' " ;
                     st= con.createStatement(); 
                     rs = st.executeQuery(query); 
                     int idPerson = 0; 
                     boolean flag = false ;
                     while (rs.next()) 
                     {   idPerson = rs.getInt(1);
-                        if (rs.getString(5).equals(password) ) 
+                        if (rs.getString(5).equals(password)) 
                         { out.println("welcome "+ username);
                           flag=true;
                           break; 
                         } 
                         else 
-                        { out.println("Invalid password try again"); } 
+                        { out.println("Invalid password try again"); 
+                             
+                        } 
                     }
                     if (!flag)
-                    { out.println("Invalid usernme"); } 
+                    { out.println("Invalid usernme"); 
+                        %>
+                            <br/><br/><a href="index.xhtml">Home</a><br/><br/> 
+                        <%
+                    } 
                     else
                     { if (choosenType == 1)
                         {  

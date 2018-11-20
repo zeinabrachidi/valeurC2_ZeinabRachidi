@@ -25,7 +25,6 @@
 
     int choosenProfession = Integer.parseInt(request.getParameter("chooseProfession"));
     int choosenStreet = Integer.parseInt(request.getParameter("chooseStreet"));
-    
 
     try
     {
