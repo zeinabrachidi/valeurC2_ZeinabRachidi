@@ -3,18 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/reg1.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/login.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Auxiliairy_Login.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/index.xhtml</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Patient_Login.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/WEB-INF/Technician_Login.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/RegistrationType_Controller_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/MedicalAct_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Unit_Edit_controller.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/Person_Edit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Consultation_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/editUnit.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Consultation_Details.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/MedicalAct_Controller_Insert.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/RegistrationType_Insert.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Admin_Login.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Person_Controller_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Person_Edit.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/EditUnit.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/index.xhtml</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/Person_Read.java</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Person_Edit_Controller.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/RegistrationType_Controller_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Unit_Delete_controller.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Login_Controller.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/dossier_Medical/web/Doctor_Login.jsp</file>
         </group>
     </open-files>
 </project-private>

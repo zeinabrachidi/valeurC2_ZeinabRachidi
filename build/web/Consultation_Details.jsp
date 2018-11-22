@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="datatables" uri="http://github.com/tduchateau/DataTables-taglib" %>
+
 <!DOCTYPE html>
 <html>
     <head>
