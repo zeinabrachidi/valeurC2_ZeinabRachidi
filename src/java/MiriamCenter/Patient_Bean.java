@@ -36,11 +36,11 @@ public class Patient_Bean implements Serializable {
         this.idPerson = idPerson;
     }
     
-    public int getISsn() {
+    public int getSsn() {
         return ssn;
     }
 
-    public void setSdn(int ssn) {
+    public void setSsn(int ssn) {
         this.ssn = ssn;
     }
 
@@ -64,7 +64,7 @@ public class Patient_Bean implements Serializable {
         return bloodGrp;
     }
 
-    public void setbloodGrp(String bloodGrp) {
+    public void setBloodGrp(String bloodGrp) {
         this.bloodGrp = bloodGrp;
     }
     

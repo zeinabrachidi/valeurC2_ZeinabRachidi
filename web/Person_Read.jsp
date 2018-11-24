@@ -17,10 +17,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <body>
     <center>
-
-    <h1>Read Values</h1>
+    <h1>Show Registered Persons</h1>
     <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
     <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
 
@@ -61,3 +59,4 @@
     </center>
 </body>
 </html>
+                

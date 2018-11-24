@@ -26,7 +26,7 @@ public class Person_Read {
         PreparedStatement pst;
 	ResultSet rs;
 		
-	List<Person_Bean> list=new ArrayList<>();
+	List<Person_Bean> list=new ArrayList<Person_Bean>();
 		
 	try {
 		String query="select * from person";    
@@ -40,7 +40,7 @@ public class Person_Read {
                     System.out.println(rs.getString("lastName"));
                     System.out.println(rs.getString("gender"));
                     System.out.println(rs.getString("mobile"));
-                    System.out.println(rs.getString("eMail"));
+                    System.out.println(rs.getString("e_mail"));
                     System.out.println(rs.getInt("idProfession"));
                     System.out.println(rs.getInt("idStreet"));
                     System.out.println(rs.getString("username"));
@@ -51,7 +51,7 @@ public class Person_Read {
                     pb.setLastName(rs.getString("lastName"));
                     pb.setGender(rs.getString("gender"));
                     pb.setMobile(rs.getString("mobile"));
-                    pb.setEMail(rs.getString("eMail"));
+                    pb.setEMail(rs.getString("e_mail"));
                     pb.setIdProfession(rs.getInt("idProfession"));
                     pb.setIdStreet(rs.getInt("idStreet"));
                     pb.setUsername(rs.getString("username"));
@@ -65,4 +65,3 @@ public class Person_Read {
 		return list;
 	}
 }
-

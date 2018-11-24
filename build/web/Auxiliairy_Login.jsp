@@ -30,7 +30,7 @@
             {  list-style: none;  }
             #container ul li
             {  background-color: aqua ;
-               width: 180px;
+               width: 220px;
                border: 1px solid white;
                height: 28px;
                line-height: 28px;
@@ -70,7 +70,7 @@
                         <li>appointments</li> 
                         <li>Print Reports</li>
                         <li>Hospital Admissions</li>
-                        <li>Add Patient Type</li>
+                        <li><a href="Person_Read.jsp">Manage Own Registration</a></li> 
                     </ul>
                 </li>
               

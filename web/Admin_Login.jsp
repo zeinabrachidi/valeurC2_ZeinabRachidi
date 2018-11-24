@@ -28,7 +28,7 @@
             {  list-style: none;  }
             #container ul li
             {  background-color: aqua ;
-               width: 180px;
+               width: 200px;
                border: 1px solid white;
                height: 28px;
                line-height: 28px;
@@ -69,11 +69,16 @@
                             <ul>
                                 <li> permanent tables
                                     <ul>
+                                        <li>Manage Registrations
+                                        <ul>
+                                            <li><a href="Person_Insert.jsp">Add Registration</a></li> 
+                                            <li><a href="Person_Read.jsp">Show Registrations</a></li> 
+                                        </ul>
+                                        </li>
+                                        
                                         <li>Manage Cities
                                             <ul>
                                                 <li><a href="addCity.jsp">add city</a> </li> 
-                                                <li>Modify city</li> 
-                                                <li>Delete city</li> 
                                                 <li><a href="showCity.jsp">show cities</a></li> 
                                             </ul>
                                         </li>
@@ -88,48 +93,36 @@
                                         <li>Manage Streets 
                                             <ul>
                                                 <li><a href="addStreet.jsp">Add Street</a> </li> 
-                                                <li>Modify Street</li> 
-                                                <li>Delete Street</li> 
                                                 <li>Show Streets</li> 
                                             </ul>
                                          </li>
                                         <li>Manage Professions
                                             <ul>
                                                 <li><a href="addProfession.jsp">Add Profession</a> </li> 
-                                                <li>Modify Profession</li> 
-                                                <li>Delete Profession</li> 
                                                 <li><a href="showProfession.jsp">show Professions</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Person Types
                                             <ul>
                                                 <li><a href="addPersonType.jsp">Add Person Type</a> </li> 
-                                                <li>Modify Person Type</li> 
-                                                <li>Delete Person Type</li> 
                                                 <li><a href="showPersonType.jsp">show Person Type</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Nationalities
                                             <ul>
                                                 <li><a href="addNationality.jsp">Add Nationality</a> </li> 
-                                                <li>Modify Nationality</li> 
-                                                <li>Delete Nationality</li> 
                                                 <li><a href="showNationality.jsp">Show Nationality</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Speciality
                                             <ul>
                                                 <li><a href="addSpeciality.jsp">Add Speciality</a> </li> 
-                                                <li>Modify Speciality</li> 
-                                                <li>Delete Speciality</li> 
                                                 <li><a href="showSpeciality.jsp">Show Speciality</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Civil Status
                                             <ul>
                                                 <li><a href="addCivilStatus.jsp">Add Civil Status</a> </li> 
-                                                <li>Modify Civil Status</li> 
-                                                <li>Delete Civil Status</li> 
                                                 <li><a href="showCivilStatus.jsp">Show Civil Status</a></li> 
                                             </ul>
                                         </li>   
@@ -137,80 +130,60 @@
                                         <li>Manage Units
                                             <ul>
                                                 <li><a href="insertUnit.jsp">Insert Unit</a> </li> 
-                                                <li>Modify Unit</li> 
-                                                <li>Delete Unit</li> 
                                                 <li><a href="readUnit.jsp">Show Unit</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Diseases
                                             <ul>
                                                 <li><a href="addDisease.jsp">Add Disease</a> </li> 
-                                                <li>Modify Disease</li> 
-                                                <li>Delete Disease</li> 
                                                 <li><a href="showDisease.jsp">Show Disease</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Families
                                             <ul>
-                                                <li><a href="addFamily.jsp">Add Family</a> </li> 
-                                                <li>modify Family</li> 
-                                                <li>delete Family</li> 
+                                                <li><a href="addFamily.jsp">Add Family</a> </li>  
                                                 <li><a href="showFamily.jsp">Show Family</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Hospitals
                                             <ul>
                                                 <li><a href="addHospital.jsp">Add Hospital</a> </li> 
-                                                <li>Modify Hospital</li> 
-                                                <li>Delete Hospital</li> 
                                                 <li><a href="showHospital.jsp">Show Hospital</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Insurances
                                             <ul>
                                                 <li><a href="addInsurance.jsp">Add Insurance</a> </li> 
-                                                <li>Modify Insurance</li> 
-                                                <li>Delete Insurance</li> 
                                                 <li><a href="showInsurance.jsp">Show Insurance</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Laboratories
                                             <ul>
                                                 <li><a href="addLaboratory.jsp">Add Laboratory</a> </li> 
-                                                <li>Modify Laboratory</li> 
-                                                <li>Delete Laboratory</li> 
                                                 <li><a href="showLaboratory.jsp">Show Laboratory</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Medical Cards
                                             <ul>
                                                 <li><a href="addMedicalCard.jsp">Add Medical Card</a> </li> 
-                                                <li>Modify Medical Card</li> 
-                                                <li>Delete Medical Card</li> 
                                                 <li><a href="showMedicalCard.jsp">Show Medical Card</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Medicines
                                             <ul>
                                                 <li><a href="addMedicine.jsp">Add Medicine</a> </li> 
-                                                <li>Modify Medicine</li> 
-                                                <li>Delete Medicine</li> 
                                                 <li><a href="showMedicine.jsp">Show Medicine</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Medicine Types
                                             <ul>
                                                 <li><a href="addMedicineType.jsp">Add Medicine Type</a> </li> 
-                                                <li>Modify Medicine Type</li> 
-                                                <li>Delete Medicine Type</li> 
                                                 <li><a href="showMedicineType.jsp">Show Medicine Type</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Pharmacies
                                             <ul>
                                                 <li><a href="addPharmacy.jsp">Add Pharmacy</a> </li> 
-                                                <li>Modify Pharmacy</li> 
-                                                <li>Delete Pharmacy</li> 
                                                 <li><a href="showPharmacy.jsp">Show Pharmacy</a></li> 
                                             </ul>
                                         </li>
@@ -218,24 +191,18 @@
                                         <li>Manage Reasons
                                             <ul>
                                                 <li><a href="addReason.jsp">Add Reason</a> </li> 
-                                                <li>Modify Reason</li> 
-                                                <li>Delete Reason</li> 
                                                 <li><a href="showReason.jsp">Show Reason</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Vaccines
                                             <ul>
                                                 <li><a href="addVaccine.jsp">Add Vaccine</a> </li> 
-                                                <li>Modify Vaccine</li> 
-                                                <li>Delete Vaccine</li> 
                                                 <li><a href="showVaccine.jsp">Show Vaccine</a></li> 
                                             </ul>
                                         </li>
                                         <li>Manage Tests
                                             <ul>
                                                 <li><a href="addTest.jsp">Add Test</a> </li> 
-                                                <li>Modify Test</li> 
-                                                <li>Delete Test</li> 
                                                 <li><a href="showTest.jsp">Show Test</a></li> 
                                             </ul>
                                         </li>
@@ -249,20 +216,9 @@
                                 </li>
                             </ul>
                         </li>   
-                        <li>Manage Registrations
-                            <ul>
-                                <li><a href="updateRegAdmin.jsp">Admin Registrations</a></li> 
-                                <li><a href="updateRegDoctor.jsp">Doctor Registrations</a></li> 
-                                <li><a href="updateRegPatient.jsp">Patient Registrations</a></li> 
-                                <li><a href="updateRegAux.jsp">Auxiliairy Registrations</a></li> 
-                                <li><a href="updateRegTech.jsp">Technician Registrations</a></li> 
-                            </ul>
-                        </li>
                         <li>Remove Medical File</li>
                         <li>Show Consultation</li>
                         <li>Show Hospitalization</li>
-                        <li>Add Patient Type</li>
-                         
                     </ul>
                 </li>
                 <li>Patient Missions

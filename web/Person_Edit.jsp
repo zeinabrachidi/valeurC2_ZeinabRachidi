@@ -31,7 +31,7 @@
 <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
 <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
 
-<form action="Person_Controller_Edit.jsp">
+<form action="Person_Edit_Controller.jsp">
 
 Id Person :<input type="text" name="idUnit" value="<%=idPerson%>"><br>
 

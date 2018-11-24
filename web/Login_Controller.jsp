@@ -48,31 +48,31 @@
                     { if (choosenType == 1)
                         {  
                             %>
-                                <a href ="Admin_Login.jsp">Administrator Login </a> 
+                                <a href ="Admin_Login.jsp?username=<%=username%>&password=<%=password%>">Administrator Login </a> 
                             <% 
                         }   
                         if (choosenType == 2) 
                         {
                             %>
-                                <a href ="Doctor_Login.jsp">Doctor Login </a> 
+                                <a href ="Doctor_Login.jsp?username=<%=username%>&password=<%=password%>">Doctor Login </a> 
                             <% 
                         }
                         if (choosenType == 3) 
                         {  
                             %>
-                                 <a href ="Patient_Login.jsp">Patient Login </a> 
+                                 <a href ="Patient_Login.jsp?username=<%=username%>&password=<%=password%>">Patient Login </a> 
                             <% 
                         }
                         if (choosenType == 4) 
                         {    
                              %>
-                                <a href ="Auxiliairy_Login.jsp">Auxiliairy Login </a> 
+                                <a href ="Auxiliairy_Login.jsp?username=<%=username%>&password=<%=password%>">Auxiliairy Login </a> 
                             <% 
                         }
                         if (choosenType == 5) 
                         {    
                              %>
-                                <a href ="Technician_Login.jsp">Technician Login </a> 
+                                <a href ="Technician_Login.jsp?username=<%=username%>&password=<%=password%>">Technician Login </a> 
                              <% 
                         }
                     }

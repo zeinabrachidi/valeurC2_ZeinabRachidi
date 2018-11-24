@@ -30,7 +30,7 @@
             {  list-style: none;  }
             #container ul li
             {  background-color: aqua ;
-               width: 180px;
+               width: 220px;
                border: 1px solid white;
                height: 28px;
                line-height: 28px;
@@ -82,11 +82,10 @@
                         <li>Treat Received Documents </li>
                         <li>Medication </li>
                         <li>Appointments</li>
-                        <li>Add Patient Type</li>
+                        <li><a href="Person_Read.jsp">Manage Own Registration</a></li> 
                     </ul>
                 </li>           
             </ul> 
-            
         </div>
         <tr>
              <td colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a><br/><br/></td>

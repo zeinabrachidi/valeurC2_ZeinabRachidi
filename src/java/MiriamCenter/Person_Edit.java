@@ -35,7 +35,7 @@ public Person_Bean get_value_of_person(int idPerson){
                             pb.setLastName(rs.getString("lastName"));
                             pb.setGender(rs.getString("gender"));
                             pb.setMobile(rs.getString("mobile"));
-                            pb.setEMail(rs.getString("eMail"));
+                            pb.setEMail(rs.getString("e_mail"));
                             pb.setIdProfession(rs.getInt("idProfession"));
                             pb.setIdStreet(rs.getInt("idStreet"));
                             pb.setUsername(rs.getString("username"));
@@ -53,7 +53,7 @@ public Person_Bean get_value_of_person(int idPerson){
 		Connection con=obj_DB_Con.get_connection();
 		PreparedStatement ps;
 		try {
-			String query="update person set firstName=?,lastName=?,gender=?,mobile=?,eMail=?,idProfession=?,idStreet=?,username=?,password=?  where idPerson=?";
+			String query="update person set firstName=?,lastName=?,gender=?,mobile=?,e_mail=?,idProfession=?,idStreet=?,username=?,password=?  where idPerson=?";
 			ps=con.prepareStatement(query);		
                             ps.setInt(1, pb.getIdPerson());
                             ps.setString(2, pb.getFirstName());
