@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Person_Edit_Controller
-    Created on : Nov 21, 2018, 11:54:51 AM
+    Document   : Person_Edit_Own_Controller
+    Created on : Nov 26, 2018, 10:12:08 PM
     Author     : zeina
 --%>
 
@@ -52,5 +52,5 @@
 %>
 
 <script type="text/javascript">
- window.location.href="Person_Read.jsp";
+ window.location.href="Person_Read_Own.jsp";
 </script>

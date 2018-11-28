@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Person_Edit
-    Created on : Nov 21, 2018, 11:45:51 AM
+    Document   : Person_Edit_Own
+    Created on : Nov 26, 2018, 10:11:14 PM
     Author     : zeina
 --%>
 
@@ -31,7 +31,7 @@
 <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
 <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
 
-<form action="Person_Edit_Controller.jsp">
+<form action="Person_Edit_Own_Controller.jsp">
 
 Id Person :<input type="text" name="idPerson" value="<%=idPerson%>"><br>
 

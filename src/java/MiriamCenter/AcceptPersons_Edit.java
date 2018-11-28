@@ -5,10 +5,7 @@
  */
 package MiriamCenter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
@@ -24,7 +21,7 @@ public AcceptPersons_Bean get_value_of_acceptpersons(int idPerson, int idPersonT
 		AcceptPersons_Bean apb = new AcceptPersons_Bean();
 
 		try {
-			String query="select * from accept_persons where idPerson=?,idPersonType=?";
+			String query="select * from accept_persons where idPerson=? and idPersonType=?";
 			ps=con.prepareStatement(query);		
 			ps.setInt(1, idPerson);
                         ps.setInt(2, idPersonType);
@@ -41,16 +38,17 @@ public AcceptPersons_Bean get_value_of_acceptpersons(int idPerson, int idPersonT
 		return apb;
 	}
 
-	public void edit_acceptpersons(AcceptPersons_Bean pb){
+	public void edit_acceptpersons(AcceptPersons_Bean apb){
 		DB_Connection obj_DB_Con=new DB_Connection();
 		Connection con=obj_DB_Con.get_connection();
 		PreparedStatement ps;
 		try {
-			String query="update accept_persons set accepted=? where idPerson=?,idpersonType=?";
+			String query="update accept_persons set accepted=? where idPerson=? and idpersonType=?";
 			ps=con.prepareStatement(query);		
-                            ps.setInt(1, pb.getIdPerson());
-                            ps.setInt(1, pb.getIdPersonType());
-                            ps.setBoolean(1, pb.getAccepted());
+                        ps.setBoolean(1, apb.getAccepted());    
+                        ps.setInt(2, apb.getIdPerson());
+                        ps.setInt(3, apb.getIdPersonType());
+                            
 			ps.executeUpdate();	
 		} catch (SQLException e) {
                     System.out.println(e);

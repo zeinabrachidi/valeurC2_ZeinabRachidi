@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="MiriamCenter.DB_Connection"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,27 +65,37 @@
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
+            <%
+                    DB_Connection obj_DB_Con =new DB_Connection();
+                    Connection con=obj_DB_Con.get_connection();
+
+                    Statement st=con.createStatement();
+                    ResultSet rs; 
+                    
+                    String username = request.getParameter("username");
+                    String password = request.getParameter("password");
+             %>  
             <table align="center">
         <div id="container">
             <ul>
+                <li colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a></li>
                 <li>Doctor
                     <ul>
                         <li> Manage Medical Acts
                             <ul>
                                 <li><a href="MedicalAct_Insert.jsp">Add Medical Act</a> </li> 
-                                <li>Modify Medical Act</li> 
-                                <li>Delete Medical Act</li> 
                                 <li><a href="showMedicalAct.jsp">Show Medical Act</a></li> 
                             </ul>
                         </li>
+                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Manage Own Registration</a></li> 
+                        <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Type</a></li>
                         <li>Medications </li>
                         <li>Add Medical Files</li>
                         <li>Modify Medical Files</li>
                         <li>Update Reports </li>
                         <li>Treat Received Documents </li>
-                        <li>Medication </li>
                         <li>Appointments</li>
-                        <li><a href="Person_Read.jsp">Manage Own Registration</a></li> 
+                        
                     </ul>
                 </li>           
             </ul> 

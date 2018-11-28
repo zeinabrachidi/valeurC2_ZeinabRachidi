@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="MiriamCenter.DB_Connection"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +31,7 @@
             {  list-style: none;  }
             #container ul li
             {  background-color: aqua ;
-               width: 200px;
+               width: 180px;
                border: 1px solid white;
                height: 28px;
                line-height: 28px;
@@ -60,22 +63,42 @@
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
+            <%
+                    DB_Connection obj_DB_Con =new DB_Connection();
+                    Connection con=obj_DB_Con.get_connection();
+
+                    Statement st=con.createStatement();
+                    ResultSet rs; 
+                    
+                    String username = request.getParameter("username");
+                    String password = request.getParameter("password");
+             %>   
             <table align="center">
              <div id="container">
             <ul>
+                <li colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a></li>
                 <li>Administrative
                     <ul>
+                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration</a></li> 
+                        <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Type</a></li>
+                        <li>Manage Registrations
+                            <ul>
+                                <li><a href="Person_Insert.jsp">Add Registration</a></li> 
+                                <li><a href="Person_Read.jsp">Show Registrations</a></li> 
+                                            
+                            </ul>
                         <li>Manage tables
                             <ul>
                                 <li> permanent tables
                                     <ul>
-                                        <li>Manage Registrations
-                                        <ul>
-                                            <li><a href="Person_Insert.jsp">Add Registration</a></li> 
-                                            <li><a href="Person_Read.jsp">Show Registrations</a></li> 
-                                        </ul>
-                                        </li>
                                         
+                                        </li>
+                                        <li>Manage Units
+                                            <ul>
+                                                <li><a href="insertUnit.jsp">Insert Unit</a> </li> 
+                                                <li><a href="readUnit.jsp">Show Unit</a></li> 
+                                            </ul>
+                                        </li>
                                         <li>Manage Cities
                                             <ul>
                                                 <li><a href="addCity.jsp">add city</a> </li> 
@@ -85,8 +108,6 @@
                                         <li>Manage Regions
                                             <ul>
                                                 <li><a href="addRegion.jsp">Add Region</a> </li> 
-                                                <li>Modify Region</li> 
-                                                <li>Delete Region</li> 
                                                 <li>Show Regions</li> 
                                             </ul>
                                         </li>
@@ -127,12 +148,7 @@
                                             </ul>
                                         </li>   
                                         <li>Manage Persons </li>
-                                        <li>Manage Units
-                                            <ul>
-                                                <li><a href="insertUnit.jsp">Insert Unit</a> </li> 
-                                                <li><a href="readUnit.jsp">Show Unit</a></li> 
-                                            </ul>
-                                        </li>
+                                        
                                         <li>Manage Diseases
                                             <ul>
                                                 <li><a href="addDisease.jsp">Add Disease</a> </li> 
@@ -232,8 +248,6 @@
                         <li> Manage Medical Acts
                             <ul>
                                 <li><a href="MedicalAct_Insert.jsp">Add Medical Act</a> </li> 
-                                <li>Modify Medical Act</li> 
-                                <li>Delete Medical Act</li> 
                                 <li><a href="showMedicalAct.jsp">Show Medical Act</a></li> 
                             </ul>
                         </li>
@@ -242,9 +256,7 @@
                         <li>Modify Medical Files</li>
                         <li>Update Reports </li>
                         <li>Treat Received Documents </li>
-                        <li>Medication </li>
                         <li>Appointments</li>
-                        <li>Add Patient Type</li>
                     </ul>
                 </li>
                 <li>Auxiliary Missions
@@ -252,20 +264,15 @@
                         <li>appointments</li> 
                         <li>Print Reports</li>
                         <li>Hospital Admissions</li>
-                        <li>Add Patient Type</li>
                     </ul>
                 </li>
                 <li>Technician Missions
                     <ul>
                         <li>Test Lab</li>
-                        <li>Add Patient Type</li>
                     </ul>
                 </li>
             </ul>
-        </div>  
-        <tr>
-             <td colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a><br/><br/></td>
-        </tr>        
+        </div>         
     </table>
     </body>
 </html>

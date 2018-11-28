@@ -5,10 +5,7 @@
  */
 package MiriamCenter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
@@ -55,16 +52,18 @@ public Person_Bean get_value_of_person(int idPerson){
 		try {
 			String query="update person set firstName=?,lastName=?,gender=?,mobile=?,e_mail=?,idProfession=?,idStreet=?,username=?,password=?  where idPerson=?";
 			ps=con.prepareStatement(query);		
-                            ps.setInt(1, pb.getIdPerson());
-                            ps.setString(2, pb.getFirstName());
-                            ps.setString(3, pb.getLastName());
-                            ps.setString(4, pb.getGender());
-                            ps.setString(5, pb.getMobile());
-                            ps.setString(6, pb.getEMail());
-                            ps.setInt(7, pb.getIdProfession());
-                            ps.setInt(8, pb.getIdStreet());
-                            ps.setString(9, pb.getUsername());
-                            ps.setString(10, pb.getPassword());
+                            
+                            ps.setString(1, pb.getFirstName());
+                            ps.setString(2, pb.getLastName());
+                            ps.setString(3, pb.getGender());
+                            ps.setString(4, pb.getMobile());
+                            ps.setString(5, pb.getEMail());
+                            ps.setInt(6, pb.getIdProfession());
+                            ps.setInt(7, pb.getIdStreet());
+                            ps.setString(8, pb.getUsername());
+                            ps.setString(9, pb.getPassword());
+                            ps.setInt(10, pb.getIdPerson());
+                            
 			ps.executeUpdate();	
 		} catch (SQLException e) {
                     System.out.println(e);

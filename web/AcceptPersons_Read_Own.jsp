@@ -1,14 +1,15 @@
 <%-- 
-    Document   : AcceptPersons_Read
-    Created on : Nov 23, 2018, 8:51:19 AM
+    Document   : AcceptPersons_Read_Own
+    Created on : Nov 28, 2018, 8:22:31 AM
     Author     : zeina
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="MiriamCenter.AcceptPersons_Bean"%>
+
 <%@page import="java.util.List"%>
-<%@page import="MiriamCenter.AcceptPersons_Read"%>
+<%@page import="MiriamCenter.AcceptPersons_Bean_Own"%>
+<%@page import="MiriamCenter.AcceptPersons_Read_Own"%>
 <%@page import="MiriamCenter.DB_Connection"%>
 <%@page import="java.sql.*"%>
 
@@ -28,28 +29,29 @@
 
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table border="1" align="center">
+                
                 <%
-                    AcceptPersons_Read apr = new AcceptPersons_Read();
+                    String username = request.getParameter("username");
+                    String password = request.getParameter("password");
+                    
+                    AcceptPersons_Read_Own apr = new AcceptPersons_Read_Own();
 
-                    List<AcceptPersons_Bean> list= apr.get_values(); 
+                    List<AcceptPersons_Bean_Own> list= apr.get_values(username, password); 
 
-                    Iterator<AcceptPersons_Bean> it_list = list.iterator();
+                    Iterator<AcceptPersons_Bean_Own> it_list = list.iterator();
                     while(it_list.hasNext()){
-                        AcceptPersons_Bean apb =new AcceptPersons_Bean();
+                        AcceptPersons_Bean_Own apb =new AcceptPersons_Bean_Own();
                         apb = it_list.next();
                     %>
                         <tr>	
-                            <td><%=apb.getIdPerson() %></td>
-                            <td><%=apb.getIdPersonType() %></td>
-                            <td><%=apb.getAccepted() %></td> 
-                    %>
-                        <tr>	
                             <td><%=apb.getIdPerson()%></td>
+                            <td><%=apb.getFirstName()%></td>
+                            <td><%=apb.getLastName()%></td>
+                            <td><%=apb.getUserName()%></td>
+                            <td><%=apb.getPassword()%></td>    
                             <td><%=apb.getIdPersonType() %></td>
+                            <td><%=apb.getPersonTypeDesc()%></td>
                             <td><%=apb.getAccepted() %></td>
-
-                            <td><a href="AcceptPersons_Edit.jsp?idUnit=<%=apb.getIdPerson()%>">Edit Accept Persons</a></td>	
-                            <td><a href="AcceptPersons_Delete_controller.jsp?idPerson=<%=apb.getIdPerson()%>">Delete Accept Persons</a></td>	
                         </tr>
                     <%	 
                     }   
@@ -60,3 +62,4 @@
     </center>
 </body>
 </html>
+

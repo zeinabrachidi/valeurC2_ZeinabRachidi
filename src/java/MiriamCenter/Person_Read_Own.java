@@ -19,14 +19,12 @@ public class Person_Read_Own {
 	DB_Connection obj_DB_Con =new DB_Connection();
 	Connection con=obj_DB_Con.get_connection();
         PreparedStatement pst;
-	ResultSet rs = null;
+	ResultSet rs;
 		
-	List<Person_Bean> list=new ArrayList<Person_Bean>();
+	List<Person_Bean> list=new ArrayList<>();
 		
 	try {
-		System.out.println(username);
-                System.out.println(password);
-                String query="select * from person where username=?,password=?";    
+                String query="select * from person where username=? and password=?";    
                 pst=con.prepareStatement(query);
                 pst.setString(1, username);
                 pst.setString(2, password);
@@ -34,17 +32,7 @@ public class Person_Read_Own {
 
                 while(rs.next()){
                     Person_Bean pb=new Person_Bean();
-                    System.out.println(rs.getInt("idPerson"));
-                    System.out.println(rs.getString("firstName"));
-                    System.out.println(rs.getString("lastName"));
-                    System.out.println(rs.getString("gender"));
-                    System.out.println(rs.getString("mobile"));
-                    System.out.println(rs.getString("e_mail"));
-                    System.out.println(rs.getInt("idProfession"));
-                    System.out.println(rs.getInt("idStreet"));
-                    System.out.println(rs.getString("username"));
-                    System.out.println(rs.getString("password"));
-
+                    
                     pb.setIdPerson(rs.getInt("idPerson"));
                     pb.setFirstName(rs.getString("firstName"));
                     pb.setLastName(rs.getString("lastName"));

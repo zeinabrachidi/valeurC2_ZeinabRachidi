@@ -21,7 +21,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Register</h1>
+        <h1>Register Patient</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
@@ -41,28 +41,28 @@
 
                     String bloodGrp = request.getParameter("bloodGrp");
                     int choosenNationality=0;
-                        int choosenRegion =0;
-                        if (request.getParameter("chooseNationality") !=null)
-                                choosenNationality = Integer.parseInt(request.getParameter("chooseNationality"));
-                        if (request.getParameter("chooseRegion") != null)
-                                choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
+                    int choosenRegion =0;
+                    if (request.getParameter("chooseNationality") !=null)
+                        choosenNationality = Integer.parseInt(request.getParameter("chooseNationality"));
+                    if (request.getParameter("chooseRegion") != null)
+                        choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
 
                    try{
                         if (idPerson != 0 && ssn!= 0)
                         {  Patient_Insert pi = new Patient_Insert();
                            pi.insert_values(idPerson,  ssn, registerNo,  dob,  bloodGrp,  choosenNationality,  choosenRegion);   
                         }
-                            out.println(" Patient Registered"); 
-                        } 
-                        catch(Exception e){
-                            System.out.print(e);
-                            e.printStackTrace();
-                        }
+                        out.println(" Patient Registered"); 
+                    } 
+                    catch(Exception e){
+                        System.out.print(e);
+                        e.printStackTrace();
+                    }
                 %>
 
             <tr>
                 <td> Id Person no</td>
-                   <td><%=(idPerson)%></td> 
+                <td><%=(idPerson)%></td> 
             </tr>
             <tr>
                 <td>Social Security no</td>
@@ -141,6 +141,3 @@
     </body>
 </html>
 
- <script type="text/javascript">
- window.location.href="RegistrationType_Insert.jsp";
-</script>

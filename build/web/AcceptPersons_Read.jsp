@@ -9,6 +9,8 @@
 <%@page import="MiriamCenter.AcceptPersons_Bean"%>
 <%@page import="java.util.List"%>
 <%@page import="MiriamCenter.AcceptPersons_Read"%>
+<%@page import="MiriamCenter.DB_Connection"%>
+<%@page import="java.sql.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -38,6 +40,11 @@
                     %>
                         <tr>	
                             <td><%=apb.getIdPerson() %></td>
+                            <td><%=apb.getIdPersonType() %></td>
+                            <td><%=apb.getAccepted() %></td> 
+                    %>
+                        <tr>	
+                            <td><%=apb.getIdPerson()%></td>
                             <td><%=apb.getIdPersonType() %></td>
                             <td><%=apb.getAccepted() %></td>
 

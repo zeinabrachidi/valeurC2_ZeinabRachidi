@@ -26,7 +26,7 @@ public class Person_Read {
         PreparedStatement pst;
 	ResultSet rs;
 		
-	List<Person_Bean> list=new ArrayList<Person_Bean>();
+	List<Person_Bean> list=new ArrayList<>();
 		
 	try {
 		String query="select * from person";    

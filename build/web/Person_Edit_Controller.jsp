@@ -36,7 +36,6 @@
     Person_Bean pb = new Person_Bean();
    
     pb.setIdPerson(idPerson);
-    pb.setIdPerson(idPerson);
     pb.setFirstName(firstName);
     pb.setLastName(lastName);
     pb.setGender(gender);

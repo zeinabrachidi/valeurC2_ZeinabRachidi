@@ -76,18 +76,17 @@
             <table align="center">
                  <div id="container">
                  <ul>
-                <li>patient
-                    <ul> 
-                        <li>payment</li>  
-                        <li>Show Medical File </li>  
-                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Manage Own Registration</a></li> 
-                    </ul>
-                </li>
+                    <li colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a></li>
+                     <li>patient
+                        <ul> 
+                             <li>payment</li>  
+                            <li>Show Medical File </li>  
+                            <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Manage Own Registration</a></li> 
+                            <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Type</a></li>
+                        </ul>
+                    </li>
             </ul>    
-        </div>
-         <tr>
-             <td colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a><br/><br/></td>
-        </tr>         
+        </div>  
         </table>
        </form>
     </body>

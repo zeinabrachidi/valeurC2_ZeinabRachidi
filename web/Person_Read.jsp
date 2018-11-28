@@ -48,7 +48,7 @@
                             
 
                             <td><a href="Person_Edit.jsp?idPerson=<%=pb.getIdPerson()%>">Edit Person</a></td>	
-                            <td><a href="Person_Delete_controller.jsp?idPerson=<%=pb.getIdPerson()%>">Delete Person</a></td>	
+                            <td><a href="Person_Delete_Controller.jsp?idPerson=<%=pb.getIdPerson()%>">Delete Person</a></td>	
                         </tr>
                     <%	 
                     }   

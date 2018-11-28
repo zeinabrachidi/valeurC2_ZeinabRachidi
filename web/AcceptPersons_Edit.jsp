@@ -23,7 +23,7 @@
         
 	AcceptPersons_Edit pe = new AcceptPersons_Edit();
 	
-	AcceptPersons_Bean pb = pe.get_value_of_person(idPerson, idPersonType);
+	AcceptPersons_Bean pb = pe.get_value_of_acceptpersons(idPerson, idPersonType);
 	%>
 
 <center>
@@ -32,12 +32,12 @@
 <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
 <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
 
-<form action="AcceptPersons_Controller_Edit.jsp">
+<form action="AcceptPersons_Edit_Controller.jsp">
 
-Id Person :<input type="text" name="idUnit" value="<%=idPerson%>"><br>
-Id Person Type :<input type="text" name="idUnit" value="<%=idPersonType%>"><br>
+Id Person :<input type="text" name="idPerson" value="<%=idPerson%>"><br>
+Id Person Type :<input type="text" name="idPerson" value="<%=idPersonType%>"><br>
 
-Accepted    :<input type="text" name="firstName" value="<%=pb.getAccepted()%>"><br>
+Accepted    :<input type="text" name="accepted" value="<%=pb.getAccepted()%>"><br>
 
 <input type="submit" value="AcceptPersons_Edit">
 

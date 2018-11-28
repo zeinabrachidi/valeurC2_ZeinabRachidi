@@ -8,7 +8,7 @@
 <%@page import="MiriamCenter.DB_Connection"%>
 <%@page import="MiriamCenter.Person_Bean"%>
 <%@page import="MiriamCenter.Person_Edit"%>
-<%@page import="java.sql.*;"%>
+<%@page import="java.sql.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +33,7 @@
 
 <form action="Person_Edit_Controller.jsp">
 
-Id Person :<input type="text" name="idUnit" value="<%=idPerson%>"><br>
+Id Person :<input type="text" name="idPerson" value="<%=idPerson%>"><br>
 
 First Name    :<input type="text" name="firstName" value="<%=pb.getFirstName()%>"><br>
 Last Name     :<input type="text" name="lastName" value="<%=pb.getLastName()%>"><br>

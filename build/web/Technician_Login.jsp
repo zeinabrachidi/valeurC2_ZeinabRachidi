@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="MiriamCenter.DB_Connection"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,13 +65,25 @@
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1><br></br>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
+            <%
+                    DB_Connection obj_DB_Con =new DB_Connection();
+                    Connection con=obj_DB_Con.get_connection();
+
+                    Statement st=con.createStatement();
+                    ResultSet rs; 
+                    
+                    String username = request.getParameter("username");
+                    String password = request.getParameter("password");
+             %>   
             <table align="center">
         <div id="container">
             <ul>
+                <li colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a></li>
                 <li> Technician
                     <ul>
                         <li>Test Lab</li>
-                        <li><a href="Person_Read.jsp">Manage Own Registration</a></li> 
+                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Manage Own Registration</a></li> 
+                            <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Type</a></li>
                     </ul>
                 </li>  
             </ul> 

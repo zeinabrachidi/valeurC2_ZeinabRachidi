@@ -26,9 +26,7 @@
                 <%
                     String username = request.getParameter("username");
                     String password = request.getParameter("password");
-                    
-                    out.println("username=" + username);
-                    out.println("password=" + password);
+
                     Person_Read_Own pro =new Person_Read_Own();
 
                     List<Person_Bean> list= pro.get_values(username, password); 
@@ -51,8 +49,8 @@
                             <td><%=pb.getPassword() %></td>
                             
 
-                            <td><a href="Person_Edit.jsp?idPerson=<%=pb.getIdPerson()%>">Edit Person</a></td>	
-                            <td><a href="Person_Delete_controller.jsp?idPerson=<%=pb.getIdPerson()%>">Delete Person</a></td>	
+                            <td><a href="Person_Edit_Own.jsp?idPerson=<%=pb.getIdPerson()%>">Edit Person</a></td>	
+                            <td><a href="Person_Delete_Own_Controller.jsp?idPerson=<%=pb.getIdPerson()%>">Delete Person</a></td>	
                         </tr>
                     <%	 
                     }   

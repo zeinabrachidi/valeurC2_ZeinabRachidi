@@ -18,8 +18,11 @@
     int choosenPersonType = Integer.parseInt(request.getParameter("choosePersonType"));
     
     if (choosenIdPerson != 0 && choosenPersonType != 0)
-    {   AcceptPersons_Insert api = new AcceptPersons_Insert();                
-        api.insert_values(choosenIdPerson , choosenPersonType, false);
+    {   AcceptPersons_Insert api = new AcceptPersons_Insert();  
+        if (choosenPersonType == 3)
+             api.insert_values(choosenIdPerson , choosenPersonType, true);
+        else
+            api.insert_values(choosenIdPerson , choosenPersonType, false);
                 
         out.println(" accept_ Person" + choosenIdPerson +  "    Registered"); 
 

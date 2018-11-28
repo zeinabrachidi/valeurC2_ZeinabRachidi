@@ -13,7 +13,7 @@ import java.sql.*;
  * @author zeina
  */
 public class Person_Insert {
-	public void insert_values(String firstName, String lastName, String gender, String mobile, String eMail, int idProfession, int idStreet, String username, String password) throws ClassNotFoundException, SQLException{
+	public void insert_values(String firstName, String lastName, String gender, String mobile, String e_mail, int idProfession, int idStreet, String username, String password) throws ClassNotFoundException, SQLException{
 
 		DB_Connection obj_con =new DB_Connection();
 		Connection con=obj_con.get_connection(); 
@@ -24,14 +24,14 @@ public class Person_Insert {
                 
             try {
                 
-                String query = "INSERT INTO person( firstName, lastName, gender, mobile, eMail, idProfession, idStreet, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);" ;
+                String query = "INSERT INTO person( firstName, lastName, gender, mobile, e_mail, idProfession, idStreet, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);" ;
                 ps = con.prepareStatement(query);
                 
                 ps.setString(1, firstName); 
                 ps.setString(2, lastName);  
                 ps.setString(3, gender);  
                 ps.setString(4, mobile);  
-                ps.setString(5, eMail);     
+                ps.setString(5, e_mail);     
                 ps.setInt(6, idProfession);
                 ps.setInt(7, idStreet);
                 ps.setString(8, username);  

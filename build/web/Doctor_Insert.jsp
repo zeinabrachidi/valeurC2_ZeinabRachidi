@@ -50,9 +50,9 @@
                      out.println("error " + ex.getMessage());
                 }
  %>
-         <tr>
+            <tr>
                 <td> Id Person no</td>
-                   <td><%=(idPerson)%></td> 
+                <td><%=(idPerson)%></td> 
             </tr>
             <tr>
                 <td>Syndicat no</td>
@@ -91,7 +91,4 @@
     </body>
 </html>
 
- <script type="text/javascript">
- window.location.href="RegistrationType_Insert.jsp";
-</script>
 

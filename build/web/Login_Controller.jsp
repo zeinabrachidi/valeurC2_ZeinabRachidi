@@ -28,18 +28,18 @@
                     boolean flag = false ;
                     while (rs.next()) 
                     {   idPerson = rs.getInt(1);
-                        if (rs.getString(5).equals(password)) 
-                        { out.println("welcome "+ username);
-                          flag=true;
-                          break; 
-                        } 
+                        if ( rs.getString(5).equals(password) ) 
+                        {  if ( rs.getInt(8)==1)
+                           {  out.println("welcome "+ username);
+                              flag=true;
+                              break; 
+                            } 
+                        }
                         else 
-                        { out.println("Invalid password try again"); 
-                             
-                        } 
-                    }
+                            { out.println("Invalid password try again");     } 
+                        }
                     if (!flag)
-                    { out.println("Invalid usernme"); 
+                    { out.println("Invalid usernme or person not accepted yet"); 
                         %>
                             <br/><br/><a href="index.xhtml">Home</a><br/><br/> 
                         <%
