@@ -19,7 +19,7 @@
         <h1>Add Medical Act</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MiRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="MedicalAct_Controller_Insert.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="MedicalAct_Insert_Controller.jsp" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
                     DB_Connection obj_DB_Con =new DB_Connection();

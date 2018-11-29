@@ -23,9 +23,11 @@ public class MedicalAct_Insert {
 		
 	    try {
                 PreparedStatement ps; 
+                
                 java.sql.Date sqlDate;
                 sqlDate = new java.sql.Date(medicalActDate.getTime());
                 java.sql.Timestamp sqlTime = new java.sql.Timestamp(medicalactTime.getTime());
+                
                 String query = "INSERT INTO medicalact( medicalActDate, medicalactTime, medicalactDesc, idMedicalCard) VALUES (sqlDate, sqlTime, ?, ?);" ;
                 ps = con.prepareStatement(query);
                 ps.setDate(1, sqlDate);  

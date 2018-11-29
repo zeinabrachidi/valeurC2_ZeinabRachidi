@@ -248,7 +248,7 @@
                         <li> Manage Medical Acts
                             <ul>
                                 <li><a href="MedicalAct_Insert.jsp">Add Medical Act</a> </li> 
-                                <li><a href="showMedicalAct.jsp">Show Medical Act</a></li> 
+                                <li><a href="MedicalAct_Read.jsp">Show Medical Act</a></li> 
                             </ul>
                         </li>
                         <li>Medications </li>

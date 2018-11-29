@@ -84,7 +84,7 @@
                         <li> Manage Medical Acts
                             <ul>
                                 <li><a href="MedicalAct_Insert.jsp">Add Medical Act</a> </li> 
-                                <li><a href="showMedicalAct.jsp">Show Medical Act</a></li> 
+                                <li><a href="MedicalAct_Read.jsp">Show Medical Act</a></li> 
                             </ul>
                         </li>
                         <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Manage Own Registration</a></li> 
