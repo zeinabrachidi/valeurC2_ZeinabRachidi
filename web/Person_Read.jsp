@@ -55,8 +55,16 @@
                 %>
             </table>
             <a href="index.xhtml" style="text-align: center;">Home</a>
+            <input type="button" id="reload"  value="reload"   styleClass="button" onclick="refresh();">
         </form>
     </center>
 </body>
 </html>
+
+<script type="text/javascript">
+   function refresh() {                         
+        //Refresh page implementation here
+        window.location.reload();
+    }
+</script>
                 

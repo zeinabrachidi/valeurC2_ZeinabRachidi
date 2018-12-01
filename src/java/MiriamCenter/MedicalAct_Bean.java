@@ -15,7 +15,6 @@ public class MedicalAct_Bean implements Serializable {
 
     private int idMedicalAct;
     private Date medicalActDate;
-    private Date medicalactTime;
     private String medicalactDesc;
     private int idMedicalCard;
     
@@ -42,14 +41,6 @@ public class MedicalAct_Bean implements Serializable {
         this.medicalActDate = medicalActDate;
     }
 
-    public Date getMedicalactTime() {
-        return medicalactTime;
-    }
-
-    public void setMedicalactTime(Date medicalactTime) {
-        this.medicalactTime = medicalactTime;
-    }
-
     public String getMedicalactDesc() {
         return medicalactDesc;
     }
@@ -68,7 +59,7 @@ public class MedicalAct_Bean implements Serializable {
 
     @Override
     public String toString() {
-        return "idMedicalAct=" + idMedicalAct + " medicalActDate"+ medicalActDate + "medicalactTime" + medicalactTime + " medicalactDesc" + medicalactDesc + "idMedicalCard" + idMedicalCard;
+        return "idMedicalAct=" + idMedicalAct + " medicalActDate"+ medicalActDate + " medicalactDesc" + medicalactDesc + "idMedicalCard" + idMedicalCard;
     }
     
 }

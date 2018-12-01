@@ -40,7 +40,6 @@ public class MedicalAct_Read {
                     MedicalAct_Bean_Read pb=new MedicalAct_Bean_Read();
                     System.out.println(rs.getInt("idMedicalAct"));
                     System.out.println(rs.getDate("medicalActDate"));
-                    System.out.println(rs.getDate("medicalactTime"));
                     System.out.println(rs.getString("medicalactDesc"));
                     System.out.println(rs.getInt("idMedicalCard"));
                     System.out.println(rs.getDate("emissionDate"));
@@ -49,7 +48,6 @@ public class MedicalAct_Read {
 
                     pb.setIdMedicalAct(rs.getInt("idMedicalAct"));
                     pb.setMedicalActDate(rs.getDate("medicalActDate"));
-                    pb.setMedicalactTime(rs.getDate("medicalactTime"));
                     pb.setMedicalactDesc(rs.getString("medicalactDesc"));
                     pb.setIdMedicalCard(rs.getInt("idMedicalCard"));
                     pb.setEmissionDate(rs.getDate("emissionDate"));

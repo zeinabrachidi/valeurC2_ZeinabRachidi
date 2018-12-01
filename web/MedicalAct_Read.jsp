@@ -37,7 +37,6 @@
                         <tr>	
                             <td><%=pb.getIdMedicalAct() %></td>
                             <td><%=pb.getMedicalActDate() %></td>
-                            <td><%=pb.getMedicalactTime() %></td>
                             <td><%=pb.getMedicalactDesc() %></td>
                             <td><%=pb.getIdMedicalCard() %></td>
                             <td><%=pb.getEmissionDate() %></td>
@@ -46,13 +45,23 @@
                             
                             <td><a href="MedicalAct_Edit.jsp?idMedicalAct=<%=pb.getIdMedicalAct()%>">Edit Medical Act</a></td>	
                             <td><a href="MedicalAct_Delete_Controller.jsp?idMedicalAct=<%=pb.getIdMedicalAct()%>">Delete Medical Act</a></td>	
-                        </tr>
+                        </tr>  
                     <%	 
                     }   
                 %>
             </table>
             <a href="index.xhtml" style="text-align: center;">Home</a>
+            <input type="button" id="reload"  value="reload"   styleClass="button" onclick="refresh();">
+            
         </form>
     </center>
 </body>
 </html>
+
+<script type="text/javascript">
+   function refresh() {                         
+        //Refresh page implementation here
+        window.location.reload();
+    }
+</script>
+

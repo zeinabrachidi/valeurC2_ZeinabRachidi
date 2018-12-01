@@ -27,16 +27,20 @@
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
-                    DB_Connection obj_DB_Con =new DB_Connection();
-                    Connection con=obj_DB_Con.get_connection();
-                    Statement st=con.createStatement();
-                    ResultSet rs;
-                    int idPerson = Integer.parseInt(request.getParameter("idPerson"));
-                    int ssn = Integer.parseInt(request.getParameter("ssn"));
-                    String registerNo =request.getParameter("registerNo");
+                    DB_Connection obj_con =new DB_Connection();
+		Connection con=obj_con.get_connection();   
+                ResultSet rs;
+                con.setAutoCommit(true);
+                int r = -1;
+                PreparedStatement ps;  
+                Statement st=con.createStatement();
+                
+                int idPerson = Integer.parseInt(request.getParameter("idPerson"));
+                int ssn = Integer.parseInt(request.getParameter("ssn"));
+                String registerNo =request.getParameter("registerNo");
 
                     String dob_s = request.getParameter("dob");
-                    java.util.Date dob = new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
+                    java.util.Date dob= new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
 
 
                     String bloodGrp = request.getParameter("bloodGrp");
@@ -103,7 +107,7 @@
                             %>
                     </select>
                 </td>  
-                <td><a href="addNationality .jsp">Add Nationality </a></td>
+                <td><a href="addNationality.jsp">Add Nationality </a></td>
             </tr>
             <tr>
                 <td>Id Region</td>

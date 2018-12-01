@@ -16,10 +16,7 @@
 
 <%  
     String medicalActDate_s= request.getParameter("medicalActDate");
-    java.util.Date medicalActDate = new SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(medicalActDate_s);
-        
-    String medicalactTime_s = request.getParameter("medicalactTime");    
-    java.util.Date medicalactTime = new SimpleDateFormat("hh:mm", Locale.US).parse(medicalactTime_s);
+    java.util.Date medicalActDate = new SimpleDateFormat("dd-mm-yyyy").parse(medicalActDate_s);
     
     String medicalactDesc =request.getParameter("medicalactDesc");
     String chooseCard = request.getParameter("chooseCard");

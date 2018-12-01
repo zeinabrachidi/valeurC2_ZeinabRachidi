@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 /**
  *
@@ -33,7 +32,6 @@ public class MedicalAct_Edit {
 			while(rs.next()){
                             pb.setIdMedicalAct(rs.getInt("idMedicalAct"));
                             pb.setMedicalActDate(rs.getDate("medicalActDate"));
-                            pb.setMedicalactTime(rs.getDate("medicalactTime"));
                             pb.setMedicalactDesc(rs.getString("medicalactDesc"));
                             pb.setIdMedicalCard(rs.getInt("idMedicalCard"));                          
 			}
@@ -48,19 +46,18 @@ public class MedicalAct_Edit {
 		Connection con=obj_DB_Con.get_connection();
 		PreparedStatement ps;
                 
-               java.sql.Date sqlDate;
-               sqlDate = new java.sql.Date(mab.getMedicalActDate().getTime());
-               java.sql.Timestamp sqlTime = new java.sql.Timestamp(mab.getMedicalactTime().getTime());
+                java.util.Date mad =mab.getMedicalActDate();
+
+                java.sql.Date sqlDate = new java.sql.Date(mad.getTime());
                 
 		try {
-			String query="update person set medicalActDate=sqlDate,medicalactTime=sqlTime,medicalactDesc=?,idMedicalCard=?  where idMedicalAct=?";
+			String query="update person set medicalActDate=sqlDate, medicalactDesc=?, idMedicalCard=?  where idMedicalAct=?";
 			ps=con.prepareStatement(query);		
-                            
-                            ps.setInt(1, mab.getIdMedicalAct());
-                            ps.setDate(2, (java.sql.Date) mab.getMedicalActDate());
-                            ps.setDate(3, (java.sql.Date) mab.getMedicalactTime());
-                            ps.setString(4, mab.getMedicalactDesc());
-                            ps.setInt(5, mab.getIdMedicalCard());
+
+                            ps.setDate(1,  new java.sql.Date (mab.getMedicalActDate().getTime()));
+                            ps.setString(2, mab.getMedicalactDesc());
+                            ps.setInt(3, mab.getIdMedicalCard());
+                            ps.setInt(4, mab.getIdMedicalAct());
                             
 			ps.executeUpdate();	
 		} catch (SQLException e) {

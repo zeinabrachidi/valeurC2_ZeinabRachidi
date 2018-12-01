@@ -34,10 +34,9 @@
 
 <form action="MedicalAct_Edit_Controller.jsp">
 
-idMedicalAct :<input type="text" name="idMedicalAct" value="<%=idMedicalAct%>"><br>
+idMedicalAct                 :<input type="text" name="idMedicalAct" value="<%=idMedicalAct%>"><br>
 
-Medical Act Date             :<input type="text" name="medicalActDate" value="<%=mab.getMedicalActDate()%>"><br>
-Medical Act Time             :<input type="text" name="medicalactTime" value="<%=mab.getMedicalactTime()%>"><br>
+Medical Act Date             :<input type="date" name="medicalActDate" value="<%=mab.getMedicalActDate()%>"><br>
 Medicalact Description       :<input type="text" name="medicalactDesc" value="<%=mab.getMedicalactDesc()%>"><br>
 Id Medical Card              :<input type="text" name="idMedicalCard" value="<%=mab.getIdMedicalCard()%>"><br>
              
@@ -47,3 +46,5 @@ Id Medical Card              :<input type="text" name="idMedicalCard" value="<%=
 </center>
 </body>
 </html>
+
+

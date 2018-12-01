@@ -81,7 +81,7 @@
                             %>
                     </select>
                 </td>  
-                <td><a href="addSpeciality .jsp">Add Speciality </a></td>
+                <td><a href="addSpeciality.jsp">Add Speciality </a></td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>

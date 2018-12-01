@@ -29,7 +29,7 @@ public class Patient_Insert {
                 ps.setInt(1, idPerson);  
                 ps.setInt(2, ssn);  
                 ps.setString(3, registerNo); 
-                ps.setDate(4, (java.sql.Date) dob); 
+                ps.setDate(4, new java.sql.Date(dob.getTime())); 
                 ps.setString(5, bloodGrp); 
                 ps.setInt(6, idNationality); 
                 ps.setInt(7, idRegion); 

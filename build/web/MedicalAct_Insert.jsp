@@ -33,10 +33,6 @@
                     <td><input type="text" name="medicalActDate"/></td>    
                 </tr>
                 <tr>
-                    <td>Medical Act Time</td>
-                    <td><input type="text" name="medicalactTime"/></td>    
-                </tr>
-                <tr>
                     <td>Medical Act Description</td>
                     <td><input type="textArea" name="medicalactDesc" maxLength="300" rows="5" cols="60"/></td>    
                 </tr>
