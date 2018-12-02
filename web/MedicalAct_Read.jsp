@@ -31,20 +31,20 @@
 
                     Iterator<MedicalAct_Bean_Read> it_list = list.iterator();
                     while(it_list.hasNext()){
-                        MedicalAct_Bean_Read pb =new MedicalAct_Bean_Read();
-                        pb = it_list.next();
+                        MedicalAct_Bean_Read mabr =new MedicalAct_Bean_Read();
+                        mabr = it_list.next();
                     %>
                         <tr>	
-                            <td><%=pb.getIdMedicalAct() %></td>
-                            <td><%=pb.getMedicalActDate() %></td>
-                            <td><%=pb.getMedicalactDesc() %></td>
-                            <td><%=pb.getIdMedicalCard() %></td>
-                            <td><%=pb.getEmissionDate() %></td>
-                            <td><%=pb.getIdPersonPat() %></td>
-                            <td><%=pb.getPeron_Data() %></td>
+                            <td><%=mabr.getIdMedicalAct() %></td>
+                            <td><%=mabr.getMedicalActDate() %></td>
+                            <td><%=mabr.getMedicalactDesc() %></td>
+                            <td><%=mabr.getIdMedicalCard() %></td>
+                            <td><%=mabr.getEmissionDate() %></td>
+                            <td><%=mabr.getIdPersonPat() %></td>
+                            <td><%=mabr.getPeron_Data() %></td>
                             
-                            <td><a href="MedicalAct_Edit.jsp?idMedicalAct=<%=pb.getIdMedicalAct()%>">Edit Medical Act</a></td>	
-                            <td><a href="MedicalAct_Delete_Controller.jsp?idMedicalAct=<%=pb.getIdMedicalAct()%>">Delete Medical Act</a></td>	
+                            <td><a href="MedicalAct_Edit.jsp?idMedicalAct=<%=mabr.getIdMedicalAct()%>">Edit Medical Act</a></td>	
+                            <td><a href="MedicalAct_Delete_Controller.jsp?idMedicalAct=<%=mabr.getIdMedicalAct()%>">Delete Medical Act</a></td>	
                         </tr>  
                     <%	 
                     }   

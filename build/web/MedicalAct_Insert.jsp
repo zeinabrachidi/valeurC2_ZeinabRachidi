@@ -70,9 +70,10 @@
                <tr>
                     <td colspan="2" style="text-align: center;"><input type="reset" value="Clear" onclick="Clear"/></td>
                </tr>
+               <tr>
+                    <td colspan="2" style="text-align: center;"><a href="index.xhtml" style="text-align: center;">Home</a></td>
+               </tr>
             </table>
         </form>     
-
-<<a href="index.xhtml" style="text-align: center;">Home</a>
 </body>
 </html>

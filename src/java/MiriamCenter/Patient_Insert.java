@@ -20,22 +20,20 @@ public class Patient_Insert {
 		DB_Connection obj_con =new DB_Connection();
 		Connection con=obj_con.get_connection();     
 		PreparedStatement ps = null; 
-                con.setAutoCommit(false);
-                
+
 	    try {
-                java.sql.Date sqlDate = new java.sql.Date(dob.getTime());
-                String query = "INSERT INTO patient(idPerson, ssn,  registerNo, dob,  bloodGrp,  idNationality, idRegion) VALUES (?, ?, ?, sqlDate, ?, ?, ?);" ;
+                System.out.println( "idPerson=" + idPerson +  " ssn=" + ssn +  " registerNo=" +  registerNo + " dob=" + dob + " bloodGrp=" + bloodGrp + " idNationality=" + idNationality + " idRegion=" +  idRegion);
+                String query = "INSERT INTO patient(idPerson, ssn,  registerNo, dob,  bloodGrp,  idNationality, idRegion) VALUES (?, ?, ?, ?, ?, ?, ?);" ;
                 ps = con.prepareStatement(query);
                 ps.setInt(1, idPerson);  
                 ps.setInt(2, ssn);  
-                ps.setString(3, registerNo); 
+                ps.setString(3, registerNo);
                 ps.setDate(4, new java.sql.Date(dob.getTime())); 
                 ps.setString(5, bloodGrp); 
                 ps.setInt(6, idNationality); 
                 ps.setInt(7, idRegion); 
                 
 		ps.executeUpdate();
-                con.commit();
                 
 	    } catch (SQLException e) {
                 System.err.println(e);

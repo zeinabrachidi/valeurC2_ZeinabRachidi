@@ -1,6 +1,6 @@
 <%-- 
-    Document   : AcceptPersons_Insert
-    Created on : Nov 23, 2018, 8:44:53 AM
+    Document   : AcceptPersons_Insert_First
+    Created on : Dec 2, 2018, 6:58:07 PM
     Author     : zeina
 --%>
 
@@ -20,7 +20,7 @@
         <h1 style="text-align: center;">Add Registeration Type </h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="AcceptPersons_Insert_Controller.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="AcceptPersons_Insert_Controller_First.jsp" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
                     DB_Connection obj_DB_Con =new DB_Connection();
@@ -94,6 +94,4 @@
         </form>       
     </body>
 </html>
-
-
 

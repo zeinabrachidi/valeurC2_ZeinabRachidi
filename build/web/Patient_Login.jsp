@@ -82,7 +82,7 @@
                              <li>payment</li>  
                             <li>Show Medical File </li>  
                             <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Manage Own Registration</a></li> 
-                            <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Type</a></li>
+                            <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Types</a></li>
                         </ul>
                     </li>
             </ul>    

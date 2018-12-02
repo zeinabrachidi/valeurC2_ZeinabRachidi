@@ -21,7 +21,7 @@ public class MedicalAct_Edit {
 		
 		PreparedStatement ps;
 		ResultSet rs;
-		MedicalAct_Bean pb = new MedicalAct_Bean();
+		MedicalAct_Bean mab = new MedicalAct_Bean();
 
 		try {
 			String query="select * from medicalact where idMedicalAct=?";
@@ -30,15 +30,15 @@ public class MedicalAct_Edit {
 			rs=ps.executeQuery();
 
 			while(rs.next()){
-                            pb.setIdMedicalAct(rs.getInt("idMedicalAct"));
-                            pb.setMedicalActDate(rs.getDate("medicalActDate"));
-                            pb.setMedicalactDesc(rs.getString("medicalactDesc"));
-                            pb.setIdMedicalCard(rs.getInt("idMedicalCard"));                          
+                            mab.setIdMedicalAct(rs.getInt("idMedicalAct"));
+                            mab.setMedicalActDate(rs.getDate("medicalActDate"));
+                            mab.setMedicalactDesc(rs.getString("medicalactDesc"));
+                            mab.setIdMedicalCard(rs.getInt("idMedicalCard"));                          
 			}
 		} catch (SQLException e) {
 				System.out.println(e);
 		}
-		return pb;
+		return mab;
 	}
 
 	public void edit_medicalact(MedicalAct_Bean mab){
@@ -51,7 +51,7 @@ public class MedicalAct_Edit {
                 java.sql.Date sqlDate = new java.sql.Date(mad.getTime());
                 
 		try {
-			String query="update person set medicalActDate=sqlDate, medicalactDesc=?, idMedicalCard=?  where idMedicalAct=?";
+			String query="update medicalact set medicalActDate=?, medicalactDesc=?, idMedicalCard=?  where idMedicalAct=?"; 
 			ps=con.prepareStatement(query);		
 
                             ps.setDate(1,  new java.sql.Date (mab.getMedicalActDate().getTime()));

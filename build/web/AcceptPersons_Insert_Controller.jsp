@@ -10,6 +10,9 @@
 <%@page import="MiriamCenter.AcceptPersons_Insert"%>
 <%@page import="MiriamCenter.Auxiliairy_Insert"%>
 <%@page import="MiriamCenter.Technician_Insert"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ page isELIgnored ="false" %>
+<%@page import="MiriamCenter.DB_Connection"%>
 
 <!DOCTYPE html>
 
@@ -37,7 +40,7 @@
         {      
             %>
                 <a href ="Patient_Insert.jsp?idPerson=<%=(choosenIdPerson)%> ">Go to Patient Page</a>   
-            <%                 
+           <%                 
         }
 
         if(choosenPersonType == 4)
@@ -50,4 +53,7 @@
         } 
     }
 %>
+
+
+
 

@@ -16,11 +16,10 @@ public class MedicalAct_Bean_Read implements Serializable {
 
     private int idMedicalAct;
     private Date medicalActDate;
-    private Date medicalactTime;
     private String medicalactDesc;
     private int idMedicalCard;
     private Date emissionDate;
-     private int IdPersonPat;
+    private int IdPersonPat;
     private String Peron_Data;
 
     public MedicalAct_Bean_Read() {
@@ -44,14 +43,6 @@ public class MedicalAct_Bean_Read implements Serializable {
 
     public void setMedicalActDate(Date medicalActDate) {
         this.medicalActDate = medicalActDate;
-    }
-
-    public Date getMedicalactTime() {
-        return medicalactTime;
-    }
-
-    public void setMedicalactTime(Date medicalactTime) {
-        this.medicalactTime = medicalactTime;
     }
 
     public String getMedicalactDesc() {
@@ -96,7 +87,7 @@ public class MedicalAct_Bean_Read implements Serializable {
 
     @Override
     public String toString() {
-        return "idMedicalAct=" + idMedicalAct + " medicalActDate"+ medicalActDate + "medicalactTime" + medicalactTime + " medicalactDesc" + medicalactDesc + "idMedicalCard" + idMedicalCard + " emissionDate" + emissionDate + " IdPersonPat" + IdPersonPat + " Peron_Data" + Peron_Data ;
+        return "idMedicalAct=" + idMedicalAct + " medicalActDate"+ medicalActDate + " medicalactDesc" + medicalactDesc + "idMedicalCard" + idMedicalCard + " emissionDate" + emissionDate + " IdPersonPat" + IdPersonPat + " Peron_Data" + Peron_Data ;
     }
     
 }

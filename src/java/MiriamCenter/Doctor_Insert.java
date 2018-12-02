@@ -23,8 +23,8 @@ public class Doctor_Insert{
                 con.setAutoCommit(false);
 
 	    try {
-                
-                String query = "INSERT INTO doctor(int idPerson, String syndicatNo, int idSpeciality) VALUES (?, ?, ?);" ;
+                System.out.println( "idPerson=" + idPerson +  " syndicatNo=" + syndicatNo +  " idSpeciality=" +  idSpeciality );
+                String query = "INSERT INTO doctor(idPerson, syndicat_no, idSpeciality) VALUES (?, ?, ?);" ;
                 ps = con.prepareStatement(query);
                 ps.setInt(1, idPerson);   
                 ps.setString(2, syndicatNo); 

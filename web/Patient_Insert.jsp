@@ -40,7 +40,7 @@
                 String registerNo =request.getParameter("registerNo");
 
                     String dob_s = request.getParameter("dob");
-                    java.util.Date dob= new SimpleDateFormat("dd/MM/yyyy").parse(dob_s);
+                    java.util.Date dob= new SimpleDateFormat("dd-MM-yyyy").parse(dob_s);
 
 
                     String bloodGrp = request.getParameter("bloodGrp");
