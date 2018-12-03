@@ -31,6 +31,14 @@ public class Consultation_Bean implements Serializable {
     public void setIdMedicalActCons(int idMedicalActCons) {
         this.idMedicalActCons = idMedicalActCons;
     }
+    
+    public int getIdPersonDoc() {
+        return idPersonDoc;
+    }
+
+    public void setIdPersonDoc(int idPersonDoc) {
+        this.idPersonDoc = idPersonDoc;
+    }
 
     public int getMontant() {
         return montant;
@@ -40,16 +48,9 @@ public class Consultation_Bean implements Serializable {
         this.montant = montant;
     }
 
-    public int getIdPersonDoc() {
-        return idPersonDoc;
-    }
-
-    public void setIdPersonDoc(int idPersonDoc) {
-        this.idPersonDoc = idPersonDoc;
-    }
-
+    @Override
     public String toString() {
-        return "idMedicalActCons=" + idMedicalActCons + " idPersonDo=c" + idPersonDoc + "montant=" + montant;
+        return "idMedicalActCons=" + idMedicalActCons + " idPersonDo=" + idPersonDoc + "montant=" + montant;
     }
 }
 

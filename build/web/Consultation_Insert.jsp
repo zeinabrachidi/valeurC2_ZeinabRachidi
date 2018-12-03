@@ -13,6 +13,8 @@
 <%@ page isELIgnored ="false" %>
 
 <!DOCTYPE html>
+
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,7 +23,7 @@
     <body>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="Consultation_Controller_Insert.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="Consultation_Insert_Controller.jsp" method="post" onsubmit="return checkForm(this);">
         <table align="center">
             <%
                 DB_Connection obj_DB_Con =new DB_Connection();
@@ -71,7 +73,9 @@
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
             </tr>
         </table>
-        <table id="hideDesease"  name=hideDisease"  border="1" style="display: none"   >  
+                    
+                    
+        <table id="hideDesease"  name="hideDisease"  border="1" style="display: none"   >  
             <tr>
                 <td>Id Medical Act</td>
                 <td>Id Disease</td>
@@ -105,7 +109,7 @@
         </table>
 
         </form>
-   <<a href="index.xhtml" style="text-align: center;">Home</a>                 
+   <a href="index.xhtml" style="text-align: center;">Home</a>                 
     </body>
 </html>
 
