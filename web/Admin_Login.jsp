@@ -79,20 +79,25 @@
                 <li colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a></li>
                 <li>Administrative
                     <ul>
-                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration</a></li> 
-                        <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Type</a></li>
-                        <li>Manage Registrations
+                            
+                        <li>All Registrations
                             <ul>
                                 <li><a href="Person_Insert.jsp">Add Registration</a></li> 
-                                <li><a href="Person_Read.jsp">Show Registrations</a></li> 
-                                            
+                                <li><a href="Person_Read.jsp">Show Registrations</a></li>          
                             </ul>
+                        </li>
+                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration</a></li> 
+                        <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration Types</a></li>
+                        <li>Registration Types
+                            <ul>
+                                <li><a href="AcceptPersons_Insert.jsp">Add Register Type</a></li> 
+                                <li><a href="AcceptPersons_Read.jsp">Show Register Type</a></li>          
+                            </ul>
+                        </li> 
                         <li>Manage tables
                             <ul>
                                 <li> permanent tables
                                     <ul>
-                                        
-                                        </li>
                                         <li>Manage Units
                                             <ul>
                                                 <li><a href="insertUnit.jsp">Insert Unit</a> </li> 
@@ -237,12 +242,6 @@
                         <li>Show Hospitalization</li>
                     </ul>
                 </li>
-                <li>Patient Missions
-                    <ul> 
-                        <li>payment</li>  
-                        <li>Show Medical File </li>  
-                    </ul>
-                </li>
                 <li>Doctor Missions
                     <ul>
                         <li> Manage Medical Acts
@@ -257,6 +256,12 @@
                         <li>Update Reports </li>
                         <li>Treat Received Documents </li>
                         <li>Appointments</li>
+                    </ul>
+                </li>
+                <li>Patient Missions
+                    <ul> 
+                        <li>payment</li>  
+                        <li>Show Medical File </li>  
                     </ul>
                 </li>
                 <li>Auxiliary Missions

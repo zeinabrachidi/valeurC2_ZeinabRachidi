@@ -69,11 +69,10 @@
                 <td> Montant</td>
                 <td><input type="text" name="montant"/></td>
             </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
-            </tr>
+            
         </table>
-                    
+        <input type="button" id="consdisease"  value="consdisease"   styleClass="button" onclick="refresh();">            
+        <input type="submit" value="Save Data" onclick="SaveData"/>       
                     
         <table id="hideDesease"  name="hideDisease"  border="1" style="display: none"   >  
             <tr>

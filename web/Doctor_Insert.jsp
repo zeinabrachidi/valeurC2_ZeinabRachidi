@@ -86,6 +86,9 @@
             <tr>
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
             </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><a href="index.xhtml" style="text-align: center;">Home</a></td>
+            </tr>
         </table>
         </form>     
     </body>

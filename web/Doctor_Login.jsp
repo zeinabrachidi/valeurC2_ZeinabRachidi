@@ -87,8 +87,6 @@
                                 <li><a href="MedicalAct_Read.jsp">Show Medical Act</a></li> 
                             </ul>
                         </li>
-                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Manage Own Registration</a></li> 
-                        <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration Type</a></li>
                         <li>Medications </li>
                         <li>Add Medical Files</li>
                         <li>Modify Medical Files</li>

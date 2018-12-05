@@ -28,7 +28,7 @@
                     String password = request.getParameter("password");
 
                     Person_Read_Own pro =new Person_Read_Own();
-
+                    
                     List<Person_Bean> list= pro.get_values(username, password); 
 
                     Iterator<Person_Bean> it_list = list.iterator();

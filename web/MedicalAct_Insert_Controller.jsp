@@ -34,7 +34,7 @@
                   
         if (medicalactDesc != null && choosenCard  != 0 )
         {  MedicalAct_Insert mi = new MedicalAct_Insert();
-           mi.insert_values(medicalActDate, medicalactTime, medicalactDesc, choosenCard);
+           mi.insert_values(medicalActDate, medicalactDesc, choosenCard);
             
             out.println(" medicalAct Registered"); 
             out.println();

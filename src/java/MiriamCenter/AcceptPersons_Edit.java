@@ -21,7 +21,7 @@ public AcceptPersons_Bean get_value_of_acceptpersons(int idPerson, int idPersonT
 		AcceptPersons_Bean apb = new AcceptPersons_Bean();
 
 		try {
-			String query="select * from accept_persons where idPerson=? and idPersonType=?";
+			String query="select * from accept_persons where idPerson=? and idPersonType=? order by idPerson";
 			ps=con.prepareStatement(query);		
 			ps.setInt(1, idPerson);
                         ps.setInt(2, idPersonType);
