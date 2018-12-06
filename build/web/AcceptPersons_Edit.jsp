@@ -8,7 +8,9 @@
 <%@page import="MiriamCenter.DB_Connection"%>
 <%@page import="MiriamCenter.AcceptPersons_Bean"%>
 <%@page import="MiriamCenter.AcceptPersons_Edit"%>
-<%@page import="java.sql.*;"%>
+<%@page import="java.sql.*"%>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -35,7 +37,7 @@
 <form action="AcceptPersons_Edit_Controller.jsp">
 
 Id Person :<input type="text" name="idPerson" value="<%=idPerson%>"><br>
-Id Person Type :<input type="text" name="idPerson" value="<%=idPersonType%>"><br>
+Id Person Type :<input type="text" name="idPersonType" value="<%=idPersonType%>"><br>
 
 Accepted    :<input type="text" name="accepted" value="<%=pb.getAccepted()%>"><br>
 

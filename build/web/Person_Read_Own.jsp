@@ -17,18 +17,30 @@
     </head>
     <body>
     <center>
-    <h1>Show Registered Persons</h1>
+    <h1>Show Own Registrations</h1>
     <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
     <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
 
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table border="1" align="center">
+                <tr>
+                    <td width="100">Id Person</td>
+                    <td width="120">First Name</td>
+                    <td width="120">Last Name</td>
+                    <td width="80">Gender</td>
+                    <td width="120">Mobile</td>
+                    <td width="180">Email</td>
+                    <td width="120">Id Profession</td>
+                    <td width="80">Id Street</td>
+                    <td width="120">UserName</td>
+                    <td width="120">Password</td>
+                </tr>
                 <%
                     String username = request.getParameter("username");
                     String password = request.getParameter("password");
 
                     Person_Read_Own pro =new Person_Read_Own();
-
+                    
                     List<Person_Bean> list= pro.get_values(username, password); 
 
                     Iterator<Person_Bean> it_list = list.iterator();

@@ -56,6 +56,9 @@
                <tr>
                     <td colspan="2" style="text-align: center;"><a href="index.xhtml">Home</a></td>
                </tr>
+               <tr>
+                    <td colspan="2" style="text-align: center;"><a href="Admin_Login.jsp" style="text-align: center;">Administrator Page</a></td>
+               </tr>
             </table>
         </form> 
     </body>

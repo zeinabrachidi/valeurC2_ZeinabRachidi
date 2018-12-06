@@ -41,12 +41,12 @@
                             <td><select id="chooseCard" name="chooseCard">                           
                                     <option value="0">Select Medical Card</option>
                                     <%
-                                       String query = "SELECT valeurc2.medicalcard.idmedicaCard, valeurc2.q_patient.Peron_Data FROM valeurc2.medicalcard, valeurc2.q_patient where valeurc2.medicalcard.IdPersonPat = valeurc2.q_patient.IdPerson;"; 
+                                       String query = "SELECT valeurc2.medicalcard.idmedicaCard, valeurc2.q_patient.Patient_Data FROM valeurc2.medicalcard, valeurc2.q_patient where valeurc2.medicalcard.IdPersonPat = valeurc2.q_patient.IdPerson;"; 
                                        rs = st.executeQuery(query); 
                                        while (rs.next())
                                        { %>
                                            <option value="<%=rs.getInt("idmedicaCard") %>" 
-                                                          ><%=rs.getString("Peron_Data")%>
+                                                          ><%=rs.getString("Patient_Data")%>
                                            </opion>  
                                          <%
                                        }      

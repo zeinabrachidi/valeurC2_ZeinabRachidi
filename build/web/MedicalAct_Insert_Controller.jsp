@@ -34,14 +34,15 @@
                   
         if (medicalactDesc != null && choosenCard  != 0 )
         {  MedicalAct_Insert mi = new MedicalAct_Insert();
-           mi.insert_values(medicalActDate, medicalactTime, medicalactDesc, choosenCard);
+           mi.insert_values(medicalActDate, medicalactDesc, choosenCard);
             
             out.println(" medicalAct Registered"); 
             out.println();
             out.println();
             rs = st.executeQuery("SELECT * FROM valeurc2.medicalAct order by idMedicalAct desc limit 1;"); 
-            rs.next();
-            int idMedicalAct =rs.getInt("idMedicalAct");
+            int idMedicalAct=0;
+            while (rs.next())
+            {  idMedicalAct =rs.getInt("idMedicalAct");   }
                         
             if (idMedicalAct != 0 && choosenType  != 0)
             {   if(choosenType == 1)

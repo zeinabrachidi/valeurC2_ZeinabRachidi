@@ -54,6 +54,10 @@
     }
 %>
 
+<script type="text/javascript">
+ window.location.href="AcceptPersons_Insert.jsp";
+</script>
+
 
 
 

@@ -42,6 +42,8 @@ public AcceptPersons_Bean get_value_of_acceptpersons(int idPerson, int idPersonT
 		DB_Connection obj_DB_Con=new DB_Connection();
 		Connection con=obj_DB_Con.get_connection();
 		PreparedStatement ps;
+                
+                System.out.print(apb.getAccepted());
 		try {
 			String query="update accept_persons set accepted=? where idPerson=? and idpersonType=?";
 			ps=con.prepareStatement(query);		

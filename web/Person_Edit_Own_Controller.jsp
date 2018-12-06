@@ -52,5 +52,5 @@
 %>
 
 <script type="text/javascript">
- window.location.href="Person_Read_Own.jsp";
+ window.location.href="Person_Edit_Own.jsp";
 </script>

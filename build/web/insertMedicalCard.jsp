@@ -24,7 +24,7 @@
         ResultSet rs; 
         
         String emissionDate_s = request.getParameter("emissionDate");
-        java.util.Date emissionDate = new SimpleDateFormat("dd/MM/yyyy").parse(emissionDate_s);
+        java.util.Date emissionDate = new SimpleDateFormat("dd-MM-yyyy").parse(emissionDate_s);
         java.sql.Date sqlDate = new java.sql.Date(emissionDate.getTime());
         
         String s = request.getParameter("choosePatient");
@@ -41,6 +41,9 @@
           out.println("error " + ex.getMessage());
         }
  %>
+ <script type="text/javascript">
+ window.location.href="addMedicalCard.jsp";
+</script>
 
 
 

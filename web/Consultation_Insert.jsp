@@ -69,46 +69,11 @@
                 <td> Montant</td>
                 <td><input type="text" name="montant"/></td>
             </tr>
-            
-        </table>
-        <input type="button" id="consdisease"  value="consdisease"   styleClass="button" onclick="refresh();">            
-        <input type="submit" value="Save Data" onclick="SaveData"/>       
-                    
-        <table id="hideDesease"  name="hideDisease"  border="1" style="display: none"   >  
-            <tr>
-                <td>Id Medical Act</td>
-                <td>Id Disease</td>
-            </tr>
-            <tr>
-                <td><%=(idMedicalAct)%></td>
-                <td>Id Disease</td>
-                <td><select id="chooseDisease" name="chooseDisease">                           
-                       <option value="0">Select Disease</option>
-                           <%
-                                try
-                                {                                 
-                                    rs = st.executeQuery("SELECT * FROM valeurc2.Diseases;"); 
-                                    int choosenDisease = 0;
-                                    while (rs.next())
-                                    { %>
-                                        <option value="<%=rs.getInt("iddisease") %>" 
-                                                      ><%=rs.getString("diseaseName")%>
-                                        </opion>  
-                                      <%
-                                    }      
-                                } 
-                                catch (Exception ex) 
-                                { ex.printStackTrace();
-                                  out.println("error " + ex.getMessage());
-                                }
-                            %>
-                    </select>
-                </td>   
-            </tr>
-        </table>
-
-        </form>
-   <a href="index.xhtml" style="text-align: center;">Home</a>                 
+        </table>       
+        <input type="submit" value="Save Data" onclick="SaveData"/>
+        <a href="index.xhtml" style="text-align: center;">Home</a>                 
     </body>
+        </form>
+   
 </html>
 

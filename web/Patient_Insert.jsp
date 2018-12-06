@@ -9,11 +9,11 @@
 <%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored ="false" %>
-<%@page import="MiriamCenter.DB_Connection"%>
-
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date"%>
 <%@page import="MiriamCenter.Patient_Insert"%>
+<%@page import="MiriamCenter.DB_Connection"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +21,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Register Patient</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
@@ -36,6 +35,7 @@
                 Statement st=con.createStatement();
                 
                 int idPerson = Integer.parseInt(request.getParameter("idPerson"));
+                
                 int ssn = Integer.parseInt(request.getParameter("ssn"));
                 String registerNo = request.getParameter("registerNo");
             
@@ -58,9 +58,9 @@
             
                 try{             
                     if (idPerson != 0 )
-                    {   Patient_Insert di = new Patient_Insert();
+                    {   Patient_Insert pi = new Patient_Insert();
                         out.println( "idPerson=" + idPerson +  " ssn=" + ssn +  " registerNo=" +  registerNo + " dob=" + dob + " bloodGrp=" + bloodGrp + " idNationality=" + choosenNationality + " idRegion=" +  choosenRegion);
-                        di.insert_values(idPerson, ssn, registerNo, dob, bloodGrp, choosenNationality, choosenRegion);
+                        pi.insert_values(idPerson, ssn, registerNo, dob, bloodGrp, choosenNationality, choosenRegion);
                     }
                     out.println(" Patient Registered"); 
                 } 
@@ -70,10 +70,7 @@
                 }
                 %>
 
-            <tr>
-                <td> Id Person no</td>
-                <td><%=(idPerson)%></td> 
-            </tr>
+            
             <tr>
                 <td>Social Security no</td>
                 <td><input type="text" name="ssn"/></td>    
@@ -117,7 +114,7 @@
             </tr>
             <tr>
                 <td>Id Region</td>
-                <td><select id="choose" name="chooseRegion">                           
+                <td><select id="chooseRegion" name="chooseRegion">                           
                     <option value="0">Select Region</option>
                         <%
                           try

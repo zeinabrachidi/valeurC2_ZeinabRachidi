@@ -27,7 +27,7 @@
 
 <center>
 
-<h1>Edit Values</h1>
+<h1 align="center">Edit Own Values</h1>
 <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
 <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
 
@@ -46,6 +46,7 @@ User Name     :<input title="Username must not be blank and contain only letters
 Password      :<input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"  value="<%=pb.getPassword()%>"><br>                      
                   
 <input type="submit" value="Person_Edit">
+<a href="index.xhtml" style="text-align: center;">Home</a>
 
 </form>
 </center>

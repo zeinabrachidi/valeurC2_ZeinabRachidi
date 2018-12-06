@@ -28,6 +28,14 @@
 
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table border="1" align="center">
+                 <tr>
+                    <td width="120px">Id Person</td>
+                    <td width="120px">First Name</td>
+                    <td width="120px">First Name</td>
+                    <td width="120px">Id Person Type</td>
+                    <td width="150px">Type Description</td>
+                    <td width="120px">Accepted</td>
+                </tr>
                 <%
                     AcceptPersons_Read_Detail apr = new AcceptPersons_Read_Detail();
 
@@ -37,7 +45,8 @@
                     while(it_list.hasNext()){
                         AcceptPersons_Bean_Detail apb =new AcceptPersons_Bean_Detail();
                         apb = it_list.next();
-                %>            
+                %> 
+               
                 <tr>        
                             <td><%=apb.getIdPerson()%></td> 
                             <td><%=apb.getFirstName()%></td>
@@ -45,8 +54,8 @@
                             <td><%=apb.getIdPersonType()%></td>
                             <td><%=apb.getPersonTypeDesc()%></td>
                              <td><%=apb.getAccepted() %></td>
-                            <td><a href="AcceptPersons_Edit.jsp?idPerson=<%=apb.getIdPerson()%>">Edit Accept Persons</a></td>	
-                            <td><a href="AcceptPersons_Delete_Controller.jsp?idPerson=<%=apb.getIdPerson()%>">Delete Accept Persons</a><td>
+                            <td><a href="AcceptPersons_Edit.jsp?idPerson=<%=apb.getIdPerson()%>&idPersonType=<%=apb.getIdPersonType()%>">Edit </a></td>	
+                            <td><a href="AcceptPersons_Delete_Controller.jsp?idPerson=<%=apb.getIdPerson()%>&idPersonType=<%=apb.getIdPersonType()%>">Delete</a><td>
                 </tr>        
                 <%  
                     }   

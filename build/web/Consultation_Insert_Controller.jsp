@@ -9,11 +9,10 @@
 <%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored ="false" %>
-<%@page import="MiriamCenter.Doctor_Insert"%>
+<%@page import="MiriamCenter.Consultation_Insert"%>
 <%@page import="java.sql.*,java.util.*"%>
 <%@page import="MiriamCenter.DB_Connection"%>
 
-Doctor_Insert
 <!DOCTYPE html>
 
 <%
@@ -23,17 +22,18 @@ Doctor_Insert
     PreparedStatement ps;  
     Statement st=con.createStatement();
                 
-    int idPerson = Integer.parseInt(request.getParameter("idPerson"));
-    out.println("idPerson=" + idPerson);
-    String syndicat_no = request.getParameter("syndicat_no");
-    int choosenSpeciality = 0;
-    if (request.getParameter("chooseSpeciality") != null)
-        choosenSpeciality = Integer.parseInt(request.getParameter("chooseSpeciality"));
+    int idMedicalAct = Integer.parseInt(request.getParameter("idMedicalAct"));
+    out.println("idMedicalAct=" + idMedicalAct);
+    String chooseDoctor = request.getParameter("chooseDoctor");
+    int choosenDoctor = 0;
+    if (request.getParameter("chooseDoctor") != null)
+        choosenDoctor = Integer.parseInt(request.getParameter("chooseDoctor"));
+    int montant = Integer.parseInt(request.getParameter("montant"));
                 
     try{             
-        if (idPerson != 0 && syndicat_no!= null)
-        {   Doctor_Insert di = new Doctor_Insert();
-            di.insert_values(idPerson, syndicat_no, choosenSpeciality);
+        if (idMedicalAct!= 0 && montant != 0)
+        {   Consultation_Insert ci = new Consultation_Insert();
+            ci.insert_values(idMedicalAct, choosenDoctor, montant);
         }
         } 
         catch (Exception ex) 

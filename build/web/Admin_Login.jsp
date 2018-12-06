@@ -79,19 +79,30 @@
                 <li colspan="2" style="text-align: center;"> <a href="index.xhtml">Home</a></li>
                 <li>Administrative
                     <ul>
-                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration</a></li> 
-                        <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Show Registration Type</a></li>
-                        <li>Manage Registrations
+                            
+                        <li>All Registrations
                             <ul>
                                 <li><a href="Person_Insert.jsp">Add Registration</a></li> 
-                                <li><a href="Person_Read.jsp">Show Registrations</a></li> 
-                                            
+                                <li><a href="Person_Read.jsp">Show Registrations</a></li>          
                             </ul>
+                        </li>
+                        <li>Registration Types
+                            <ul>
+                                <li><a href="AcceptPersons_Insert.jsp">Add Register Type</a></li> 
+                                <li><a href="AcceptPersons_Read.jsp">Show Register Type</a></li>          
+                            </ul>
+                        </li>
+                        <li><a href="Person_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration</a></li> 
+                        <li><a href="AcceptPersons_Read_Own.jsp?username=<%=username%>&password=<%=password%>">Own Registration Types</a></li>
                         <li>Manage tables
                             <ul>
                                 <li> permanent tables
                                     <ul>
-                                        
+                                        <li>Manage Medical Cards
+                                            <ul>
+                                                <li><a href="addMedicalCard.jsp">Add Medical Card</a> </li> 
+                                                <li>Show Medical Card</a></li> 
+                                            </ul>
                                         </li>
                                         <li>Manage Units
                                             <ul>
@@ -99,31 +110,14 @@
                                                 <li><a href="readUnit.jsp">Show Unit</a></li> 
                                             </ul>
                                         </li>
-                                        <li>Manage Cities
-                                            <ul>
-                                                <li><a href="addCity.jsp">add city</a> </li> 
-                                                <li><a href="showCity.jsp">show cities</a></li> 
-                                            </ul>
-                                        </li>
-                                        <li>Manage Regions
-                                            <ul>
-                                                <li><a href="addRegion.jsp">Add Region</a> </li> 
-                                                <li>Show Regions</li> 
-                                            </ul>
-                                        </li>
-                                        <li>Manage Streets 
-                                            <ul>
-                                                <li><a href="addStreet.jsp">Add Street</a> </li> 
-                                                <li>Show Streets</li> 
-                                            </ul>
-                                         </li>
+                                        
                                         <li>Manage Professions
                                             <ul>
                                                 <li><a href="addProfession.jsp">Add Profession</a> </li> 
                                                 <li><a href="showProfession.jsp">show Professions</a></li> 
                                             </ul>
                                         </li>
-                                        <li>Manage Person Types
+                                        <li>Person Types
                                             <ul>
                                                 <li><a href="addPersonType.jsp">Add Person Type</a> </li> 
                                                 <li><a href="showPersonType.jsp">show Person Type</a></li> 
@@ -147,7 +141,24 @@
                                                 <li><a href="showCivilStatus.jsp">Show Civil Status</a></li> 
                                             </ul>
                                         </li>   
-                                        <li>Manage Persons </li>
+                                        <li>Manage Cities
+                                            <ul>
+                                                <li><a href="addCity.jsp">add city</a> </li> 
+                                                <li><a href="showCity.jsp">show cities</a></li> 
+                                            </ul>
+                                        </li>
+                                        <li>Manage Regions
+                                            <ul>
+                                                <li><a href="addRegion.jsp">Add Region</a> </li> 
+                                                <li>Show Regions</li> 
+                                            </ul>
+                                        </li>
+                                        <li>Manage Streets 
+                                            <ul>
+                                                <li><a href="addStreet.jsp">Add Street</a> </li> 
+                                                <li>Show Streets</li> 
+                                            </ul>
+                                         </li>
                                         
                                         <li>Manage Diseases
                                             <ul>
@@ -179,12 +190,7 @@
                                                 <li><a href="showLaboratory.jsp">Show Laboratory</a></li> 
                                             </ul>
                                         </li>
-                                        <li>Manage Medical Cards
-                                            <ul>
-                                                <li><a href="addMedicalCard.jsp">Add Medical Card</a> </li> 
-                                                <li><a href="showMedicalCard.jsp">Show Medical Card</a></li> 
-                                            </ul>
-                                        </li>
+                                        
                                         <li>Manage Medicines
                                             <ul>
                                                 <li><a href="addMedicine.jsp">Add Medicine</a> </li> 
@@ -237,10 +243,10 @@
                         <li>Show Hospitalization</li>
                     </ul>
                 </li>
-                <li>Patient Missions
-                    <ul> 
-                        <li>payment</li>  
-                        <li>Show Medical File </li>  
+                <li>Add Person Type
+                    <ul>
+                        <li><a href="Doctor_Insert_BegIN.jsp">Add Doctor</a></li>
+                        <li><a href="Patient_Insert_BegIN.jsp">Add Patient</a></li>
                     </ul>
                 </li>
                 <li>Doctor Missions
@@ -257,6 +263,12 @@
                         <li>Update Reports </li>
                         <li>Treat Received Documents </li>
                         <li>Appointments</li>
+                    </ul>
+                </li>
+                <li>Patient Missions
+                    <ul> 
+                        <li>payment</li>  
+                        <li>Show Medical File </li>  
                     </ul>
                 </li>
                 <li>Auxiliary Missions

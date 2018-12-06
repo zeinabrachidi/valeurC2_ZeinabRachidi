@@ -9,11 +9,11 @@
 <%@ page import ="javax.sql.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored ="false" %>
-<%@page import="MiriamCenter.DB_Connection"%>
-
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date"%>
 <%@page import="MiriamCenter.Patient_Insert"%>
+<%@page import="MiriamCenter.DB_Connection"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,13 +21,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Register Patient</h1>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table align="center">
                 <%
-                    DB_Connection obj_con =new DB_Connection();
+                DB_Connection obj_con =new DB_Connection();
 		Connection con=obj_con.get_connection();   
                 ResultSet rs;
                 con.setAutoCommit(true);
@@ -36,38 +35,42 @@
                 Statement st=con.createStatement();
                 
                 int idPerson = Integer.parseInt(request.getParameter("idPerson"));
+                
                 int ssn = Integer.parseInt(request.getParameter("ssn"));
-                String registerNo =request.getParameter("registerNo");
+                String registerNo = request.getParameter("registerNo");
+            
+                String dob_s = request.getParameter("dob");
+                java.util.Date dob= new SimpleDateFormat("dd-MM-yyyy").parse(dob_s);
+            
+                String bloodGrp = request.getParameter("bloodGrp");
 
-                    String dob_s = request.getParameter("dob");
-                    java.util.Date dob= new SimpleDateFormat("dd-MM-yyyy").parse(dob_s);
-
-
-                    String bloodGrp = request.getParameter("bloodGrp");
-                    int choosenNationality=0;
-                    int choosenRegion =0;
-                    if (request.getParameter("chooseNationality") !=null)
-                        choosenNationality = Integer.parseInt(request.getParameter("chooseNationality"));
-                    if (request.getParameter("chooseRegion") != null)
-                        choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));
-
-                   try{
-                        if (idPerson != 0 && ssn!= 0)
-                        {  Patient_Insert pi = new Patient_Insert();
-                           pi.insert_values(idPerson,  ssn, registerNo,  dob,  bloodGrp,  choosenNationality,  choosenRegion);   
-                        }
-                        out.println(" Patient Registered"); 
-                    } 
-                    catch(Exception e){
-                        System.out.print(e);
-                        e.printStackTrace();
+                int choosenNationality=0;
+                int choosenRegion =0;
+                if (request.getParameter("chooseNationality") != null)
+                {   choosenNationality = Integer.parseInt(request.getParameter("chooseNationality"));   }
+            
+                    out.println("choosenNationality =" + choosenNationality );
+            
+                if (request.getParameter("chooseRegion") != null)
+                {        choosenRegion = Integer.parseInt(request.getParameter("chooseRegion"));        }
+            
+                    out.println("choosenRegion = " + choosenRegion );
+            
+                try{             
+                    if (idPerson != 0 )
+                    {   Patient_Insert pi = new Patient_Insert();
+                        out.println( "idPerson=" + idPerson +  " ssn=" + ssn +  " registerNo=" +  registerNo + " dob=" + dob + " bloodGrp=" + bloodGrp + " idNationality=" + choosenNationality + " idRegion=" +  choosenRegion);
+                        pi.insert_values(idPerson, ssn, registerNo, dob, bloodGrp, choosenNationality, choosenRegion);
                     }
+                    out.println(" Patient Registered"); 
+                } 
+                catch (Exception ex) 
+                { ex.printStackTrace();
+                     out.println("error " + ex.getMessage());
+                }
                 %>
 
-            <tr>
-                <td> Id Person no</td>
-                <td><%=(idPerson)%></td> 
-            </tr>
+            
             <tr>
                 <td>Social Security no</td>
                 <td><input type="text" name="ssn"/></td>    
@@ -111,7 +114,7 @@
             </tr>
             <tr>
                 <td>Id Region</td>
-                <td><select id="choose" name="chooseRegion">                           
+                <td><select id="chooseRegion" name="chooseRegion">                           
                     <option value="0">Select Region</option>
                         <%
                           try

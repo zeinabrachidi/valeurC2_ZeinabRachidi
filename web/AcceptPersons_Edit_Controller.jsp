@@ -25,7 +25,7 @@
     AcceptPersons_Bean apb = new  AcceptPersons_Bean();
    
     apb.setIdPerson(idPerson);
-    apb.setIdPerson(idPersonType);
+    apb.setIdPersonType(idPersonType);
     apb.setAccepted(accepted);
     
     AcceptPersons_Edit ape = new  AcceptPersons_Edit();
@@ -34,6 +34,6 @@
 %>
 
 <script type="text/javascript">
- window.location.href="AceptPersons_Read.jsp";
+ window.location.href="AcceptPersons_Read.jsp";
 </script>
 

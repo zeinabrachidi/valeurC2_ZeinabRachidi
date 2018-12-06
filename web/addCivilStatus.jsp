@@ -25,9 +25,14 @@
                 <tr>
                     <td colspan="2" style="text-align: center;"><input type="submit" value="Save Data" onclick="SaveData"/></td>
                </tr>
+               
+               <tr>
+                    <td colspan="2" style="text-align: center;"><a href="Admin_Login.jsp" style="text-align: center;">Administrator Page</a></td>
+               </tr>
                <tr>
                     <td colspan="2" style="text-align: center;"><a href="index.xhtml">Home</a></td>
                </tr>
+               
             </table>
         </form>    
         

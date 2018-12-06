@@ -24,6 +24,18 @@
 
         <form action="" method="post" onsubmit="return checkForm(this);">
             <table border="1" align="center">
+                <tr>
+                    <td width="100">Id Person</td>
+                    <td width="120">First Name</td>
+                    <td width="120">Last Name</td>
+                    <td width="80">Gender</td>
+                    <td width="120">Mobile</td>
+                    <td width="180">Email</td>
+                    <td width="120">Id Profession</td>
+                    <td width="80">Id Street</td>
+                    <td width="120">UserName</td>
+                    <td width="120">Password</td>
+                </tr>
                 <%
                     Person_Read pr =new Person_Read();
 
