@@ -21,7 +21,7 @@
     <body>
         <h1 style="text-align: center; color: red;">WELCOME TO MIRIYAM CENTER FOR MEDICAL SERVICES</h1>
         <h1 style="text-align: center; color: red;font-size: x-large; background-color: white;">For assistance contact Zeinab.Rachidi@isae.edu.lb</h1>
-        <form action="Patient_Insert_BegIN_Controller.jsp" method="post" onsubmit="return checkForm(this);">
+        <form action="Patient_Insert_BegIN_Controller.jsp" method="post" onChange="document.Patient_Insert_BegIN.submit()"  onsubmit="return checkForm(this);">
             <%
                DB_Connection obj_con =new DB_Connection();
 		Connection con=obj_con.get_connection();   
@@ -38,16 +38,20 @@
                         <option value="0">Select Person Id</option>
                         <%
                             try
-                               {  String query = "SELECT * FROM valeurc2.q_persons;";
+                               {  String query = "SELECT * FROM valeurc2.q_patient_choose;";
                                   rs = st.executeQuery(query); 
                                   while (rs.next())
                                   { int idPerson = rs.getInt("idPerson") ;
                                     String Person_Data = rs.getString("Person_Data");
+                                    String personTypeDesc = rs.getString("personTypeDesc");
+                                    boolean accepted = rs.getBoolean("accepted");
                                     if (idPerson != 1)
                                     { 
                                         %>
                                             <option value="<%=(idPerson)%>" 
                                                           ><%=(Person_Data)%>
+                                                           <%=(personTypeDesc)%>
+                                                           <%=(accepted)%>
                                             </opion>  
                                         <%
                                     }    
@@ -127,6 +131,7 @@
                     </select>
                 </td>  
                 <td><a href="addRegion.jsp">Add Region </a></td>
+                
             </tr>
             
             <tr>
@@ -139,3 +144,4 @@
         </form>     
     </body>
 </html>
+

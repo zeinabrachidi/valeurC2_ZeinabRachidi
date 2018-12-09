@@ -38,16 +38,20 @@
                         <option value="0">Select Person Id</option>
                         <%
                             try
-                               {  String query = "SELECT * FROM valeurc2.q_persons;";
+                               {  String query = "SELECT * FROM valeurc2.q_doctor_choose;";
                                   rs = st.executeQuery(query); 
                                   while (rs.next())
                                   { int idPerson = rs.getInt("idPerson") ;
                                     String Person_Data = rs.getString("Person_Data");
+                                    String personTypeDesc = rs.getString("personTypeDesc");
+                                    boolean accepted = rs.getBoolean("accepted");
                                     if (idPerson != 1)
                                     { 
                                         %>
                                             <option value="<%=(idPerson)%>" 
                                                           ><%=(Person_Data)%>
+                                                           <%=(personTypeDesc)%>
+                                                           <%=(accepted)%>
                                             </opion>  
                                         <%
                                     }    

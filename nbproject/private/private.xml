@@ -3,20 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/AcceptPersons_Read.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/AcceptPersons_Edit.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Person_Read.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/index.xhtml</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Consultation_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Patient_Insert_BegIN.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Admin_Login.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Patient_Insert_BegIN_Controller.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Consultation_Insert_Controller.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/AcceptPersons_Insert_Controller.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/MedicalAct_Insert.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Person_Read.jsp</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/MedicalAct_Insert_Controller.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/AcceptPersons_Edit_Controller.jsp</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/MedicalAct_Insert.java</file>
             <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/src/java/MiriamCenter/Consultation_Insert.java</file>
-            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Person_Read_Own.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/index.xhtml</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Doctor_Insert_BegIN.jsp</file>
+            <file>file:/C:/Users/zeina/Documents/NetBeansProjects/DOSSIER_MEDICAL/web/Consultation_Insert.jsp</file>
         </group>
     </open-files>
 </project-private>
